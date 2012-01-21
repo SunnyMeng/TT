@@ -1,0 +1,444 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AD63E3C514C876F400D505F2 /* TTGlobalCore.h in Headers */ = {isa = PBXBuildFile; fileRef = AD63E3C314C876F400D505F2 /* TTGlobalCore.h */; settings = {ATTRIBUTES = (); }; };
+		AD63E3C614C876F400D505F2 /* TTGlobalCore.m in Sources */ = {isa = PBXBuildFile; fileRef = AD63E3C414C876F400D505F2 /* TTGlobalCore.m */; };
+		AD63E3EA14C87CD100D505F2 /* TT.h in Headers */ = {isa = PBXBuildFile; fileRef = AD63E3E914C87CD100D505F2 /* TT.h */; settings = {ATTRIBUTES = (); }; };
+		AD63E4D214C902E100D505F2 /* TTURLRequestQueueInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = ADDB8A9114C8744B00F13BC3 /* TTURLRequestQueueInternal.h */; };
+		ADCB50A914C9105200364611 /* TTURLRequestInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = ADDB8A8E14C8744B00F13BC3 /* TTURLRequestInternal.h */; };
+		ADCB510914C9163800364611 /* TTModel.h in Headers */ = {isa = PBXBuildFile; fileRef = ADCB510714C9163700364611 /* TTModel.h */; settings = {ATTRIBUTES = (); }; };
+		ADCB510D14C9172600364611 /* TTURLRequestModel.h in Headers */ = {isa = PBXBuildFile; fileRef = ADCB510B14C9172300364611 /* TTURLRequestModel.h */; settings = {ATTRIBUTES = (); }; };
+		ADCB510E14C9172600364611 /* TTURLRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCB510C14C9172500364611 /* TTURLRequestModel.m */; };
+		ADCB511114CA6C7D00364611 /* TTModelDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = ADCB510F14CA6C7B00364611 /* TTModelDelegate.h */; settings = {ATTRIBUTES = (); }; };
+		ADCB512114CA839000364611 /* TTNetworkEnabledTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = ADCB511F14CA838E00364611 /* TTNetworkEnabledTableViewController.h */; settings = {ATTRIBUTES = (); }; };
+		ADCB512214CA839000364611 /* TTNetworkEnabledTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADCB512014CA838F00364611 /* TTNetworkEnabledTableViewController.m */; };
+		ADDB8A6914C8741F00F13BC3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADDB8A6814C8741F00F13BC3 /* Foundation.framework */; };
+		ADDB8AA914C8744B00F13BC3 /* JSONKit.h in Headers */ = {isa = PBXBuildFile; fileRef = ADDB8A7714C8744B00F13BC3 /* JSONKit.h */; settings = {ATTRIBUTES = (); }; };
+		ADDB8AAA14C8744B00F13BC3 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDB8A7814C8744B00F13BC3 /* JSONKit.m */; };
+		ADDB8AAB14C8744B00F13BC3 /* NSArrayAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = ADDB8A7B14C8744B00F13BC3 /* NSArrayAdditions.h */; settings = {ATTRIBUTES = (); }; };
+		ADDB8AAC14C8744B00F13BC3 /* NSArrayAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDB8A7C14C8744B00F13BC3 /* NSArrayAdditions.m */; };
+		ADDB8AAD14C8744B00F13BC3 /* NSDataAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = ADDB8A7D14C8744B00F13BC3 /* NSDataAdditions.h */; settings = {ATTRIBUTES = (); }; };
+		ADDB8AAE14C8744B00F13BC3 /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDB8A7E14C8744B00F13BC3 /* NSDataAdditions.m */; };
+		ADDB8AAF14C8744B00F13BC3 /* NSStringAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = ADDB8A7F14C8744B00F13BC3 /* NSStringAdditions.h */; settings = {ATTRIBUTES = (); }; };
+		ADDB8AB014C8744B00F13BC3 /* NSStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDB8A8014C8744B00F13BC3 /* NSStringAdditions.m */; };
+		ADDB8AB114C8744B00F13BC3 /* TTDebug.h in Headers */ = {isa = PBXBuildFile; fileRef = ADDB8A8114C8744B00F13BC3 /* TTDebug.h */; settings = {ATTRIBUTES = (); }; };
+		ADDB8AB214C8744B00F13BC3 /* TTDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDB8A8214C8744B00F13BC3 /* TTDebug.m */; };
+		ADDB8AB314C8744B00F13BC3 /* TTGlobalNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = ADDB8A8314C8744B00F13BC3 /* TTGlobalNetwork.h */; settings = {ATTRIBUTES = (); }; };
+		ADDB8AB414C8744B00F13BC3 /* TTGlobalNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDB8A8414C8744B00F13BC3 /* TTGlobalNetwork.m */; };
+		ADDB8AB614C8744B00F13BC3 /* TTRequestLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = ADDB8A8614C8744B00F13BC3 /* TTRequestLoader.h */; settings = {ATTRIBUTES = (); }; };
+		ADDB8AB714C8744B00F13BC3 /* TTRequestLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDB8A8714C8744B00F13BC3 /* TTRequestLoader.m */; };
+		ADDB8AB814C8744B00F13BC3 /* TTURLCache.h in Headers */ = {isa = PBXBuildFile; fileRef = ADDB8A8814C8744B00F13BC3 /* TTURLCache.h */; settings = {ATTRIBUTES = (); }; };
+		ADDB8AB914C8744B00F13BC3 /* TTURLCache.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDB8A8914C8744B00F13BC3 /* TTURLCache.m */; };
+		ADDB8ABA14C8744B00F13BC3 /* TTURLRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = ADDB8A8A14C8744B00F13BC3 /* TTURLRequest.h */; settings = {ATTRIBUTES = (); }; };
+		ADDB8ABB14C8744B00F13BC3 /* TTURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDB8A8B14C8744B00F13BC3 /* TTURLRequest.m */; };
+		ADDB8ABC14C8744B00F13BC3 /* TTURLRequestCachePolicy.h in Headers */ = {isa = PBXBuildFile; fileRef = ADDB8A8C14C8744B00F13BC3 /* TTURLRequestCachePolicy.h */; settings = {ATTRIBUTES = (); }; };
+		ADDB8ABD14C8744B00F13BC3 /* TTURLRequestDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = ADDB8A8D14C8744B00F13BC3 /* TTURLRequestDelegate.h */; settings = {ATTRIBUTES = (); }; };
+		ADDB8ABF14C8744B00F13BC3 /* TTURLRequestQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = ADDB8A8F14C8744B00F13BC3 /* TTURLRequestQueue.h */; settings = {ATTRIBUTES = (); }; };
+		ADDB8AC014C8744B00F13BC3 /* TTURLRequestQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDB8A9014C8744B00F13BC3 /* TTURLRequestQueue.m */; };
+		ADDB8AC214C8744B00F13BC3 /* TTGlobalUI.h in Headers */ = {isa = PBXBuildFile; fileRef = ADDB8A9314C8744B00F13BC3 /* TTGlobalUI.h */; settings = {ATTRIBUTES = (); }; };
+		ADDB8AC314C8744B00F13BC3 /* TTGlobalUI.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDB8A9414C8744B00F13BC3 /* TTGlobalUI.m */; };
+		ADDB8AC414C8744B00F13BC3 /* TTInfiniteScrollFooterView.h in Headers */ = {isa = PBXBuildFile; fileRef = ADDB8A9514C8744B00F13BC3 /* TTInfiniteScrollFooterView.h */; };
+		ADDB8AC514C8744B00F13BC3 /* TTInfiniteScrollFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDB8A9614C8744B00F13BC3 /* TTInfiniteScrollFooterView.m */; };
+		ADDB8AC814C8744B00F13BC3 /* TTModelViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = ADDB8A9914C8744B00F13BC3 /* TTModelViewController.h */; settings = {ATTRIBUTES = (); }; };
+		ADDB8AC914C8744B00F13BC3 /* TTModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDB8A9A14C8744B00F13BC3 /* TTModelViewController.m */; };
+		ADDB8ACA14C8744B00F13BC3 /* TTPullRefreshHeaderView.h in Headers */ = {isa = PBXBuildFile; fileRef = ADDB8A9B14C8744B00F13BC3 /* TTPullRefreshHeaderView.h */; };
+		ADDB8ACB14C8744B00F13BC3 /* TTPullRefreshHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDB8A9C14C8744B00F13BC3 /* TTPullRefreshHeaderView.m */; };
+		ADDB8ACE14C8744B00F13BC3 /* TTTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = ADDB8A9F14C8744B00F13BC3 /* TTTableViewCell.h */; settings = {ATTRIBUTES = (); }; };
+		ADDB8ACF14C8744B00F13BC3 /* TTTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = ADDB8AA014C8744B00F13BC3 /* TTTableViewController.h */; settings = {ATTRIBUTES = (); }; };
+		ADDB8AD014C8744B00F13BC3 /* TTTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDB8AA114C8744B00F13BC3 /* TTTableViewController.m */; };
+		ADDB8AD214C8744B00F13BC3 /* TTViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = ADDB8AA314C8744B00F13BC3 /* TTViewController.h */; settings = {ATTRIBUTES = (); }; };
+		ADDB8AD314C8744B00F13BC3 /* TTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDB8AA414C8744B00F13BC3 /* TTViewController.m */; };
+		ADDB8AD414C8744B00F13BC3 /* UIImageViewAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = ADDB8AA514C8744B00F13BC3 /* UIImageViewAdditions.h */; settings = {ATTRIBUTES = (); }; };
+		ADDB8AD514C8744B00F13BC3 /* UIImageViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDB8AA614C8744B00F13BC3 /* UIImageViewAdditions.m */; };
+		ADDB8AD614C8744B00F13BC3 /* UIViewAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = ADDB8AA714C8744B00F13BC3 /* UIViewAdditions.h */; settings = {ATTRIBUTES = (); }; };
+		ADDB8AD714C8744B00F13BC3 /* UIViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = ADDB8AA814C8744B00F13BC3 /* UIViewAdditions.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		AD63E3C314C876F400D505F2 /* TTGlobalCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTGlobalCore.h; sourceTree = "<group>"; };
+		AD63E3C414C876F400D505F2 /* TTGlobalCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTGlobalCore.m; sourceTree = "<group>"; };
+		AD63E3E914C87CD100D505F2 /* TT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT.h; sourceTree = "<group>"; };
+		ADCB510714C9163700364611 /* TTModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTModel.h; sourceTree = "<group>"; };
+		ADCB510B14C9172300364611 /* TTURLRequestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTURLRequestModel.h; sourceTree = "<group>"; };
+		ADCB510C14C9172500364611 /* TTURLRequestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTURLRequestModel.m; sourceTree = "<group>"; };
+		ADCB510F14CA6C7B00364611 /* TTModelDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTModelDelegate.h; sourceTree = "<group>"; };
+		ADCB511F14CA838E00364611 /* TTNetworkEnabledTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTNetworkEnabledTableViewController.h; sourceTree = "<group>"; };
+		ADCB512014CA838F00364611 /* TTNetworkEnabledTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTNetworkEnabledTableViewController.m; sourceTree = "<group>"; };
+		ADDB8A6514C8741F00F13BC3 /* libTT.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTT.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADDB8A6814C8741F00F13BC3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		ADDB8A7714C8744B00F13BC3 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		ADDB8A7814C8744B00F13BC3 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		ADDB8A7B14C8744B00F13BC3 /* NSArrayAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSArrayAdditions.h; sourceTree = "<group>"; };
+		ADDB8A7C14C8744B00F13BC3 /* NSArrayAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSArrayAdditions.m; sourceTree = "<group>"; };
+		ADDB8A7D14C8744B00F13BC3 /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDataAdditions.h; sourceTree = "<group>"; };
+		ADDB8A7E14C8744B00F13BC3 /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDataAdditions.m; sourceTree = "<group>"; };
+		ADDB8A7F14C8744B00F13BC3 /* NSStringAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStringAdditions.h; sourceTree = "<group>"; };
+		ADDB8A8014C8744B00F13BC3 /* NSStringAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringAdditions.m; sourceTree = "<group>"; };
+		ADDB8A8114C8744B00F13BC3 /* TTDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTDebug.h; sourceTree = "<group>"; };
+		ADDB8A8214C8744B00F13BC3 /* TTDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTDebug.m; sourceTree = "<group>"; };
+		ADDB8A8314C8744B00F13BC3 /* TTGlobalNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTGlobalNetwork.h; sourceTree = "<group>"; };
+		ADDB8A8414C8744B00F13BC3 /* TTGlobalNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTGlobalNetwork.m; sourceTree = "<group>"; };
+		ADDB8A8614C8744B00F13BC3 /* TTRequestLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTRequestLoader.h; sourceTree = "<group>"; };
+		ADDB8A8714C8744B00F13BC3 /* TTRequestLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTRequestLoader.m; sourceTree = "<group>"; };
+		ADDB8A8814C8744B00F13BC3 /* TTURLCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTURLCache.h; sourceTree = "<group>"; };
+		ADDB8A8914C8744B00F13BC3 /* TTURLCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTURLCache.m; sourceTree = "<group>"; };
+		ADDB8A8A14C8744B00F13BC3 /* TTURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTURLRequest.h; sourceTree = "<group>"; };
+		ADDB8A8B14C8744B00F13BC3 /* TTURLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTURLRequest.m; sourceTree = "<group>"; };
+		ADDB8A8C14C8744B00F13BC3 /* TTURLRequestCachePolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTURLRequestCachePolicy.h; sourceTree = "<group>"; };
+		ADDB8A8D14C8744B00F13BC3 /* TTURLRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTURLRequestDelegate.h; sourceTree = "<group>"; };
+		ADDB8A8E14C8744B00F13BC3 /* TTURLRequestInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTURLRequestInternal.h; sourceTree = "<group>"; };
+		ADDB8A8F14C8744B00F13BC3 /* TTURLRequestQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTURLRequestQueue.h; sourceTree = "<group>"; };
+		ADDB8A9014C8744B00F13BC3 /* TTURLRequestQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTURLRequestQueue.m; sourceTree = "<group>"; };
+		ADDB8A9114C8744B00F13BC3 /* TTURLRequestQueueInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTURLRequestQueueInternal.h; sourceTree = "<group>"; };
+		ADDB8A9314C8744B00F13BC3 /* TTGlobalUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTGlobalUI.h; sourceTree = "<group>"; };
+		ADDB8A9414C8744B00F13BC3 /* TTGlobalUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTGlobalUI.m; sourceTree = "<group>"; };
+		ADDB8A9514C8744B00F13BC3 /* TTInfiniteScrollFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTInfiniteScrollFooterView.h; sourceTree = "<group>"; };
+		ADDB8A9614C8744B00F13BC3 /* TTInfiniteScrollFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTInfiniteScrollFooterView.m; sourceTree = "<group>"; };
+		ADDB8A9914C8744B00F13BC3 /* TTModelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTModelViewController.h; sourceTree = "<group>"; };
+		ADDB8A9A14C8744B00F13BC3 /* TTModelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTModelViewController.m; sourceTree = "<group>"; };
+		ADDB8A9B14C8744B00F13BC3 /* TTPullRefreshHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTPullRefreshHeaderView.h; sourceTree = "<group>"; };
+		ADDB8A9C14C8744B00F13BC3 /* TTPullRefreshHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTPullRefreshHeaderView.m; sourceTree = "<group>"; };
+		ADDB8A9F14C8744B00F13BC3 /* TTTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTableViewCell.h; sourceTree = "<group>"; };
+		ADDB8AA014C8744B00F13BC3 /* TTTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTableViewController.h; sourceTree = "<group>"; };
+		ADDB8AA114C8744B00F13BC3 /* TTTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTableViewController.m; sourceTree = "<group>"; };
+		ADDB8AA314C8744B00F13BC3 /* TTViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTViewController.h; sourceTree = "<group>"; };
+		ADDB8AA414C8744B00F13BC3 /* TTViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTViewController.m; sourceTree = "<group>"; };
+		ADDB8AA514C8744B00F13BC3 /* UIImageViewAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageViewAdditions.h; sourceTree = "<group>"; };
+		ADDB8AA614C8744B00F13BC3 /* UIImageViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageViewAdditions.m; sourceTree = "<group>"; };
+		ADDB8AA714C8744B00F13BC3 /* UIViewAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewAdditions.h; sourceTree = "<group>"; };
+		ADDB8AA814C8744B00F13BC3 /* UIViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewAdditions.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ADDB8A6214C8741F00F13BC3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ADDB8A6914C8741F00F13BC3 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AD63E3C214C876E500D505F2 /* TTCore */ = {
+			isa = PBXGroup;
+			children = (
+				ADDB8A7B14C8744B00F13BC3 /* NSArrayAdditions.h */,
+				ADDB8A7C14C8744B00F13BC3 /* NSArrayAdditions.m */,
+				ADDB8A7D14C8744B00F13BC3 /* NSDataAdditions.h */,
+				ADDB8A7E14C8744B00F13BC3 /* NSDataAdditions.m */,
+				ADDB8A7F14C8744B00F13BC3 /* NSStringAdditions.h */,
+				ADDB8A8014C8744B00F13BC3 /* NSStringAdditions.m */,
+				ADDB8A8114C8744B00F13BC3 /* TTDebug.h */,
+				ADDB8A8214C8744B00F13BC3 /* TTDebug.m */,
+				AD63E3C314C876F400D505F2 /* TTGlobalCore.h */,
+				AD63E3C414C876F400D505F2 /* TTGlobalCore.m */,
+			);
+			path = TTCore;
+			sourceTree = "<group>";
+		};
+		ADDB8A5A14C8741F00F13BC3 = {
+			isa = PBXGroup;
+			children = (
+				AD63E3E914C87CD100D505F2 /* TT.h */,
+				AD63E3C214C876E500D505F2 /* TTCore */,
+				ADDB8A7A14C8744B00F13BC3 /* TTNetwork */,
+				ADDB8A9214C8744B00F13BC3 /* TTUI */,
+				ADDB8A7514C8744B00F13BC3 /* JSONKit */,
+				ADDB8A6714C8741F00F13BC3 /* Frameworks */,
+				ADDB8A6614C8741F00F13BC3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ADDB8A6614C8741F00F13BC3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ADDB8A6514C8741F00F13BC3 /* libTT.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ADDB8A6714C8741F00F13BC3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ADDB8A6814C8741F00F13BC3 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ADDB8A7514C8744B00F13BC3 /* JSONKit */ = {
+			isa = PBXGroup;
+			children = (
+				ADDB8A7714C8744B00F13BC3 /* JSONKit.h */,
+				ADDB8A7814C8744B00F13BC3 /* JSONKit.m */,
+			);
+			path = JSONKit;
+			sourceTree = "<group>";
+		};
+		ADDB8A7A14C8744B00F13BC3 /* TTNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				ADDB8A8314C8744B00F13BC3 /* TTGlobalNetwork.h */,
+				ADDB8A8414C8744B00F13BC3 /* TTGlobalNetwork.m */,
+				ADDB8A8814C8744B00F13BC3 /* TTURLCache.h */,
+				ADDB8A8914C8744B00F13BC3 /* TTURLCache.m */,
+				ADDB8A8A14C8744B00F13BC3 /* TTURLRequest.h */,
+				ADDB8A8B14C8744B00F13BC3 /* TTURLRequest.m */,
+				ADDB8A8C14C8744B00F13BC3 /* TTURLRequestCachePolicy.h */,
+				ADDB8A8D14C8744B00F13BC3 /* TTURLRequestDelegate.h */,
+				ADDB8A8E14C8744B00F13BC3 /* TTURLRequestInternal.h */,
+				ADDB8A8F14C8744B00F13BC3 /* TTURLRequestQueue.h */,
+				ADDB8A9014C8744B00F13BC3 /* TTURLRequestQueue.m */,
+				ADDB8A9114C8744B00F13BC3 /* TTURLRequestQueueInternal.h */,
+				ADCB510714C9163700364611 /* TTModel.h */,
+				ADCB510F14CA6C7B00364611 /* TTModelDelegate.h */,
+				ADCB510B14C9172300364611 /* TTURLRequestModel.h */,
+				ADCB510C14C9172500364611 /* TTURLRequestModel.m */,
+				ADDB8A8614C8744B00F13BC3 /* TTRequestLoader.h */,
+				ADDB8A8714C8744B00F13BC3 /* TTRequestLoader.m */,
+			);
+			path = TTNetwork;
+			sourceTree = "<group>";
+		};
+		ADDB8A9214C8744B00F13BC3 /* TTUI */ = {
+			isa = PBXGroup;
+			children = (
+				ADDB8A9314C8744B00F13BC3 /* TTGlobalUI.h */,
+				ADDB8A9414C8744B00F13BC3 /* TTGlobalUI.m */,
+				ADDB8AA514C8744B00F13BC3 /* UIImageViewAdditions.h */,
+				ADDB8AA614C8744B00F13BC3 /* UIImageViewAdditions.m */,
+				ADDB8AA714C8744B00F13BC3 /* UIViewAdditions.h */,
+				ADDB8AA814C8744B00F13BC3 /* UIViewAdditions.m */,
+				ADDB8AA314C8744B00F13BC3 /* TTViewController.h */,
+				ADDB8AA414C8744B00F13BC3 /* TTViewController.m */,
+				ADDB8A9914C8744B00F13BC3 /* TTModelViewController.h */,
+				ADDB8A9A14C8744B00F13BC3 /* TTModelViewController.m */,
+				ADDB8AA014C8744B00F13BC3 /* TTTableViewController.h */,
+				ADDB8AA114C8744B00F13BC3 /* TTTableViewController.m */,
+				ADCB511F14CA838E00364611 /* TTNetworkEnabledTableViewController.h */,
+				ADCB512014CA838F00364611 /* TTNetworkEnabledTableViewController.m */,
+				ADDB8A9F14C8744B00F13BC3 /* TTTableViewCell.h */,
+				ADDB8A9514C8744B00F13BC3 /* TTInfiniteScrollFooterView.h */,
+				ADDB8A9614C8744B00F13BC3 /* TTInfiniteScrollFooterView.m */,
+				ADDB8A9B14C8744B00F13BC3 /* TTPullRefreshHeaderView.h */,
+				ADDB8A9C14C8744B00F13BC3 /* TTPullRefreshHeaderView.m */,
+			);
+			path = TTUI;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		ADDB8A6314C8741F00F13BC3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ADDB8AA914C8744B00F13BC3 /* JSONKit.h in Headers */,
+				ADDB8AAB14C8744B00F13BC3 /* NSArrayAdditions.h in Headers */,
+				ADDB8AAD14C8744B00F13BC3 /* NSDataAdditions.h in Headers */,
+				ADDB8AAF14C8744B00F13BC3 /* NSStringAdditions.h in Headers */,
+				ADDB8AB114C8744B00F13BC3 /* TTDebug.h in Headers */,
+				ADDB8AB314C8744B00F13BC3 /* TTGlobalNetwork.h in Headers */,
+				ADDB8AB614C8744B00F13BC3 /* TTRequestLoader.h in Headers */,
+				ADDB8AB814C8744B00F13BC3 /* TTURLCache.h in Headers */,
+				ADDB8ABA14C8744B00F13BC3 /* TTURLRequest.h in Headers */,
+				ADDB8ABC14C8744B00F13BC3 /* TTURLRequestCachePolicy.h in Headers */,
+				ADDB8ABD14C8744B00F13BC3 /* TTURLRequestDelegate.h in Headers */,
+				ADDB8ABF14C8744B00F13BC3 /* TTURLRequestQueue.h in Headers */,
+				ADDB8AC214C8744B00F13BC3 /* TTGlobalUI.h in Headers */,
+				ADDB8AC414C8744B00F13BC3 /* TTInfiniteScrollFooterView.h in Headers */,
+				ADDB8AC814C8744B00F13BC3 /* TTModelViewController.h in Headers */,
+				ADDB8ACA14C8744B00F13BC3 /* TTPullRefreshHeaderView.h in Headers */,
+				ADDB8ACE14C8744B00F13BC3 /* TTTableViewCell.h in Headers */,
+				ADDB8ACF14C8744B00F13BC3 /* TTTableViewController.h in Headers */,
+				ADDB8AD214C8744B00F13BC3 /* TTViewController.h in Headers */,
+				ADDB8AD414C8744B00F13BC3 /* UIImageViewAdditions.h in Headers */,
+				ADDB8AD614C8744B00F13BC3 /* UIViewAdditions.h in Headers */,
+				AD63E3C514C876F400D505F2 /* TTGlobalCore.h in Headers */,
+				AD63E3EA14C87CD100D505F2 /* TT.h in Headers */,
+				AD63E4D214C902E100D505F2 /* TTURLRequestQueueInternal.h in Headers */,
+				ADCB50A914C9105200364611 /* TTURLRequestInternal.h in Headers */,
+				ADCB510914C9163800364611 /* TTModel.h in Headers */,
+				ADCB510D14C9172600364611 /* TTURLRequestModel.h in Headers */,
+				ADCB511114CA6C7D00364611 /* TTModelDelegate.h in Headers */,
+				ADCB512114CA839000364611 /* TTNetworkEnabledTableViewController.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		ADDB8A6414C8741F00F13BC3 /* TT */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ADDB8A7214C8741F00F13BC3 /* Build configuration list for PBXNativeTarget "TT" */;
+			buildPhases = (
+				ADDB8A6114C8741F00F13BC3 /* Sources */,
+				ADDB8A6214C8741F00F13BC3 /* Frameworks */,
+				ADDB8A6314C8741F00F13BC3 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TT;
+			productName = TT;
+			productReference = ADDB8A6514C8741F00F13BC3 /* libTT.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ADDB8A5C14C8741F00F13BC3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = ADDB8A5F14C8741F00F13BC3 /* Build configuration list for PBXProject "TT" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = ADDB8A5A14C8741F00F13BC3;
+			productRefGroup = ADDB8A6614C8741F00F13BC3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ADDB8A6414C8741F00F13BC3 /* TT */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ADDB8A6114C8741F00F13BC3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ADDB8AAA14C8744B00F13BC3 /* JSONKit.m in Sources */,
+				ADDB8AAC14C8744B00F13BC3 /* NSArrayAdditions.m in Sources */,
+				ADDB8AAE14C8744B00F13BC3 /* NSDataAdditions.m in Sources */,
+				ADDB8AB014C8744B00F13BC3 /* NSStringAdditions.m in Sources */,
+				ADDB8AB214C8744B00F13BC3 /* TTDebug.m in Sources */,
+				ADDB8AB414C8744B00F13BC3 /* TTGlobalNetwork.m in Sources */,
+				ADDB8AB714C8744B00F13BC3 /* TTRequestLoader.m in Sources */,
+				ADDB8AB914C8744B00F13BC3 /* TTURLCache.m in Sources */,
+				ADDB8ABB14C8744B00F13BC3 /* TTURLRequest.m in Sources */,
+				ADDB8AC014C8744B00F13BC3 /* TTURLRequestQueue.m in Sources */,
+				ADDB8AC314C8744B00F13BC3 /* TTGlobalUI.m in Sources */,
+				ADDB8AC514C8744B00F13BC3 /* TTInfiniteScrollFooterView.m in Sources */,
+				ADDB8AC914C8744B00F13BC3 /* TTModelViewController.m in Sources */,
+				ADDB8ACB14C8744B00F13BC3 /* TTPullRefreshHeaderView.m in Sources */,
+				ADDB8AD014C8744B00F13BC3 /* TTTableViewController.m in Sources */,
+				ADDB8AD314C8744B00F13BC3 /* TTViewController.m in Sources */,
+				ADDB8AD514C8744B00F13BC3 /* UIImageViewAdditions.m in Sources */,
+				ADDB8AD714C8744B00F13BC3 /* UIViewAdditions.m in Sources */,
+				AD63E3C614C876F400D505F2 /* TTGlobalCore.m in Sources */,
+				ADCB510E14C9172600364611 /* TTURLRequestModel.m in Sources */,
+				ADCB512214CA839000364611 /* TTNetworkEnabledTableViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		ADDB8A7014C8741F00F13BC3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		ADDB8A7114C8741F00F13BC3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ADDB8A7314C8741F00F13BC3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/TT.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
+				GCC_VERSION = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		ADDB8A7414C8741F00F13BC3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/TT.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
+				GCC_VERSION = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ADDB8A5F14C8741F00F13BC3 /* Build configuration list for PBXProject "TT" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ADDB8A7014C8741F00F13BC3 /* Debug */,
+				ADDB8A7114C8741F00F13BC3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ADDB8A7214C8741F00F13BC3 /* Build configuration list for PBXNativeTarget "TT" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ADDB8A7314C8741F00F13BC3 /* Debug */,
+				ADDB8A7414C8741F00F13BC3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ADDB8A5C14C8741F00F13BC3 /* Project object */;
+}
