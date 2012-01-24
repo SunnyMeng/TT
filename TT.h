@@ -36,3 +36,7 @@
 
 #import "UIImageViewAdditions.h"
 #import "UIViewAdditions.h"
+
+// Style
+#import "TTStyledText.h"
+#import "TTStyledTextLabel.h"

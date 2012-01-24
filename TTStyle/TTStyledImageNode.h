@@ -1,0 +1,23 @@
+//
+//  TTStyledImageNode.h
+//  TTUI
+//
+//  Created by shaohua on 1/18/12.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//
+
+#import <QuartzCore/QuartzCore.h>
+#import <UIKit/UIKit.h>
+
+#import "TTStyledElement.h"
+
+@interface TTStyledImageNode : TTStyledElement
+
+@property (nonatomic, copy) NSString *URL;
+@property (nonatomic, retain) UIImage *image;
+@property (nonatomic) CGFloat width;
+@property (nonatomic) CGFloat height;
+
++ (TTStyledImageNode *)nodeWithURL:(NSString *)URL;
+
+@end

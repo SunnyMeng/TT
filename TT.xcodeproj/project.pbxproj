@@ -7,6 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD44E55814CBD30C007A2DBD /* TTStyledBoxFrame.h in Headers */ = {isa = PBXBuildFile; fileRef = AD44E53914CBD30C007A2DBD /* TTStyledBoxFrame.h */; };
+		AD44E55914CBD30C007A2DBD /* TTStyledBoxFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44E53A14CBD30C007A2DBD /* TTStyledBoxFrame.m */; };
+		AD44E55A14CBD30C007A2DBD /* TTStyledElement.h in Headers */ = {isa = PBXBuildFile; fileRef = AD44E53B14CBD30C007A2DBD /* TTStyledElement.h */; };
+		AD44E55B14CBD30C007A2DBD /* TTStyledElement.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44E53C14CBD30C007A2DBD /* TTStyledElement.m */; };
+		AD44E55C14CBD30C007A2DBD /* TTStyledFrame.h in Headers */ = {isa = PBXBuildFile; fileRef = AD44E53D14CBD30C007A2DBD /* TTStyledFrame.h */; };
+		AD44E55D14CBD30C007A2DBD /* TTStyledFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44E53E14CBD30C007A2DBD /* TTStyledFrame.m */; };
+		AD44E55E14CBD30C007A2DBD /* TTStyledImageFrame.h in Headers */ = {isa = PBXBuildFile; fileRef = AD44E53F14CBD30C007A2DBD /* TTStyledImageFrame.h */; };
+		AD44E55F14CBD30C007A2DBD /* TTStyledImageFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44E54014CBD30C007A2DBD /* TTStyledImageFrame.m */; };
+		AD44E56014CBD30C007A2DBD /* TTStyledImageNode.h in Headers */ = {isa = PBXBuildFile; fileRef = AD44E54114CBD30C007A2DBD /* TTStyledImageNode.h */; };
+		AD44E56114CBD30C007A2DBD /* TTStyledImageNode.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44E54214CBD30C007A2DBD /* TTStyledImageNode.m */; };
+		AD44E56414CBD30C007A2DBD /* TTStyledLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = AD44E54514CBD30C007A2DBD /* TTStyledLayout.h */; };
+		AD44E56514CBD30C007A2DBD /* TTStyledLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44E54614CBD30C007A2DBD /* TTStyledLayout.m */; };
+		AD44E56614CBD30C007A2DBD /* TTStyledLinkNode.h in Headers */ = {isa = PBXBuildFile; fileRef = AD44E54714CBD30C007A2DBD /* TTStyledLinkNode.h */; };
+		AD44E56714CBD30C007A2DBD /* TTStyledLinkNode.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44E54814CBD30C007A2DBD /* TTStyledLinkNode.m */; };
+		AD44E56814CBD30C007A2DBD /* TTStyledNode.h in Headers */ = {isa = PBXBuildFile; fileRef = AD44E54914CBD30C007A2DBD /* TTStyledNode.h */; };
+		AD44E56914CBD30C007A2DBD /* TTStyledNode.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44E54A14CBD30C007A2DBD /* TTStyledNode.m */; };
+		AD44E56A14CBD30C007A2DBD /* TTStyledText.h in Headers */ = {isa = PBXBuildFile; fileRef = AD44E54B14CBD30C007A2DBD /* TTStyledText.h */; };
+		AD44E56B14CBD30C007A2DBD /* TTStyledText.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44E54C14CBD30C007A2DBD /* TTStyledText.m */; };
+		AD44E56C14CBD30C007A2DBD /* TTStyledTextDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = AD44E54D14CBD30C007A2DBD /* TTStyledTextDelegate.h */; };
+		AD44E56D14CBD30C007A2DBD /* TTStyledTextFrame.h in Headers */ = {isa = PBXBuildFile; fileRef = AD44E54E14CBD30C007A2DBD /* TTStyledTextFrame.h */; };
+		AD44E56E14CBD30C007A2DBD /* TTStyledTextFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44E54F14CBD30C007A2DBD /* TTStyledTextFrame.m */; };
+		AD44E56F14CBD30C007A2DBD /* TTStyledTextLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = AD44E55014CBD30C007A2DBD /* TTStyledTextLabel.h */; };
+		AD44E57014CBD30C007A2DBD /* TTStyledTextLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44E55114CBD30C007A2DBD /* TTStyledTextLabel.m */; };
+		AD44E57114CBD30C007A2DBD /* TTStyledTextNode.h in Headers */ = {isa = PBXBuildFile; fileRef = AD44E55214CBD30C007A2DBD /* TTStyledTextNode.h */; };
+		AD44E57214CBD30C007A2DBD /* TTStyledTextNode.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44E55314CBD30C007A2DBD /* TTStyledTextNode.m */; };
+		AD44E57314CBD30C007A2DBD /* TTStyledTextParser.h in Headers */ = {isa = PBXBuildFile; fileRef = AD44E55414CBD30C007A2DBD /* TTStyledTextParser.h */; };
+		AD44E57414CBD30C007A2DBD /* TTStyledTextParser.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44E55514CBD30C007A2DBD /* TTStyledTextParser.m */; };
+		AD44E57514CBD30C007A2DBD /* UIImageAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = AD44E55614CBD30C007A2DBD /* UIImageAdditions.h */; };
+		AD44E57614CBD30C007A2DBD /* UIImageAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44E55714CBD30C007A2DBD /* UIImageAdditions.m */; };
+		AD44E5C314CD0B3E007A2DBD /* TTStyledInlineFrame.h in Headers */ = {isa = PBXBuildFile; fileRef = AD44E5C114CD0B3B007A2DBD /* TTStyledInlineFrame.h */; };
+		AD44E5C414CD0B3E007A2DBD /* TTStyledInlineFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44E5C214CD0B3C007A2DBD /* TTStyledInlineFrame.m */; };
 		AD63E3C514C876F400D505F2 /* TTGlobalCore.h in Headers */ = {isa = PBXBuildFile; fileRef = AD63E3C314C876F400D505F2 /* TTGlobalCore.h */; settings = {ATTRIBUTES = (); }; };
 		AD63E3C614C876F400D505F2 /* TTGlobalCore.m in Sources */ = {isa = PBXBuildFile; fileRef = AD63E3C414C876F400D505F2 /* TTGlobalCore.m */; };
 		AD63E3EA14C87CD100D505F2 /* TT.h in Headers */ = {isa = PBXBuildFile; fileRef = AD63E3E914C87CD100D505F2 /* TT.h */; settings = {ATTRIBUTES = (); }; };
@@ -61,6 +92,37 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AD44E53914CBD30C007A2DBD /* TTStyledBoxFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTStyledBoxFrame.h; sourceTree = "<group>"; };
+		AD44E53A14CBD30C007A2DBD /* TTStyledBoxFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTStyledBoxFrame.m; sourceTree = "<group>"; };
+		AD44E53B14CBD30C007A2DBD /* TTStyledElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTStyledElement.h; sourceTree = "<group>"; };
+		AD44E53C14CBD30C007A2DBD /* TTStyledElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTStyledElement.m; sourceTree = "<group>"; };
+		AD44E53D14CBD30C007A2DBD /* TTStyledFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTStyledFrame.h; sourceTree = "<group>"; };
+		AD44E53E14CBD30C007A2DBD /* TTStyledFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTStyledFrame.m; sourceTree = "<group>"; };
+		AD44E53F14CBD30C007A2DBD /* TTStyledImageFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTStyledImageFrame.h; sourceTree = "<group>"; };
+		AD44E54014CBD30C007A2DBD /* TTStyledImageFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTStyledImageFrame.m; sourceTree = "<group>"; };
+		AD44E54114CBD30C007A2DBD /* TTStyledImageNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTStyledImageNode.h; sourceTree = "<group>"; };
+		AD44E54214CBD30C007A2DBD /* TTStyledImageNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTStyledImageNode.m; sourceTree = "<group>"; };
+		AD44E54514CBD30C007A2DBD /* TTStyledLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTStyledLayout.h; sourceTree = "<group>"; };
+		AD44E54614CBD30C007A2DBD /* TTStyledLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTStyledLayout.m; sourceTree = "<group>"; };
+		AD44E54714CBD30C007A2DBD /* TTStyledLinkNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTStyledLinkNode.h; sourceTree = "<group>"; };
+		AD44E54814CBD30C007A2DBD /* TTStyledLinkNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTStyledLinkNode.m; sourceTree = "<group>"; };
+		AD44E54914CBD30C007A2DBD /* TTStyledNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTStyledNode.h; sourceTree = "<group>"; };
+		AD44E54A14CBD30C007A2DBD /* TTStyledNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTStyledNode.m; sourceTree = "<group>"; };
+		AD44E54B14CBD30C007A2DBD /* TTStyledText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTStyledText.h; sourceTree = "<group>"; };
+		AD44E54C14CBD30C007A2DBD /* TTStyledText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTStyledText.m; sourceTree = "<group>"; };
+		AD44E54D14CBD30C007A2DBD /* TTStyledTextDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTStyledTextDelegate.h; sourceTree = "<group>"; };
+		AD44E54E14CBD30C007A2DBD /* TTStyledTextFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTStyledTextFrame.h; sourceTree = "<group>"; };
+		AD44E54F14CBD30C007A2DBD /* TTStyledTextFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTStyledTextFrame.m; sourceTree = "<group>"; };
+		AD44E55014CBD30C007A2DBD /* TTStyledTextLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTStyledTextLabel.h; sourceTree = "<group>"; };
+		AD44E55114CBD30C007A2DBD /* TTStyledTextLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTStyledTextLabel.m; sourceTree = "<group>"; };
+		AD44E55214CBD30C007A2DBD /* TTStyledTextNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTStyledTextNode.h; sourceTree = "<group>"; };
+		AD44E55314CBD30C007A2DBD /* TTStyledTextNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTStyledTextNode.m; sourceTree = "<group>"; };
+		AD44E55414CBD30C007A2DBD /* TTStyledTextParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTStyledTextParser.h; sourceTree = "<group>"; };
+		AD44E55514CBD30C007A2DBD /* TTStyledTextParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTStyledTextParser.m; sourceTree = "<group>"; };
+		AD44E55614CBD30C007A2DBD /* UIImageAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageAdditions.h; sourceTree = "<group>"; };
+		AD44E55714CBD30C007A2DBD /* UIImageAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageAdditions.m; sourceTree = "<group>"; };
+		AD44E5C114CD0B3B007A2DBD /* TTStyledInlineFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTStyledInlineFrame.h; sourceTree = "<group>"; };
+		AD44E5C214CD0B3C007A2DBD /* TTStyledInlineFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTStyledInlineFrame.m; sourceTree = "<group>"; };
 		AD63E3C314C876F400D505F2 /* TTGlobalCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTGlobalCore.h; sourceTree = "<group>"; };
 		AD63E3C414C876F400D505F2 /* TTGlobalCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTGlobalCore.m; sourceTree = "<group>"; };
 		AD63E3E914C87CD100D505F2 /* TT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT.h; sourceTree = "<group>"; };
@@ -127,6 +189,58 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AD44E53814CBD30C007A2DBD /* TTStyle */ = {
+			isa = PBXGroup;
+			children = (
+				AD44E54B14CBD30C007A2DBD /* TTStyledText.h */,
+				AD44E54C14CBD30C007A2DBD /* TTStyledText.m */,
+				AD44E54D14CBD30C007A2DBD /* TTStyledTextDelegate.h */,
+				AD44E55014CBD30C007A2DBD /* TTStyledTextLabel.h */,
+				AD44E55114CBD30C007A2DBD /* TTStyledTextLabel.m */,
+				AD44E57814CBD388007A2DBD /* Styled Frame */,
+				AD44E57714CBD370007A2DBD /* Styled Node */,
+			);
+			path = TTStyle;
+			sourceTree = "<group>";
+		};
+		AD44E57714CBD370007A2DBD /* Styled Node */ = {
+			isa = PBXGroup;
+			children = (
+				AD44E55414CBD30C007A2DBD /* TTStyledTextParser.h */,
+				AD44E55514CBD30C007A2DBD /* TTStyledTextParser.m */,
+				AD44E54914CBD30C007A2DBD /* TTStyledNode.h */,
+				AD44E54A14CBD30C007A2DBD /* TTStyledNode.m */,
+				AD44E53B14CBD30C007A2DBD /* TTStyledElement.h */,
+				AD44E53C14CBD30C007A2DBD /* TTStyledElement.m */,
+				AD44E54114CBD30C007A2DBD /* TTStyledImageNode.h */,
+				AD44E54214CBD30C007A2DBD /* TTStyledImageNode.m */,
+				AD44E54714CBD30C007A2DBD /* TTStyledLinkNode.h */,
+				AD44E54814CBD30C007A2DBD /* TTStyledLinkNode.m */,
+				AD44E55214CBD30C007A2DBD /* TTStyledTextNode.h */,
+				AD44E55314CBD30C007A2DBD /* TTStyledTextNode.m */,
+			);
+			name = "Styled Node";
+			sourceTree = "<group>";
+		};
+		AD44E57814CBD388007A2DBD /* Styled Frame */ = {
+			isa = PBXGroup;
+			children = (
+				AD44E54514CBD30C007A2DBD /* TTStyledLayout.h */,
+				AD44E54614CBD30C007A2DBD /* TTStyledLayout.m */,
+				AD44E53D14CBD30C007A2DBD /* TTStyledFrame.h */,
+				AD44E53E14CBD30C007A2DBD /* TTStyledFrame.m */,
+				AD44E5C114CD0B3B007A2DBD /* TTStyledInlineFrame.h */,
+				AD44E5C214CD0B3C007A2DBD /* TTStyledInlineFrame.m */,
+				AD44E53914CBD30C007A2DBD /* TTStyledBoxFrame.h */,
+				AD44E53A14CBD30C007A2DBD /* TTStyledBoxFrame.m */,
+				AD44E53F14CBD30C007A2DBD /* TTStyledImageFrame.h */,
+				AD44E54014CBD30C007A2DBD /* TTStyledImageFrame.m */,
+				AD44E54E14CBD30C007A2DBD /* TTStyledTextFrame.h */,
+				AD44E54F14CBD30C007A2DBD /* TTStyledTextFrame.m */,
+			);
+			name = "Styled Frame";
+			sourceTree = "<group>";
+		};
 		AD63E3C214C876E500D505F2 /* TTCore */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +265,7 @@
 				AD63E3C214C876E500D505F2 /* TTCore */,
 				ADDB8A7A14C8744B00F13BC3 /* TTNetwork */,
 				ADDB8A9214C8744B00F13BC3 /* TTUI */,
+				AD44E53814CBD30C007A2DBD /* TTStyle */,
 				ADDB8A7514C8744B00F13BC3 /* JSONKit */,
 				ADDB8A6714C8741F00F13BC3 /* Frameworks */,
 				ADDB8A6614C8741F00F13BC3 /* Products */,
@@ -214,6 +329,8 @@
 				ADDB8A9414C8744B00F13BC3 /* TTGlobalUI.m */,
 				ADDB8AA514C8744B00F13BC3 /* UIImageViewAdditions.h */,
 				ADDB8AA614C8744B00F13BC3 /* UIImageViewAdditions.m */,
+				AD44E55614CBD30C007A2DBD /* UIImageAdditions.h */,
+				AD44E55714CBD30C007A2DBD /* UIImageAdditions.m */,
 				ADDB8AA714C8744B00F13BC3 /* UIViewAdditions.h */,
 				ADDB8AA814C8744B00F13BC3 /* UIViewAdditions.m */,
 				ADDB8AA314C8744B00F13BC3 /* TTViewController.h */,
@@ -269,6 +386,22 @@
 				ADCB510D14C9172600364611 /* TTURLRequestModel.h in Headers */,
 				ADCB511114CA6C7D00364611 /* TTModelDelegate.h in Headers */,
 				ADCB512114CA839000364611 /* TTNetworkEnabledTableViewController.h in Headers */,
+				AD44E55814CBD30C007A2DBD /* TTStyledBoxFrame.h in Headers */,
+				AD44E55A14CBD30C007A2DBD /* TTStyledElement.h in Headers */,
+				AD44E55C14CBD30C007A2DBD /* TTStyledFrame.h in Headers */,
+				AD44E55E14CBD30C007A2DBD /* TTStyledImageFrame.h in Headers */,
+				AD44E56014CBD30C007A2DBD /* TTStyledImageNode.h in Headers */,
+				AD44E56414CBD30C007A2DBD /* TTStyledLayout.h in Headers */,
+				AD44E56614CBD30C007A2DBD /* TTStyledLinkNode.h in Headers */,
+				AD44E56814CBD30C007A2DBD /* TTStyledNode.h in Headers */,
+				AD44E56A14CBD30C007A2DBD /* TTStyledText.h in Headers */,
+				AD44E56C14CBD30C007A2DBD /* TTStyledTextDelegate.h in Headers */,
+				AD44E56D14CBD30C007A2DBD /* TTStyledTextFrame.h in Headers */,
+				AD44E56F14CBD30C007A2DBD /* TTStyledTextLabel.h in Headers */,
+				AD44E57114CBD30C007A2DBD /* TTStyledTextNode.h in Headers */,
+				AD44E57314CBD30C007A2DBD /* TTStyledTextParser.h in Headers */,
+				AD44E57514CBD30C007A2DBD /* UIImageAdditions.h in Headers */,
+				AD44E5C314CD0B3E007A2DBD /* TTStyledInlineFrame.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +476,21 @@
 				AD63E3C614C876F400D505F2 /* TTGlobalCore.m in Sources */,
 				ADCB510E14C9172600364611 /* TTURLRequestModel.m in Sources */,
 				ADCB512214CA839000364611 /* TTNetworkEnabledTableViewController.m in Sources */,
+				AD44E55914CBD30C007A2DBD /* TTStyledBoxFrame.m in Sources */,
+				AD44E55B14CBD30C007A2DBD /* TTStyledElement.m in Sources */,
+				AD44E55D14CBD30C007A2DBD /* TTStyledFrame.m in Sources */,
+				AD44E55F14CBD30C007A2DBD /* TTStyledImageFrame.m in Sources */,
+				AD44E56114CBD30C007A2DBD /* TTStyledImageNode.m in Sources */,
+				AD44E56514CBD30C007A2DBD /* TTStyledLayout.m in Sources */,
+				AD44E56714CBD30C007A2DBD /* TTStyledLinkNode.m in Sources */,
+				AD44E56914CBD30C007A2DBD /* TTStyledNode.m in Sources */,
+				AD44E56B14CBD30C007A2DBD /* TTStyledText.m in Sources */,
+				AD44E56E14CBD30C007A2DBD /* TTStyledTextFrame.m in Sources */,
+				AD44E57014CBD30C007A2DBD /* TTStyledTextLabel.m in Sources */,
+				AD44E57214CBD30C007A2DBD /* TTStyledTextNode.m in Sources */,
+				AD44E57414CBD30C007A2DBD /* TTStyledTextParser.m in Sources */,
+				AD44E57614CBD30C007A2DBD /* UIImageAdditions.m in Sources */,
+				AD44E5C414CD0B3E007A2DBD /* TTStyledInlineFrame.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
