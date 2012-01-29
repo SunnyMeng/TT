@@ -42,6 +42,7 @@
 - (id)initWithNode:(TTStyledNode *)rootNode {
     if (self = [super init]) {
         _rootNode = [rootNode retain];
+        _lineBreakMode = UILineBreakModeCharacterWrap;
     }
     return self;
 }
@@ -88,7 +89,6 @@
     [self stopLoadingImages];
 
     if (_delegate && _invalidImages) {
-        BOOL loadedSome = NO;
         for (TTStyledImageNode *imageNode in _invalidImages) {
             if (imageNode.URL) {
                 TTURLRequest *request = [TTURLRequest requestWithURL:imageNode.URL delegate:self];
@@ -96,17 +96,13 @@
                 [request send];
             }
         }
-
         self.invalidImages = nil;
-
-        if (loadedSome) {
-            [_delegate styledTextNeedsDisplay:self];
-        }
     }
 }
 
 - (void)layoutFrames {
     TTStyledLayout *layout = [[[TTStyledLayout alloc] initWithRootNode:_rootNode] autorelease];
+    NSAssert(_width && _font, @"no default values");
     layout.width = _width;
     layout.font = _font;
     layout.textAlignment = _textAlignment;
@@ -131,6 +127,18 @@
     return _rootFrame;
 }
 
+- (CGFloat)height {
+    [self layoutIfNeeded];
+    return _height;
+}
+
+- (void)setWidth:(CGFloat)width {
+    if (_width != width) {
+        _width = width;
+        self.rootFrame = nil;
+    }
+}
+
 - (TTStyledBoxFrame *)hitTest:(CGPoint)point {
     return [self.rootFrame hitTest:point];
 }
@@ -150,21 +158,21 @@
 
 #pragma mark -
 #pragma mark TTURLRequestDelegate
-- (void)requestDidStartLoad:(TTURLRequest*)request {
+- (void)requestDidStartLoad:(TTURLRequest *)request {
     if (!_imageRequests) {
         _imageRequests = [[NSMutableArray alloc] init];
     }
     [_imageRequests addObject:request];
 }
 
-- (void)requestDidFinishLoad:(TTURLRequest*)request {
+- (void)requestDidFinishLoad:(TTURLRequest *)request {
     TTStyledImageNode *imageNode = request.weakRef;
     imageNode.image = [request responseImage];
     [_imageRequests removeObject:request];
     [_delegate styledTextNeedsDisplay:self];
 }
 
-- (void)request:(TTURLRequest*)request didFailLoadWithError:(NSError*)error {
+- (void)request:(TTURLRequest *)request didFailLoadWithError:(NSError *)error {
     [_imageRequests removeObject:request];
 }
 

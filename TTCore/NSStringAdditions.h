@@ -11,6 +11,7 @@
 @interface NSString (Additions)
 
 - (NSString *)stringByUrlEncoded;
+- (NSString *)stringByXMLEscaped;
 - (NSString *)md5Hash;
 
 @end

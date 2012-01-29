@@ -6,12 +6,12 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+#import "JSONKit.h"
 #import "NSArrayAdditions.h"
 #import "NSStringAdditions.h"
 #import "TTGlobalCore.h"
 #import "TTURLRequest.h"
 #import "TTURLRequestQueue.h"
-#import "JSONKit.h"
 
 @interface TTURLRequest ()
 

@@ -17,7 +17,7 @@
 
 @property (nonatomic, readonly) NSString *text;
 @property (nonatomic, retain) UIFont *font;
-@property (nonatomic, retain) UIColor *textColor;
+@property (nonatomic, retain) UIColor *textColor; // part of the style
 
 - (id)initWithText:(NSString *)text;
 

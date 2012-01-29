@@ -39,7 +39,6 @@
 - (id)initWithRootNode:(TTStyledNode *)rootNode {
     if (self = [super init]) {
         _rootNode = [rootNode retain];
-        _lineBreakMode = UILineBreakModeCharacterWrap;
     }
     return self;
 }
@@ -180,7 +179,6 @@
         frame = _lineFirstFrame;
         while (frame) {
             // Align to the text baseline
-            // XXXjoe Support top, bottom, and center alignment also
             if (frame.height < _lineHeight) {
                 [self offsetFrame:frame by:(_lineHeight - (frame.height - (lowestDescender - _font.descender)))];
             }
@@ -219,6 +217,7 @@
     TTStyledTextFrame *frame = [[[TTStyledTextFrame alloc] initWithText:text] autorelease];
     frame.font = _font;
     if ([element isKindOfClass:[TTStyledLinkNode class]]) {
+        // linkTextColor
         frame.textColor = [UIColor blueColor];
     }
     [self addContentFrame:frame width:width height:height];

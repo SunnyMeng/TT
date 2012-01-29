@@ -18,5 +18,8 @@
 }
 
 @property (nonatomic, retain) TTStyledText *text;
+@property (nonatomic, retain) UIFont *font;
+@property (nonatomic, retain) UIColor *textColor;
+@property (nonatomic) UITextAlignment textAlignment;
 
 @end

@@ -15,6 +15,9 @@
 @implementation TTStyledTextLabel
 
 @synthesize text = _text;
+@synthesize font = _font;
+@synthesize textAlignment = _textAlignment;
+@synthesize textColor = _textColor;
 
 - (id)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
@@ -31,16 +34,16 @@
 }
 
 - (void)drawRect:(CGRect)rect {
+    if (_textColor) {
+        [_textColor setFill];
+    } else {
+        [[UIColor blackColor] setFill]; // default
+    }
+
     [_text drawAtPoint:CGPointZero];
 }
 
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    _text.width = self.width;
-}
-
 - (CGSize)sizeThatFits:(CGSize)size {
-    [self layoutIfNeeded];
     return CGSizeMake(_text.width, _text.height);
 }
 
@@ -65,7 +68,7 @@
     [self setNeedsDisplay];
 }
 
-- (void)touchesBegan:(NSSet*)touches withEvent:(UIEvent *)event {
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     [NSObject cancelPreviousPerformRequestsWithTarget:self];
 
     UITouch *touch = [touches anyObject];
@@ -89,16 +92,75 @@
 
 #pragma mark -
 #pragma mark Public
-- (void)setText:(TTStyledText*)text {
+- (void)setText:(TTStyledText *)text {
     if (_text != text) {
         _text.delegate = nil;
         [_text release];
 
         _text = [text retain];
         _text.delegate = self;
-        [self setNeedsLayout];
+        _text.font = _font;
+        _text.textAlignment = _textAlignment;
+        _text.width = self.width;
         [self setNeedsDisplay];
     }
+}
+
+- (void)setTextAlignment:(UITextAlignment)textAlignment {
+    if (_textAlignment != textAlignment) {
+        _textAlignment = textAlignment;
+        _text.textAlignment = _textAlignment;
+        [self setNeedsDisplay];
+    }
+}
+
+- (void)setFont:(UIFont *)font {
+    if (_font != font) {
+        [_font release];
+        _font = [font retain];
+        _text.font = _font;
+        [self setNeedsDisplay];
+    }
+}
+
+- (void)setTextColor:(UIColor *)textColor {
+    if (_textColor != textColor) {
+        [_textColor release];
+        _textColor = [textColor retain];
+        [self setNeedsDisplay];
+    }
+}
+
+- (void)setWidth:(CGFloat)width {
+    if (_text.width != width) {
+        _text.width = width;
+        [self setNeedsDisplay];
+    }
+    [super setWidth:width];
+}
+
+- (void)setSize:(CGSize)size {
+    if (_text.width != size.width) {
+        _text.width = size.width;
+        [self setNeedsDisplay];
+    }
+    [super setSize:size];
+}
+
+- (void)setFrame:(CGRect)frame {
+    if (_text.width != frame.size.width) {
+        _text.width = frame.size.width;
+        [self setNeedsDisplay];
+    }
+    [super setFrame:frame];
+}
+
+- (void)setBounds:(CGRect)bounds {
+    if (_text.width != bounds.size.width) {
+        _text.width = bounds.size.width;
+        [self setNeedsDisplay];
+    }
+    [super setBounds:bounds];
 }
 
 #pragma mark -

@@ -36,11 +36,6 @@
 @property (nonatomic) CGFloat height;
 @property (nonatomic, retain) UIFont *font;
 @property (nonatomic) UITextAlignment textAlignment;
-
-/* Supported modes:
-    UILineBreakModeCharacterWrap    (default)
-    UILineBreakModeClip
- */
 @property (nonatomic) UILineBreakMode lineBreakMode;
 
 - (id)initWithRootNode:(TTStyledNode *)rootNode;

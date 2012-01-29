@@ -19,6 +19,13 @@
                                                                 kCFStringEncodingUTF8) autorelease];
 }
 
+- (NSString *)stringByXMLEscaped {
+    return [[[[self stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"]
+            stringByReplacingOccurrencesOfString:@"<" withString:@"&lt;"]
+            stringByReplacingOccurrencesOfString:@">" withString:@"&gt;"]
+            stringByReplacingOccurrencesOfString:@"\"" withString:@"&quot;"];
+}
+
 - (NSString *)md5Hash {
     return [[self dataUsingEncoding:NSUTF8StringEncoding] md5Hash];
 }
