@@ -17,6 +17,8 @@
 @synthesize model = _model;
 
 - (void)dealloc {
+    [_model.delegates removeObject:self];
+
     [_model release];
     [super dealloc];
 }

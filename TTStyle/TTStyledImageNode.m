@@ -22,10 +22,6 @@
     return self;
 }
 
-+ (TTStyledImageNode *)nodeWithURL:(NSString *)URL {
-    return [[[TTStyledImageNode alloc] initWithURL:URL] autorelease];
-}
-
 - (NSString *)description {
     return [NSString stringWithFormat:@"<img src=%@>%@", _URL, [super description]];
 }

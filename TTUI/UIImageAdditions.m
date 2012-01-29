@@ -89,10 +89,12 @@
                               rect.origin.y + floor(rect.size.height / 2 - imageSize.height / 2),
                               imageSize.width, imageSize.height);
         }
+
         case UIViewContentModeRedraw:
         case UIViewContentModeScaleToFill:
-            return rect;
+            ;
     }
+    return rect;
 }
 
 - (void)drawInRect:(CGRect)rect contentMode:(UIViewContentMode)contentMode {

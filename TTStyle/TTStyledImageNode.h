@@ -18,6 +18,6 @@
 @property (nonatomic) CGFloat width;
 @property (nonatomic) CGFloat height;
 
-+ (TTStyledImageNode *)nodeWithURL:(NSString *)URL;
+- (id)initWithURL:(NSString *)URL;
 
 @end

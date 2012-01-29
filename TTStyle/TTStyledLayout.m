@@ -300,7 +300,7 @@
                 if (_lineBreakMode == UILineBreakModeClip) {
                     return NO;
                 }
-                line = [NSMutableString string];
+                line = [ch mutableCopy];
             } else {
                 [line appendString:ch];
             }

@@ -23,11 +23,6 @@
     return nil;
 }
 
-- (void)modelDidFinishLoad:(id<TTModel>)model {
-    [_tableView reloadData];
-}
-
-#pragma -
 - (void)dealloc {
     [_tableView release];
     [super dealloc];
@@ -93,6 +88,13 @@
         }
     }
     return tableView.rowHeight; // failover
+}
+
+#pragma mark -
+#pragma mark TTModelDelegate
+- (void)modelDidFinishLoad:(id <TTModel>)model {
+    [super modelDidFinishLoad:model];
+    [_tableView reloadData];
 }
 
 @end

@@ -83,10 +83,10 @@
 
     NSString *tag = [elementName lowercaseString];
     if ([tag isEqualToString:@"a"]) {
-        TTStyledLinkNode *node = [TTStyledLinkNode nodeWithURL:[attributeDict objectForKey:@"href"]];
+        TTStyledLinkNode *node = [[[TTStyledLinkNode alloc] initWithURL:[attributeDict objectForKey:@"href"]] autorelease];
         [self pushNode:node];
     } else if ([tag isEqualToString:@"img"]) {
-        TTStyledImageNode *node = [TTStyledImageNode nodeWithURL:[attributeDict objectForKey:@"src"]];
+        TTStyledImageNode *node = [[[TTStyledImageNode alloc] initWithURL:[attributeDict objectForKey:@"src"]] autorelease];
         NSString *width = [attributeDict objectForKey:@"width"];
         if (width) {
             node.width = [width floatValue];

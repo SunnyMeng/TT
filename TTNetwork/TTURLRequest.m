@@ -11,10 +11,7 @@
 #import "TTGlobalCore.h"
 #import "TTURLRequest.h"
 #import "TTURLRequestQueue.h"
-
-#if !(__IPHONE_5_0 && __IPHONE_5_0 <= __IPHONE_OS_VERSION_MAX_ALLOWED)
-    #import "JSONKit.h"
-#endif
+#import "JSONKit.h"
 
 @interface TTURLRequest ()
 
@@ -99,10 +96,11 @@
 
 - (id)responseObject {
 #if __IPHONE_5_0 && __IPHONE_5_0 <= __IPHONE_OS_VERSION_MAX_ALLOWED
-    return [NSJSONSerialization JSONObjectWithData:_responseData options:NSJSONReadingAllowFragments | NSJSONReadingMutableContainers error:NULL];
-#else
-    return [_responseData objectFromJSONData];
+    if (NSClassFromString(@"NSJSONSerialization")) {
+        return [NSJSONSerialization JSONObjectWithData:_responseData options:NSJSONReadingAllowFragments | NSJSONReadingMutableContainers error:NULL];
+    }
 #endif
+    return [_responseData mutableObjectFromJSONData];
 }
 
 #pragma mark -

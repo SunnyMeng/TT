@@ -19,10 +19,6 @@
     return self;
 }
 
-+ (TTStyledLinkNode *)nodeWithURL:(NSString *)URL {
-    return [[[TTStyledLinkNode alloc] initWithURL:URL] autorelease];
-}
-
 - (NSString *)description {
     return [NSString stringWithFormat:@"<a href=%@, text=%@>%@", _URL, self.firstChild, [super description]];
 }

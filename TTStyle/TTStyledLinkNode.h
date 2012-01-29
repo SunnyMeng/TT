@@ -12,6 +12,6 @@
 
 @property (nonatomic, readonly) NSString *URL;
 
-+ (TTStyledLinkNode *)nodeWithURL:(NSString *)URL;
+- (id)initWithURL:(NSString *)URL;
 
 @end

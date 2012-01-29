@@ -15,12 +15,11 @@
 @implementation TTInfiniteScrollFooterView
 
 - (id)initWithModel:(id <TTModel>)model {
-    if ((self = [super initWithFrame:CGRectMake(0, 0, 320, SCROLL_FOOTER_HEIGHT)])) {
+    if ((self = [super initWithFrame:CGRectMake(0, 0, 0, SCROLL_FOOTER_HEIGHT)])) {
         _model = [model retain];
         [_model.delegates addObject:self];
 
         _indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-        _indicator.center = self.center;
         [self addSubview:_indicator];
     }
     return self;
@@ -32,6 +31,13 @@
     [_model release];
     [_indicator release];
     [super dealloc];
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+
+    self.width = self.superview.width;
+    _indicator.center = CGPointMake(self.width / 2, self.height / 2);
 }
 
 - (void)showLoading:(BOOL)show {
@@ -63,7 +69,7 @@
         scrollView.contentOffset.y > 0 :
         scrollView.contentSize.height - self.height < scrollView.contentOffset.y + scrollView.height) {
         if (![_model isLoading]) {
-            [_model load:TTURLRequestReloadUsingCacheData more:YES];
+            [_model load:TTURLRequestReturnCacheDataElseLoad more:YES];
         }
     }
 }

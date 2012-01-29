@@ -8,26 +8,27 @@
 
 #import "TTModel.h"
 #import "TTPullRefreshHeaderView.h"
+#import "UIViewAdditions.h"
 
 #define REFRESH_HEADER_HEIGHT 52
 
 @implementation TTPullRefreshHeaderView
 
 - (id)initWithModel:(id <TTModel>)model {
-    if (self = [super initWithFrame:CGRectMake(0, 0 - REFRESH_HEADER_HEIGHT, 320, REFRESH_HEADER_HEIGHT)]) {
+    if (self = [super initWithFrame:CGRectMake(0, -REFRESH_HEADER_HEIGHT, 0, REFRESH_HEADER_HEIGHT)]) {
         _model = [model retain];
         [_model.delegates addObject:self];
 
+        self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         self.backgroundColor = [UIColor clearColor];
 
-        _refreshLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, REFRESH_HEADER_HEIGHT)];
+        _refreshLabel = [[UILabel alloc] init];
         _refreshLabel.backgroundColor = [UIColor clearColor];
-        _refreshLabel.font = [UIFont boldSystemFontOfSize:12.0];
+        _refreshLabel.font = [UIFont boldSystemFontOfSize:12];
         _refreshLabel.textAlignment = UITextAlignmentCenter;
         [self addSubview:_refreshLabel];
 
         _refreshSpinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-        _refreshSpinner.frame = CGRectMake((320 - 20) / 2, floorf((REFRESH_HEADER_HEIGHT - 20) / 2), 20, 20);
         [self addSubview:_refreshSpinner];
     }
     return self;
@@ -40,6 +41,14 @@
     [_refreshLabel release];
     [_refreshSpinner release];
     [super dealloc];
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+
+    self.width = self.superview.width;
+    _refreshLabel.frame = self.bounds;
+    _refreshSpinner.center = CGPointMake(self.width / 2, self.height / 2);
 }
 
 - (void)showPull {
