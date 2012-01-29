@@ -1,6 +1,6 @@
 //
 //  TTURLRequestModel.h
-//  TT
+//  TTNetwork
 //
 //  Created by shaohua on 1/20/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
@@ -16,6 +16,5 @@
 }
 
 @property (nonatomic, retain) NSDate *loadedTime;
-@property (nonatomic, retain) id responseObject;
 
 @end

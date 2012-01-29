@@ -1,11 +1,13 @@
 //
 //  TTStyledTextLabel.m
-//  TTUI
+//  TTStyle
 //
 //  Created by shaohua on 1/18/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+#import "TTStyledBoxFrame.h"
+#import "TTStyledInlineFrame.h"
 #import "TTStyledText.h"
 #import "TTStyledTextLabel.h"
 #import "UIViewAdditions.h"
@@ -21,6 +23,13 @@
     return self;
 }
 
+- (void)dealloc {
+    [NSObject cancelPreviousPerformRequestsWithTarget:self];
+
+    [_text release];
+    [super dealloc];
+}
+
 - (void)drawRect:(CGRect)rect {
     [_text drawAtPoint:CGPointZero];
 }
@@ -33,6 +42,49 @@
 - (CGSize)sizeThatFits:(CGSize)size {
     [self layoutIfNeeded];
     return CGSizeMake(_text.width, _text.height);
+}
+
+- (void)setHighlighted:(BOOL)highlighted forFrame:(TTStyledBoxFrame *)frame {
+    if ([frame isKindOfClass:[TTStyledInlineFrame class]]) {
+        TTStyledInlineFrame *inlineFrame = (TTStyledInlineFrame *)frame;
+        while (inlineFrame.inlinePreviousFrame) {
+            inlineFrame = inlineFrame.inlinePreviousFrame;
+        }
+        while (inlineFrame) {
+            inlineFrame.highlighted = highlighted;
+            inlineFrame = inlineFrame.inlineNextFrame;
+        }
+    } else {
+        frame.highlighted = highlighted;
+    }
+}
+
+- (void)clearHightlighedDelayed {
+    [self setHighlighted:NO forFrame:_highlightedFrame];
+    _highlightedFrame = nil;
+    [self setNeedsDisplay];
+}
+
+- (void)touchesBegan:(NSSet*)touches withEvent:(UIEvent *)event {
+    [NSObject cancelPreviousPerformRequestsWithTarget:self];
+
+    UITouch *touch = [touches anyObject];
+    CGPoint point = [touch locationInView:self];
+
+    TTStyledBoxFrame *frame = [_text hitTest:point];
+    if (frame) {
+        _highlightedFrame = frame;
+        [self setHighlighted:YES forFrame:frame];
+        [self setNeedsDisplay];
+    }
+    [super touchesBegan:touches withEvent:event];
+}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    if (_highlightedFrame) {
+        [self performSelector:@selector(clearHightlighedDelayed) withObject:nil afterDelay:.1];
+    }
+    [super touchesEnded:touches withEvent:event];
 }
 
 #pragma mark -

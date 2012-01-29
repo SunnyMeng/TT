@@ -1,6 +1,6 @@
 //
 //  TTURLRequestModel.m
-//  TT
+//  TTNetwork
 //
 //  Created by shaohua on 1/20/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
@@ -23,7 +23,7 @@
 
 @synthesize loadedTime = _loadedTime;
 @synthesize loadingRequest = _loadingRequest;
-@synthesize responseObject = _responseObject;
+@synthesize delegates = _delegates;
 
 - (id)init {
     if (self = [super init]) {
@@ -41,20 +41,12 @@
     [super dealloc];
 }
 
-- (NSMutableArray *)delegates {
-    return _delegates;
-}
-
 - (BOOL)isLoaded {
     return !!_loadedTime;
 }
 
 - (BOOL)isLoading {
     return !!_loadingRequest;
-}
-
-- (BOOL)isEmpty {
-    return !_responseObject;
 }
 
 - (void)load:(TTURLRequestCachePolicy)cachePolicy more:(BOOL)more {
@@ -72,9 +64,8 @@
 }
 
 - (void)requestDidFinishLoad:(TTURLRequest *)request {
-    self.loadedTime = request.timestamp;
     self.loadingRequest = nil;
-    self.responseObject = [request responseObject];
+    self.loadedTime = request.timestamp;
     [_delegates perform:@selector(modelDidFinishLoad:) withObject:self];
 }
 

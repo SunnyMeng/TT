@@ -1,6 +1,6 @@
 //
 //  TTStyledLayout.m
-//  TTUI
+//  TTStyle
 //
 //  Created by shaohua on 1/18/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
@@ -244,8 +244,8 @@
         [_invalidImages addObject:imageNode];
     }
 
-    CGFloat imageWidth = imageNode.width ?: image.size.width;
-    CGFloat imageHeight = imageNode.height ?: image.size.height;
+    CGFloat imageWidth = imageNode.width ?: (image ? image.size.width : 0);
+    CGFloat imageHeight = imageNode.height ?: (image ? image.size.height : 0);
     CGFloat contentWidth = imageWidth;
     CGFloat contentHeight = imageHeight;
     if (_lineWidth + contentWidth > _width) {

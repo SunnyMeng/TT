@@ -16,17 +16,21 @@
 
 - (id)initWithModel:(id <TTModel>)model {
     if ((self = [super initWithFrame:CGRectMake(0, 0, 320, SCROLL_FOOTER_HEIGHT)])) {
+        _model = [model retain];
+        [_model.delegates addObject:self];
+
         _indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         _indicator.center = self.center;
         [self addSubview:_indicator];
-        _model = [model retain];
     }
     return self;
 }
 
 - (void)dealloc {
-    [_indicator release];
+    [_model.delegates removeObject:self];
+
     [_model release];
+    [_indicator release];
     [super dealloc];
 }
 

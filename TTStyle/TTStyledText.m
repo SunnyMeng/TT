@@ -1,6 +1,6 @@
 //
 //  TTStyledText.m
-//  TTUI
+//  TTStyle
 //
 //  Created by shaohua on 1/18/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
@@ -129,6 +129,10 @@
 - (TTStyledFrame *)rootFrame {
     [self layoutIfNeeded];
     return _rootFrame;
+}
+
+- (TTStyledBoxFrame *)hitTest:(CGPoint)point {
+    return [self.rootFrame hitTest:point];
 }
 
 - (void)drawAtPoint:(CGPoint)point {

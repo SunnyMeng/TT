@@ -26,7 +26,7 @@
 }
 
 - (BOOL)shouldLoad {
-    return ![self.model isLoaded];
+    return ![_model isLoaded];
 }
 
 - (void)reload {
@@ -47,12 +47,16 @@
 
 #pragma mark -
 #pragma makr UIViewController
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
+- (void)viewDidLoad {
+    [super viewDidLoad];
     if (!_model) {
         [self createModel];
         [_model.delegates addObject:self];
     }
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [self reloadIfNeeded];
 }
 
@@ -64,12 +68,10 @@
 
 - (void)modelDidFinishLoad:(id <TTModel>)model {
     [self showLoading:NO];
-    [self showEmpty:[model isEmpty]];
 }
 
 - (void)model:(id <TTModel>)model didFailLoadWithError:(NSError *)error {
     [self showLoading:NO];
-    [self showEmpty:[model isEmpty]];
 }
 
 @end

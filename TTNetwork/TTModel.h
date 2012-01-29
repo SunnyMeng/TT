@@ -1,6 +1,6 @@
 //
 //  TTModel.h
-//  TT
+//  TTNetwork
 //
 //  Created by shaohua on 1/20/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
@@ -16,7 +16,6 @@
 
 - (BOOL)isLoaded;
 - (BOOL)isLoading;
-- (BOOL)isEmpty;
 - (void)load:(TTURLRequestCachePolicy)cachePolicy more:(BOOL)more;
 - (void)cancel;
 

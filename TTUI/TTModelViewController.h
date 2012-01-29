@@ -15,7 +15,7 @@
 
 @interface TTModelViewController : TTViewController <TTModelDelegate>
 
-@property (nonatomic, retain) NSObject<TTModel> *model;
+@property (nonatomic, retain) id <TTModel> model;
 
 - (void)createModel;
 - (BOOL)shouldLoad;

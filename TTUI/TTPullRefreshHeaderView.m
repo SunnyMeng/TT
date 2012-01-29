@@ -16,6 +16,7 @@
 - (id)initWithModel:(id <TTModel>)model {
     if (self = [super initWithFrame:CGRectMake(0, 0 - REFRESH_HEADER_HEIGHT, 320, REFRESH_HEADER_HEIGHT)]) {
         _model = [model retain];
+        [_model.delegates addObject:self];
 
         self.backgroundColor = [UIColor clearColor];
 
@@ -33,6 +34,9 @@
 }
 
 - (void)dealloc {
+    [_model.delegates removeObject:self];
+
+    [_model release];
     [_refreshLabel release];
     [_refreshSpinner release];
     [super dealloc];
@@ -57,11 +61,11 @@
     _isLoading = YES;
 
     // Show the header
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:0.3];
-    _scrollView.contentInset = UIEdgeInsetsMake(REFRESH_HEADER_HEIGHT, 0, 0, 0);
+    [UIView animateWithDuration:.3 animations:^{
+        _scrollView.contentInset = UIEdgeInsetsMake(REFRESH_HEADER_HEIGHT, 0, 0, 0);
+    }];
+
     [self showLoading];
-    [UIView commitAnimations];
 
     // Refresh action!
     [_model load:TTURLRequestReloadUsingCacheData more:NO];
@@ -70,18 +74,13 @@
 - (void)stopLoading {
     _isLoading = NO;
 
-    // Hide the header
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationDuration:0.3];
-    [UIView setAnimationDidStopSelector:@selector(stopLoadingComplete:finished:context:)];
-    _scrollView.contentInset = UIEdgeInsetsZero;
-    [UIView commitAnimations];
-}
-
-- (void)stopLoadingComplete:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context {
-    // Reset the header
-    [self showPull];
+    [UIView animateWithDuration:.3 animations:^{
+        // Hide the header
+        _scrollView.contentInset = UIEdgeInsetsZero;
+    } completion:^(BOOL finished) {
+        // Reset the header
+        [self showPull];
+    }];
 }
 
 #pragma mark -

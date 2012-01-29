@@ -10,7 +10,7 @@
 
 @interface TTNetworkEnabledTableViewController : TTTableViewController
 
-@property (readonly) BOOL dragRefreshEnabled;
-@property (readonly) BOOL infiniteScrollEnabled;
+@property (nonatomic, getter=isDragRefreshEnabled) BOOL dragRefreshEnabled;
+@property (nonatomic, getter=isInfiniteScrollEnabled) BOOL infiniteScrollEnabled;
 
 @end

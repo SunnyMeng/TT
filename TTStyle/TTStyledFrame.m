@@ -1,6 +1,6 @@
 //
 //  TTStyledFrame.m
-//  TTUI
+//  TTStyle
 //
 //  Created by shaohua on 1/18/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
@@ -54,6 +54,10 @@
 }
 
 - (void)drawInRect:(CGRect)rect {
+}
+
+- (TTStyledBoxFrame *)hitTest:(CGPoint)point {
+    return [_nextFrame hitTest:point];
 }
 
 - (NSString *)description {

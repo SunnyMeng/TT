@@ -1,6 +1,6 @@
 //
 //  TTStyledTextLabel.h
-//  TTUI
+//  TTStyle
 //
 //  Created by shaohua on 1/18/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
@@ -11,8 +11,11 @@
 #import "TTStyledTextDelegate.h"
 
 @class TTStyledText;
+@class TTStyledBoxFrame;
 
-@interface TTStyledTextLabel : UIView <TTStyledTextDelegate>
+@interface TTStyledTextLabel : UIView <TTStyledTextDelegate> {
+    TTStyledBoxFrame *_highlightedFrame;
+}
 
 @property (nonatomic, retain) TTStyledText *text;
 

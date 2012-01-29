@@ -7,6 +7,7 @@
 //
 
 #import "NSArrayAdditions.h"
+#import "TTModel.h"
 #import "TTTableViewCell.h" // bypass compilation warning and error
 #import "TTTableViewController.h"
 
@@ -23,7 +24,7 @@
 }
 
 - (void)modelDidFinishLoad:(id<TTModel>)model {
-    [self.tableView reloadData];
+    [_tableView reloadData];
 }
 
 #pragma -
@@ -45,8 +46,10 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    if (self.tableView.indexPathForSelectedRow) {
-        [self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow animated:YES];
+
+    NSIndexPath *selectedRow = _tableView.indexPathForSelectedRow;
+    if (selectedRow) {
+        [_tableView deselectRowAtIndexPath:selectedRow animated:YES];
     }
 }
 

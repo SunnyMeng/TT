@@ -1,6 +1,6 @@
 //
 //  TTStyledFrame.h
-//  TTUI
+//  TTStyle
 //
 //  Created by shaohua on 1/18/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
@@ -10,6 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 @class TTStyledElement;
+@class TTStyledBoxFrame;
 
 @interface TTStyledFrame : NSObject
 
@@ -23,5 +24,6 @@
 @property (nonatomic) CGFloat height;
 
 - (void)drawInRect:(CGRect)rect;
+- (TTStyledBoxFrame *)hitTest:(CGPoint)point;
 
 @end
