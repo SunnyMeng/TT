@@ -9,4 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <QuartzCore/QuartzCore.h>
 
+#import "TTStyleSheet.h"
+
 void TTAddRoundedRectToPath(CGContextRef context, CGRect rect, float ovalWidth, float ovalHeight);
+
+
+#define TTSTYLEVAR(_VARNAME) [[TTStyleSheet globalSheet] _VARNAME]

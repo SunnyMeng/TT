@@ -29,3 +29,9 @@ NSString *TTDeviceModelName(void) {
     free(machine);
     return platform;
 }
+
+CGFloat TTScreenWidth(void) {
+    CGRect bounds = [UIScreen mainScreen].bounds;
+    UIInterfaceOrientation orient = [UIApplication sharedApplication].statusBarOrientation;
+    return UIInterfaceOrientationIsLandscape(orient) ? bounds.size.height : bounds.size.width;
+}

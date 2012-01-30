@@ -8,6 +8,7 @@
 
 #import "TTGlobalCore.h"
 #import "TTGlobalNetwork.h"
+#import "TTGlobalStyle.h"
 #import "TTStyledBoxFrame.h"
 #import "TTStyledElement.h"
 #import "TTStyledImageFrame.h"
@@ -217,8 +218,7 @@
     TTStyledTextFrame *frame = [[[TTStyledTextFrame alloc] initWithText:text] autorelease];
     frame.font = _font;
     if ([element isKindOfClass:[TTStyledLinkNode class]]) {
-        // linkTextColor
-        frame.textColor = [UIColor blueColor];
+        frame.textColor = TTSTYLEVAR(linkTextColor);
     }
     [self addContentFrame:frame width:width height:height];
     return frame;

@@ -38,5 +38,6 @@
 #import "UIViewAdditions.h"
 
 // Style
+#import "TTGlobalStyle.h"
 #import "TTStyledText.h"
 #import "TTStyledTextLabel.h"

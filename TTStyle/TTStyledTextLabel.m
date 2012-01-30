@@ -131,22 +131,6 @@
     }
 }
 
-- (void)setWidth:(CGFloat)width {
-    if (_text.width != width) {
-        _text.width = width;
-        [self setNeedsDisplay];
-    }
-    [super setWidth:width];
-}
-
-- (void)setSize:(CGSize)size {
-    if (_text.width != size.width) {
-        _text.width = size.width;
-        [self setNeedsDisplay];
-    }
-    [super setSize:size];
-}
-
 - (void)setFrame:(CGRect)frame {
     if (_text.width != frame.size.width) {
         _text.width = frame.size.width;

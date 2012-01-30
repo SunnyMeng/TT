@@ -14,7 +14,8 @@
 
 - (void)setImageWithURL:(NSString *)urlPath placeholder:(UIImage *)placeholder delegate:(id <UIImageViewDelegate>)delegate {
     if (![urlPath length]) {
-        [[TTURLRequestQueue mainQueue] cancelRequestsWithDelegate:self];
+        [self cancelImageLoading];
+        self.image = nil;
         return;
     }
     self.image = placeholder;

@@ -59,7 +59,10 @@
 }
 
 + (TTStyledText *)textFromXHTML:(NSString *)source {
-    TTStyledTextParser* parser = [[[TTStyledTextParser alloc] init] autorelease];
+    if (![source length]) {
+        return nil;
+    }
+    TTStyledTextParser *parser = [[[TTStyledTextParser alloc] init] autorelease];
     [parser parseXHTML:source];
     if (parser.rootNode) {
         return [[[TTStyledText alloc] initWithNode:parser.rootNode] autorelease];
@@ -102,7 +105,7 @@
 
 - (void)layoutFrames {
     TTStyledLayout *layout = [[[TTStyledLayout alloc] initWithRootNode:_rootNode] autorelease];
-    NSAssert(_width && _font, @"no default values");
+    NSAssert(_width && _font, @"both values mandatory");
     layout.width = _width;
     layout.font = _font;
     layout.textAlignment = _textAlignment;

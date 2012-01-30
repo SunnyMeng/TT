@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD2649F614D664AF001415D0 /* TTStyleSheet.h in Headers */ = {isa = PBXBuildFile; fileRef = AD2649F414D664AE001415D0 /* TTStyleSheet.h */; };
+		AD2649F714D664AF001415D0 /* TTStyleSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = AD2649F514D664AF001415D0 /* TTStyleSheet.m */; };
 		AD44E55814CBD30C007A2DBD /* TTStyledBoxFrame.h in Headers */ = {isa = PBXBuildFile; fileRef = AD44E53914CBD30C007A2DBD /* TTStyledBoxFrame.h */; };
 		AD44E55914CBD30C007A2DBD /* TTStyledBoxFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44E53A14CBD30C007A2DBD /* TTStyledBoxFrame.m */; };
 		AD44E55A14CBD30C007A2DBD /* TTStyledElement.h in Headers */ = {isa = PBXBuildFile; fileRef = AD44E53B14CBD30C007A2DBD /* TTStyledElement.h */; };
@@ -94,6 +96,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AD2649F414D664AE001415D0 /* TTStyleSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTStyleSheet.h; sourceTree = "<group>"; };
+		AD2649F514D664AF001415D0 /* TTStyleSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTStyleSheet.m; sourceTree = "<group>"; };
 		AD44E53914CBD30C007A2DBD /* TTStyledBoxFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTStyledBoxFrame.h; sourceTree = "<group>"; };
 		AD44E53A14CBD30C007A2DBD /* TTStyledBoxFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTStyledBoxFrame.m; sourceTree = "<group>"; };
 		AD44E53B14CBD30C007A2DBD /* TTStyledElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTStyledElement.h; sourceTree = "<group>"; };
@@ -198,6 +202,8 @@
 			children = (
 				AD5D645814D4FBCC00F3C470 /* TTGlobalStyle.h */,
 				AD5D645914D4FBCD00F3C470 /* TTGlobalStyle.m */,
+				AD2649F414D664AE001415D0 /* TTStyleSheet.h */,
+				AD2649F514D664AF001415D0 /* TTStyleSheet.m */,
 				AD44E54B14CBD30C007A2DBD /* TTStyledText.h */,
 				AD44E54C14CBD30C007A2DBD /* TTStyledText.m */,
 				AD44E54D14CBD30C007A2DBD /* TTStyledTextDelegate.h */,
@@ -409,6 +415,7 @@
 				AD44E57514CBD30C007A2DBD /* UIImageAdditions.h in Headers */,
 				AD44E5C314CD0B3E007A2DBD /* TTStyledInlineFrame.h in Headers */,
 				AD5D645A14D4FBCE00F3C470 /* TTGlobalStyle.h in Headers */,
+				AD2649F614D664AF001415D0 /* TTStyleSheet.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,6 +506,7 @@
 				AD44E57614CBD30C007A2DBD /* UIImageAdditions.m in Sources */,
 				AD44E5C414CD0B3E007A2DBD /* TTStyledInlineFrame.m in Sources */,
 				AD5D645B14D4FBCE00F3C470 /* TTGlobalStyle.m in Sources */,
+				AD2649F714D664AF001415D0 /* TTStyleSheet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
