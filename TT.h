@@ -41,3 +41,4 @@
 #import "TTGlobalStyle.h"
 #import "TTStyledText.h"
 #import "TTStyledTextLabel.h"
+#import "TTStyledTextLabelDelegate.h"

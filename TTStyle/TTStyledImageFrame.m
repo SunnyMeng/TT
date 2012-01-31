@@ -14,8 +14,8 @@
 
 @implementation TTStyledImageFrame
 
-- (id)initWithNode:(TTStyledImageNode *)node {
-    if (self = [super init]) {
+- (id)initWithNode:(TTStyledImageNode *)node element:(TTStyledElement *)element {
+    if (self = [super initWithElement:element]) {
         _node = node;
     }
     return self;

@@ -46,6 +46,7 @@
 		AD63E3C614C876F400D505F2 /* TTGlobalCore.m in Sources */ = {isa = PBXBuildFile; fileRef = AD63E3C414C876F400D505F2 /* TTGlobalCore.m */; };
 		AD63E3EA14C87CD100D505F2 /* TT.h in Headers */ = {isa = PBXBuildFile; fileRef = AD63E3E914C87CD100D505F2 /* TT.h */; settings = {ATTRIBUTES = (); }; };
 		AD63E4D214C902E100D505F2 /* TTURLRequestQueueInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = ADDB8A9114C8744B00F13BC3 /* TTURLRequestQueueInternal.h */; };
+		AD8861E814D7EDEE004A64B9 /* TTStyledTextLabelDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = AD8861E614D7EDEE004A64B9 /* TTStyledTextLabelDelegate.h */; };
 		ADCB50A914C9105200364611 /* TTURLRequestInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = ADDB8A8E14C8744B00F13BC3 /* TTURLRequestInternal.h */; };
 		ADCB510914C9163800364611 /* TTModel.h in Headers */ = {isa = PBXBuildFile; fileRef = ADCB510714C9163700364611 /* TTModel.h */; settings = {ATTRIBUTES = (); }; };
 		ADCB510D14C9172600364611 /* TTURLRequestModel.h in Headers */ = {isa = PBXBuildFile; fileRef = ADCB510B14C9172300364611 /* TTURLRequestModel.h */; settings = {ATTRIBUTES = (); }; };
@@ -134,6 +135,7 @@
 		AD63E3C314C876F400D505F2 /* TTGlobalCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTGlobalCore.h; sourceTree = "<group>"; };
 		AD63E3C414C876F400D505F2 /* TTGlobalCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTGlobalCore.m; sourceTree = "<group>"; };
 		AD63E3E914C87CD100D505F2 /* TT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT.h; sourceTree = "<group>"; };
+		AD8861E614D7EDEE004A64B9 /* TTStyledTextLabelDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTStyledTextLabelDelegate.h; sourceTree = "<group>"; };
 		ADCB510714C9163700364611 /* TTModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTModel.h; sourceTree = "<group>"; };
 		ADCB510B14C9172300364611 /* TTURLRequestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTURLRequestModel.h; sourceTree = "<group>"; };
 		ADCB510C14C9172500364611 /* TTURLRequestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTURLRequestModel.m; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				AD44E54D14CBD30C007A2DBD /* TTStyledTextDelegate.h */,
 				AD44E55014CBD30C007A2DBD /* TTStyledTextLabel.h */,
 				AD44E55114CBD30C007A2DBD /* TTStyledTextLabel.m */,
+				AD8861E614D7EDEE004A64B9 /* TTStyledTextLabelDelegate.h */,
 				AD44E57814CBD388007A2DBD /* Styled Frame */,
 				AD44E57714CBD370007A2DBD /* Styled Node */,
 			);
@@ -416,6 +419,7 @@
 				AD44E5C314CD0B3E007A2DBD /* TTStyledInlineFrame.h in Headers */,
 				AD5D645A14D4FBCE00F3C470 /* TTGlobalStyle.h in Headers */,
 				AD2649F614D664AF001415D0 /* TTStyleSheet.h in Headers */,
+				AD8861E814D7EDEE004A64B9 /* TTStyledTextLabelDelegate.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

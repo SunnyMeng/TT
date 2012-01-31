@@ -15,6 +15,7 @@
 @interface TTStyledFrame : NSObject
 
 @property (nonatomic, retain) TTStyledFrame *nextFrame;
+@property (nonatomic, readonly) TTStyledElement *element;
 
 @property (nonatomic) CGRect bounds;
 
@@ -23,6 +24,7 @@
 @property (nonatomic) CGFloat width;
 @property (nonatomic) CGFloat height;
 
+- (id)initWithElement:(TTStyledElement *)element;
 - (void)drawInRect:(CGRect)rect;
 - (TTStyledBoxFrame *)hitTest:(CGPoint)point;
 

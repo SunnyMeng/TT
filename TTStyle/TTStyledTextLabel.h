@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "TTStyledTextDelegate.h"
+#import "TTStyledTextLabelDelegate.h"
 
 @class TTStyledText;
 @class TTStyledBoxFrame;
@@ -21,5 +22,6 @@
 @property (nonatomic, retain) UIFont *font;
 @property (nonatomic, retain) UIColor *textColor;
 @property (nonatomic) UITextAlignment textAlignment;
+@property (nonatomic, assign) id <TTStyledTextLabelDelegate> delegate;
 
 @end

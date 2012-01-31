@@ -16,6 +16,6 @@
     TTStyledImageNode *_node;
 }
 
-- (id)initWithNode:(TTStyledImageNode *)node;
+- (id)initWithNode:(TTStyledImageNode *)node element:(TTStyledElement *)element;
 
 @end

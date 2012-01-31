@@ -30,6 +30,11 @@ NSString *TTDeviceModelName(void) {
     return platform;
 }
 
+BOOL TTDeviceIsLandscape(void) {
+    UIInterfaceOrientation orient = [UIApplication sharedApplication].statusBarOrientation;
+    return UIInterfaceOrientationIsLandscape(orient);
+}
+
 CGFloat TTScreenWidth(void) {
     CGRect bounds = [UIScreen mainScreen].bounds;
     UIInterfaceOrientation orient = [UIApplication sharedApplication].statusBarOrientation;

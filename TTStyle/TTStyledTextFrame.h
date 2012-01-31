@@ -19,6 +19,6 @@
 @property (nonatomic, retain) UIFont *font;
 @property (nonatomic, retain) UIColor *textColor; // part of the style
 
-- (id)initWithText:(NSString *)text;
+- (id)initWithText:(NSString *)text element:(TTStyledElement *)element;
 
 @end

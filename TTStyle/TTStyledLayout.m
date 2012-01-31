@@ -140,8 +140,8 @@
     [self addContentFrame:frame];
 }
 
-- (TTStyledInlineFrame *)addInlineFrameWithWidth:(CGFloat)width height:(CGFloat)height {
-    TTStyledInlineFrame *frame = [[[TTStyledInlineFrame alloc] init] autorelease];
+- (TTStyledInlineFrame *)addInlineFrame:(TTStyledElement *)element width:(CGFloat)width height:(CGFloat)height {
+    TTStyledInlineFrame *frame = [[[TTStyledInlineFrame alloc] initWithElement:element] autorelease];
     frame.bounds = CGRectMake(_x, _height, width, height);
     [self pushFrame:frame];
     if (!_lineFirstFrame) {
@@ -155,7 +155,7 @@
     if (parent) {
         [self cloneInlineFrame:parent];
     }
-    TTStyledInlineFrame *clone = [self addInlineFrameWithWidth:0 height:0];
+    TTStyledInlineFrame *clone = [self addInlineFrame:frame.element width:0 height:0];
     clone.inlinePreviousFrame = frame;
     frame.inlineNextFrame = clone;
     return clone;
@@ -215,7 +215,7 @@
 }
 
 - (TTStyledFrame *)addFrameForText:(NSString *)text element:(TTStyledElement *)element width:(CGFloat)width height:(CGFloat)height {
-    TTStyledTextFrame *frame = [[[TTStyledTextFrame alloc] initWithText:text] autorelease];
+    TTStyledTextFrame *frame = [[[TTStyledTextFrame alloc] initWithText:text element:element] autorelease];
     frame.font = _font;
     if ([element isKindOfClass:[TTStyledLinkNode class]]) {
         frame.textColor = TTSTYLEVAR(linkTextColor);
@@ -226,7 +226,7 @@
 
 - (void)layoutElement:(TTStyledElement *)elt {
     if (elt.firstChild) {
-        _inlineFrame = [self addInlineFrameWithWidth:0 height:0];
+        _inlineFrame = [self addInlineFrame:elt width:0 height:0];
         [self layout:elt.firstChild container:elt];
         _inlineFrame = _inlineFrame.inlineParentFrame;
         [self popFrame];
@@ -260,7 +260,7 @@
         }
     }
 
-    TTStyledImageFrame *frame = [[[TTStyledImageFrame alloc] initWithNode:imageNode] autorelease];
+    TTStyledImageFrame *frame = [[[TTStyledImageFrame alloc] initWithNode:imageNode element:element] autorelease];
     [self addContentFrame:frame width:imageWidth height:imageHeight];
     [self expandLineWidth:contentWidth];
     [self inflateLineHeight:contentHeight];

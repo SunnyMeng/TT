@@ -16,8 +16,8 @@
 @synthesize text = _text;
 @synthesize textColor = _textColor;
 
-- (id)initWithText:(NSString *)text {
-    if (self = [super init]) {
+- (id)initWithText:(NSString *)text element:(TTStyledElement *)element{
+    if (self = [super initWithElement:element]) {
         _text = [text copy];
     }
     return self;

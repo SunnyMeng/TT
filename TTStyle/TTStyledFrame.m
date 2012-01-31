@@ -15,6 +15,14 @@
 
 @synthesize bounds = _bounds;
 @synthesize nextFrame = _nextFrame;
+@synthesize element = _element;
+
+- (id)initWithElement:(TTStyledElement *)element {
+    if (self = [super init]) {
+        _element = element;
+    }
+    return self;
+}
 
 - (void)dealloc {
     [_nextFrame release];

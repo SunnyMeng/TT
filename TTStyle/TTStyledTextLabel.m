@@ -8,6 +8,7 @@
 
 #import "TTStyledBoxFrame.h"
 #import "TTStyledInlineFrame.h"
+#import "TTStyledLinkNode.h"
 #import "TTStyledText.h"
 #import "TTStyledTextLabel.h"
 #import "UIViewAdditions.h"
@@ -18,6 +19,7 @@
 @synthesize font = _font;
 @synthesize textAlignment = _textAlignment;
 @synthesize textColor = _textColor;
+@synthesize delegate = _delegate;
 
 - (id)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
@@ -63,6 +65,13 @@
 }
 
 - (void)clearHightlighedDelayed {
+    TTStyledLinkNode *node = (TTStyledLinkNode *)_highlightedFrame.element;
+    if ([node isKindOfClass:[TTStyledLinkNode class]]) {
+        if ([_delegate respondsToSelector:@selector(label:shouldOpenURL:)]) {
+            [_delegate label:self shouldOpenURL:node.URL];
+        }
+    }
+
     [self setHighlighted:NO forFrame:_highlightedFrame];
     _highlightedFrame = nil;
     [self setNeedsDisplay];
@@ -79,15 +88,9 @@
         _highlightedFrame = frame;
         [self setHighlighted:YES forFrame:frame];
         [self setNeedsDisplay];
+        [self performSelector:@selector(clearHightlighedDelayed) withObject:nil afterDelay:.3];
     }
     [super touchesBegan:touches withEvent:event];
-}
-
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    if (_highlightedFrame) {
-        [self performSelector:@selector(clearHightlighedDelayed) withObject:nil afterDelay:.1];
-    }
-    [super touchesEnded:touches withEvent:event];
 }
 
 #pragma mark -
