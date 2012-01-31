@@ -10,12 +10,12 @@
 #import "TTModel.h"
 #import "UIViewAdditions.h"
 
-#define SCROLL_FOOTER_HEIGHT 40
+static const CGFloat kScrollFooterHeight = 40;
 
 @implementation TTInfiniteScrollFooterView
 
 - (id)initWithModel:(id <TTModel>)model {
-    if ((self = [super initWithFrame:CGRectMake(0, 0, 0, SCROLL_FOOTER_HEIGHT)])) {
+    if ((self = [super initWithFrame:CGRectMake(0, 0, 0, kScrollFooterHeight)])) {
         _model = [model retain];
         [_model.delegates addObject:self];
 

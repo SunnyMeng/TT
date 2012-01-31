@@ -10,12 +10,12 @@
 #import "TTPullRefreshHeaderView.h"
 #import "UIViewAdditions.h"
 
-#define REFRESH_HEADER_HEIGHT 52
+static const CGFloat kRefreshHeaderHeight = 52;
 
 @implementation TTPullRefreshHeaderView
 
 - (id)initWithModel:(id <TTModel>)model {
-    if (self = [super initWithFrame:CGRectMake(0, -REFRESH_HEADER_HEIGHT, 0, REFRESH_HEADER_HEIGHT)]) {
+    if (self = [super initWithFrame:CGRectMake(0, -kRefreshHeaderHeight, 0, kRefreshHeaderHeight)]) {
         _model = [model retain];
         [_model.delegates addObject:self];
 
@@ -71,7 +71,7 @@
 
     // Show the header
     [UIView animateWithDuration:.3 animations:^{
-        _scrollView.contentInset = UIEdgeInsetsMake(REFRESH_HEADER_HEIGHT, 0, 0, 0);
+        _scrollView.contentInset = UIEdgeInsetsMake(kRefreshHeaderHeight, 0, 0, 0);
     }];
 
     [self showLoading];
@@ -106,13 +106,13 @@
         // Update the content inset, good for section headers
         if (scrollView.contentOffset.y > 0) {
             scrollView.contentInset = UIEdgeInsetsZero;
-        } else if (scrollView.contentOffset.y >= -REFRESH_HEADER_HEIGHT) {
+        } else if (scrollView.contentOffset.y >= -kRefreshHeaderHeight) {
             scrollView.contentInset = UIEdgeInsetsMake(-scrollView.contentOffset.y, 0, 0, 0);
         }
     } else if (_isDragging && scrollView.contentOffset.y < 0) {
         // Update the arrow direction and label
         [UIView beginAnimations:nil context:NULL];
-        if (scrollView.contentOffset.y < -REFRESH_HEADER_HEIGHT) {
+        if (scrollView.contentOffset.y < -kRefreshHeaderHeight) {
             // User is scrolling above the header
             [self showRelease];
         } else { // User is scrolling somewhere within the header
@@ -127,7 +127,7 @@
         return;
     }
     _isDragging = NO;
-    if (scrollView.contentOffset.y <= -REFRESH_HEADER_HEIGHT) {
+    if (scrollView.contentOffset.y <= -kRefreshHeaderHeight) {
         // Released above the header
         _scrollView = scrollView;
         [self startLoading];

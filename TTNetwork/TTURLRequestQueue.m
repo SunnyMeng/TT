@@ -206,21 +206,28 @@ static const NSInteger kMaxConcurrentLoads = 1;
     [loader retain];
     [self removeLoader:loader];
 
-    // cache response with meta data
-    if (loader.cachePolicy != TTURLRequestReloadIgnoringCacheData) {
-        NSDictionary *headers = [response allHeaderFields];
-        NSString *etag = [headers objectForKey:@"ETag"];
-        if ([etag length]) {
-            [[TTURLCache sharedCache] storeEtag:etag forKey:loader.cacheKey];
+    if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
+        NSInteger statusCode = [response statusCode];
+        if (statusCode >= 200 && statusCode < 300) {
+            // cache response with meta data
+            if (loader.cachePolicy != TTURLRequestReloadIgnoringCacheData) {
+                NSDictionary *headers = [response allHeaderFields];
+                NSString *etag = [headers objectForKey:@"ETag"];
+                if ([etag length]) {
+                    [[TTURLCache sharedCache] storeEtag:etag forKey:loader.cacheKey];
+                }
+                NSString *mtime = [headers objectForKey:@"Last-Modified"];
+                if ([mtime length]) {
+                    [[TTURLCache sharedCache] storeMtime:mtime forKey:loader.cacheKey];
+                }
+                [[TTURLCache sharedCache] storeData:data forKey:loader.cacheKey];
+            }
+            [loader dispatchLoaded:data timestamp:[NSDate date] fromCache:NO];
+        } else {
+            [loader dispatchError:[NSError errorWithDomain:NSURLErrorDomain code:statusCode userInfo:nil] data:data];
         }
-        NSString *mtime = [headers objectForKey:@"Last-Modified"];
-        if ([mtime length]) {
-            [[TTURLCache sharedCache] storeMtime:mtime forKey:loader.cacheKey];
-        }
-        [[TTURLCache sharedCache] storeData:data forKey:loader.cacheKey];
     }
 
-    [loader dispatchLoaded:data timestamp:[NSDate date] fromCache:NO];
     [loader release];
     [self loadNextInQueue];
 }

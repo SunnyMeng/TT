@@ -35,3 +35,13 @@ CGFloat TTScreenWidth(void) {
     UIInterfaceOrientation orient = [UIApplication sharedApplication].statusBarOrientation;
     return UIInterfaceOrientationIsLandscape(orient) ? bounds.size.height : bounds.size.width;
 }
+
+CGSize TTScaleAspectFit(CGSize size, CGSize bounds) {
+    if (size.width > bounds.width || size.height > bounds.height) {
+        CGFloat hRatio = size.width / bounds.width;
+        CGFloat vRatio = size.height / bounds.height;
+        CGFloat ratio = MAX(hRatio, vRatio);
+        return CGSizeMake(floorf(size.width / ratio), floorf(size.height / ratio));
+    }
+    return size;
+}

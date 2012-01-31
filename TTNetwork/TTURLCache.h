@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface TTURLCache : NSObject {
     NSString *_dataPath;
@@ -26,5 +27,7 @@
 - (void)storeData:(NSData *)data forKey:(NSString *)key;
 - (void)storeEtag:(NSString *)etag forKey:(NSString *)key;
 - (void)storeMtime:(NSString *)mtime forKey:(NSString *)key;
+
+- (UIImage *)imageForURL:(NSString *)URL;
 
 @end

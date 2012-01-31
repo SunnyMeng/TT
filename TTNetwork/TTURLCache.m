@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+#import "NSStringAdditions.h"
 #import "TTURLCache.h"
 
 @implementation TTURLCache
@@ -123,6 +124,11 @@
 
 - (void)storeMtime:(NSString *)mtime forKey:(NSString *)key {
     [[NSFileManager defaultManager] createFileAtPath:[self mtimePathForKey:key] contents:[mtime dataUsingEncoding:NSUTF8StringEncoding] attributes:nil];
+}
+
+- (UIImage *)imageForURL:(NSString *)URL {
+    NSData *imageData = [self dataForKey:[URL md5Hash] expires:INFINITY timestamp:NULL];
+    return [UIImage imageWithData:imageData];
 }
 
 @end

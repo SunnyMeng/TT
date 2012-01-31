@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+#import "TTURLCache.h"
 #import "TTURLRequest.h"
 #import "TTURLRequestQueue.h"
 #import "UIImageViewAdditions.h"
@@ -18,11 +19,18 @@
         self.image = nil;
         return;
     }
-    self.image = placeholder;
-    TTURLRequest *request = [TTURLRequest requestWithURL:urlPath delegate:(id <TTURLRequestDelegate>)self];
-    request.cachePolicy = TTURLRequestReturnCacheDataElseLoad;
-    request.weakRef = delegate;
-    [request send];
+    UIImage *image = [[TTURLCache sharedCache] imageForURL:urlPath];
+    if (image) {
+        self.image = image;
+    } else {
+        self.image = placeholder;
+
+        TTURLRequest *request = [TTURLRequest requestWithURL:urlPath delegate:(id <TTURLRequestDelegate>)self];
+        request.cachePolicy = TTURLRequestReturnCacheDataElseLoad;
+        request.cacheExpirationAge = INFINITY;
+        request.weakRef = delegate;
+        [request send];
+    }
 }
 
 - (void)cancelImageLoading {
@@ -31,7 +39,7 @@
 
 #pragma mark -
 #pragma mark TTURLRequestDelegate
-- (void)imageViewDidStartLoad:(TTURLRequest *)request {
+- (void)requestDidStartLoad:(TTURLRequest *)request {
     if ([request.weakRef respondsToSelector:@selector(imageViewDidStartLoad:)]) {
         [request.weakRef imageViewDidStartLoad:self];
     }
