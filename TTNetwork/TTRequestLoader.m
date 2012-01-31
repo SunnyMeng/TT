@@ -65,7 +65,10 @@
 
     TTURLRequest *request = [_requests lastObject];
     NSURLRequest *URLRequest = [_queue createNSURLRequest:request];
-    self.connection = [NSURLConnection connectionWithRequest:URLRequest delegate:self];
+    self.connection = [[NSURLConnection alloc] initWithRequest:URLRequest delegate:self startImmediately:NO];
+    // default runloop mode for NSURLConnection is NSEventTrackingRunLoopMode
+    [_connection scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+    [_connection start];
 }
 
 - (void)dispatchError:(NSError *)error data:(NSData *)data {
