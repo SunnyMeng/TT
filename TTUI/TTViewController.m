@@ -7,6 +7,7 @@
 //
 
 #import "TTDebug.h"
+#import "TTGlobalUI.h"
 #import "TTViewController.h"
 #import "UIViewAdditions.h"
 
@@ -44,7 +45,21 @@
         CGRect frameBegin = [[notification.userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
         CGRect frameEnd = [[notification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
         CGFloat duration = [[notification.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-        CGFloat dy = frameEnd.origin.y - frameBegin.origin.y;
+        CGFloat dy = 0;
+        UIInterfaceOrientation orient = [UIApplication sharedApplication].statusBarOrientation;
+        switch (orient) {
+            case UIInterfaceOrientationPortrait:
+                dy = CGRectGetMinY(frameEnd) - CGRectGetMinY(frameBegin);
+                break;
+            case UIInterfaceOrientationPortraitUpsideDown:
+                dy = CGRectGetMaxY(frameBegin) - CGRectGetMaxY(frameEnd);
+                break;
+            case UIInterfaceOrientationLandscapeLeft:
+                dy = CGRectGetMinX(frameEnd) - CGRectGetMinX(frameBegin);
+                break;
+            case UIInterfaceOrientationLandscapeRight:
+                dy = CGRectGetMaxX(frameBegin) - CGRectGetMaxX(frameEnd);
+        }
         [UIView animateWithDuration:duration animations:^{
             self.view.height += dy;
         }];

@@ -13,7 +13,7 @@ void TTAlert(NSString *message);
 
 NSString *TTDeviceModelName(void);
 
-BOOL TTDeviceIsLandscape(void);
+BOOL TTInterfaceOrientationIsLandscape(void);
 
 CGFloat TTScreenWidth(void);
 

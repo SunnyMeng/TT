@@ -30,7 +30,7 @@ NSString *TTDeviceModelName(void) {
     return platform;
 }
 
-BOOL TTDeviceIsLandscape(void) {
+BOOL TTInterfaceOrientationIsLandscape(void) {
     UIInterfaceOrientation orient = [UIApplication sharedApplication].statusBarOrientation;
     return UIInterfaceOrientationIsLandscape(orient);
 }
