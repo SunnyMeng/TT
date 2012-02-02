@@ -169,18 +169,29 @@ static const NSInteger kMaxConcurrentLoads = 1;
                                                               cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
                                                           timeoutInterval:defaultTimeout];
 
-    if ([request.httpMethod length]) {
-        [URLRequest setHTTPMethod:request.httpMethod];
+    NSString *httpMethod = request.httpMethod;
+    if ([httpMethod length]) {
+        [URLRequest setHTTPMethod:httpMethod];
     }
 
-    if ([request.userAgent length]) {
-        [URLRequest setValue:request.userAgent forHTTPHeaderField:@"User-Agent"];
+    NSString *userAgent = request.userAgent;
+    if ([userAgent length]) {
+        [URLRequest setValue:userAgent forHTTPHeaderField:@"User-Agent"];
     }
-    if ([request.contentType length]) {
-        [URLRequest setValue:request.contentType forHTTPHeaderField:@"Content-Type"];
+
+    NSString *contentType = request.contentType;
+    if ([contentType length]) {
+        [URLRequest setValue:contentType forHTTPHeaderField:@"Content-Type"];
     }
-    if ([request.authorization length]) {
-        [URLRequest setValue:request.authorization forHTTPHeaderField:@"Authorization"];
+
+    NSString *authorization = request.authorization;
+    if ([authorization length]) {
+        [URLRequest setValue:authorization forHTTPHeaderField:@"Authorization"];
+    }
+
+    NSData *httpBody = request.httpBody;
+    if (httpBody) {
+        [URLRequest setHTTPBody:httpBody];
     }
 
     // conditional GET if possible

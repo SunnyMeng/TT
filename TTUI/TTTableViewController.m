@@ -7,7 +7,7 @@
 //
 
 #import "NSArrayAdditions.h"
-#import "TTModel.h"
+#import "TTListModel.h"
 #import "TTTableViewCell.h" // bypass compilation warning and error
 #import "TTTableViewController.h"
 
@@ -51,18 +51,12 @@
 #pragma mark -
 #pragma mark UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if ([self.model respondsToSelector:@selector(count)]) {
-        return [(id)self.model count];
-    }
-    return 0;
+    return [[(id <TTListModel>)_model items] count];
 }
 
 // handle the cell reuse for subclasses and configure the cell by [cell setObject:item]
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (![self.model respondsToSelector:@selector(objectAtIndex:)]) {
-        return nil;
-    }
-    id item = [(id)self.model objectAtIndex:indexPath.row];
+    id item = [[(id <TTListModel>)_model items] objectAtIndex:indexPath.row];
 
     Class cls = [self cellClass];
     NSString *identifier = NSStringFromClass(cls);
@@ -79,13 +73,11 @@
 #pragma mark -
 #pragma mark UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if ([self.model respondsToSelector:@selector(objectAtIndex:)]) {
-        id item = [(id)self.model objectAtIndex:indexPath.row];
+    id item = [[(id <TTListModel>)_model items] objectAtIndex:indexPath.row];
 
-        Class cls = [self cellClass];
-        if ([cls respondsToSelector:@selector(rowHeightForObject:)]) {
-            return [cls rowHeightForObject:item];
-        }
+    Class cls = [self cellClass];
+    if ([cls respondsToSelector:@selector(rowHeightForObject:)]) {
+        return [cls rowHeightForObject:item];
     }
     return tableView.rowHeight; // failover
 }

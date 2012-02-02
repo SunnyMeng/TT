@@ -299,7 +299,7 @@
                 if (_lineBreakMode == UILineBreakModeClip) {
                     return NO;
                 }
-                line = [ch mutableCopy];
+                line = [NSMutableString stringWithString:ch];
             } else {
                 [line appendString:ch];
             }

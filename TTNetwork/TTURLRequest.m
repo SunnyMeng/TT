@@ -30,6 +30,7 @@
 @synthesize userAgent = _userAgent;
 @synthesize contentType = _contentType;
 @synthesize authorization = _authorization;
+@synthesize httpBody = _httpBody;
 @synthesize timestamp = _timestamp;
 @synthesize respondedFromCache = _respondedFromCache;
 @synthesize cacheKey = _cacheKey;
@@ -47,7 +48,6 @@
         _urlPath = [URL copy];
         _cacheKey = [[URL md5Hash] retain];
 
-        _parameters = [[NSMutableDictionary alloc] init];
         _delegates = TTCreateNonRetainingArray();
 
         if (delegate) {
@@ -58,6 +58,8 @@
 }
 
 - (void)dealloc {
+    [_httpBody release];
+    [_files release];
     [_urlPath release];
     [_cacheKey release];
     [_httpMethod release];
@@ -72,10 +74,89 @@
     [super dealloc];
 }
 
+- (NSString *)boundaryString {
+    static NSString *boundry;
+    if (!boundry) {
+        CFUUIDRef uuid = CFUUIDCreate(NULL);
+        boundry = (NSString *)CFUUIDCreateString(NULL, uuid);
+        CFRelease(uuid);
+    }
+    return boundry;
+}
+
+- (NSData *)generatePostBody {
+    NSMutableData* body = [NSMutableData data];
+    NSData *beginLine = [[NSString stringWithFormat:@"--%@\r\n", [self boundaryString]] dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *endLine = [@"\r\n" dataUsingEncoding:NSUTF8StringEncoding];
+
+    for (NSString *key in _parameters) {
+        NSString *value = [_parameters valueForKey:key];
+        [body appendData:beginLine];
+        [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n\r\n", key] dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:[value dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:endLine];
+    }
+
+    for (NSInteger i = 0; i < _files.count; i += 4) {
+        NSData *data = [_files objectAtIndex:i];
+        NSString *mimeType = [_files objectAtIndex:i + 1];
+        NSString *name = [_files objectAtIndex:i + 2];
+        NSString *fileName = [_files objectAtIndex:i + 3];
+
+        [body appendData:beginLine];
+        [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"; filename=\"%@\"\r\n", name, fileName] dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:[[NSString stringWithFormat:@"Content-Length: %d\r\n", [data length]] dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:[[NSString stringWithFormat:@"Content-Type: %@\r\n\r\n", mimeType] dataUsingEncoding:NSUTF8StringEncoding]];
+        [body appendData:data];
+        [body appendData:endLine];
+    }
+
+    [body appendData:[[NSString stringWithFormat:@"--%@--\r\n", [self boundaryString]] dataUsingEncoding:NSUTF8StringEncoding]];
+    return body;
+}
+
 #pragma mark -
 #pragma mark Public
 + (TTURLRequest *)requestWithURL:(NSString *)URL delegate:(id <TTURLRequestDelegate>)delegate {
     return [[[self alloc] initWithURL:URL delegate:delegate] autorelease];
+}
+
+- (NSData *)httpBody {
+    if (_httpBody) {
+        return _httpBody;
+    }
+    if (([_httpMethod isEqualToString:@"POST"] || [_httpMethod isEqualToString:@"PUT"])) {
+        return [self generatePostBody];
+    }
+    return nil;
+}
+
+- (NSString *)contentType {
+    if (_contentType) {
+        return _contentType;
+    }
+    if ([_httpMethod isEqualToString:@"POST"] || [_httpMethod isEqualToString:@"PUT"]) {
+        return [NSString stringWithFormat:@"multipart/form-data; boundary=%@", [self boundaryString]];
+    }
+    return nil;
+}
+
+- (NSMutableDictionary*)parameters {
+    if (!_parameters) {
+        _parameters = [[NSMutableDictionary alloc] init];
+    }
+    return _parameters;
+}
+
+- (void)addFile:(NSData *)data mimeType:(NSString *)mimeType forKey:(NSString *)name fileName:(NSString *)fileName {
+    if (!_files) {
+        _files = [[NSMutableArray alloc] init];
+    }
+
+    [_files addObject:data];
+    [_files addObject:mimeType];
+    [_files addObject:name];
+    [_files addObject:fileName];
 }
 
 - (void)send {

@@ -65,7 +65,7 @@
 
     TTURLRequest *request = [_requests lastObject];
     NSURLRequest *URLRequest = [_queue createNSURLRequest:request];
-    self.connection = [[NSURLConnection alloc] initWithRequest:URLRequest delegate:self startImmediately:NO];
+    self.connection = [[[NSURLConnection alloc] initWithRequest:URLRequest delegate:self startImmediately:NO] autorelease];
     // default runloop mode for NSURLConnection is NSEventTrackingRunLoopMode
     [_connection scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
     [_connection start];

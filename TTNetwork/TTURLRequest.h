@@ -13,7 +13,9 @@
 
 @protocol TTURLRequestDelegate;
 
-@interface TTURLRequest : NSObject
+@interface TTURLRequest : NSObject {
+    NSMutableArray *_files;
+}
 
 // configurable
 @property (nonatomic, readonly) NSString *urlPath;
@@ -29,6 +31,7 @@
 @property (nonatomic, retain) NSString *authorization;
 
 @property (nonatomic, readonly) NSMutableDictionary *parameters; // for POST and PUT only
+@property (nonatomic, retain) NSData *httpBody;
 
 // store user info to identify a request
 @property (nonatomic, retain) id strongRef;
@@ -41,6 +44,7 @@
 @property (nonatomic, readonly, retain) NSData *responseData;
 
 + (TTURLRequest *)requestWithURL:(NSString *)URL delegate:(id <TTURLRequestDelegate>)delegate;
+- (void)addFile:(NSData *)data mimeType:(NSString *)mimeType forKey:(NSString *)name fileName:(NSString *)fileName;
 
 // shortcuts
 - (void)send;

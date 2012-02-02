@@ -40,6 +40,7 @@
 		AD44E57614CBD30C007A2DBD /* UIImageAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44E55714CBD30C007A2DBD /* UIImageAdditions.m */; };
 		AD44E5C314CD0B3E007A2DBD /* TTStyledInlineFrame.h in Headers */ = {isa = PBXBuildFile; fileRef = AD44E5C114CD0B3B007A2DBD /* TTStyledInlineFrame.h */; };
 		AD44E5C414CD0B3E007A2DBD /* TTStyledInlineFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44E5C214CD0B3C007A2DBD /* TTStyledInlineFrame.m */; };
+		AD51DF6214DA9EFB00365266 /* TTListModel.h in Headers */ = {isa = PBXBuildFile; fileRef = AD51DF6014DA9EFB00365266 /* TTListModel.h */; };
 		AD5D645A14D4FBCE00F3C470 /* TTGlobalStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = AD5D645814D4FBCC00F3C470 /* TTGlobalStyle.h */; };
 		AD5D645B14D4FBCE00F3C470 /* TTGlobalStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = AD5D645914D4FBCD00F3C470 /* TTGlobalStyle.m */; };
 		AD63E3C514C876F400D505F2 /* TTGlobalCore.h in Headers */ = {isa = PBXBuildFile; fileRef = AD63E3C314C876F400D505F2 /* TTGlobalCore.h */; settings = {ATTRIBUTES = (); }; };
@@ -130,6 +131,7 @@
 		AD44E55714CBD30C007A2DBD /* UIImageAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageAdditions.m; sourceTree = "<group>"; };
 		AD44E5C114CD0B3B007A2DBD /* TTStyledInlineFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTStyledInlineFrame.h; sourceTree = "<group>"; };
 		AD44E5C214CD0B3C007A2DBD /* TTStyledInlineFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTStyledInlineFrame.m; sourceTree = "<group>"; };
+		AD51DF6014DA9EFB00365266 /* TTListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTListModel.h; sourceTree = "<group>"; };
 		AD5D645814D4FBCC00F3C470 /* TTGlobalStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTGlobalStyle.h; sourceTree = "<group>"; };
 		AD5D645914D4FBCD00F3C470 /* TTGlobalStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTGlobalStyle.m; sourceTree = "<group>"; };
 		AD63E3C314C876F400D505F2 /* TTGlobalCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTGlobalCore.h; sourceTree = "<group>"; };
@@ -352,6 +354,7 @@
 				ADDB8AA414C8744B00F13BC3 /* TTViewController.m */,
 				ADDB8A9914C8744B00F13BC3 /* TTModelViewController.h */,
 				ADDB8A9A14C8744B00F13BC3 /* TTModelViewController.m */,
+				AD51DF6014DA9EFB00365266 /* TTListModel.h */,
 				ADDB8AA014C8744B00F13BC3 /* TTTableViewController.h */,
 				ADDB8AA114C8744B00F13BC3 /* TTTableViewController.m */,
 				ADCB511F14CA838E00364611 /* TTNetworkEnabledTableViewController.h */,
@@ -420,6 +423,7 @@
 				AD5D645A14D4FBCE00F3C470 /* TTGlobalStyle.h in Headers */,
 				AD2649F614D664AF001415D0 /* TTStyleSheet.h in Headers */,
 				AD8861E814D7EDEE004A64B9 /* TTStyledTextLabelDelegate.h in Headers */,
+				AD51DF6214DA9EFB00365266 /* TTListModel.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

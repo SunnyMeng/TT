@@ -13,7 +13,9 @@
 
 @protocol TTModel;
 
-@interface TTModelViewController : TTViewController <TTModelDelegate>
+@interface TTModelViewController : TTViewController <TTModelDelegate> {
+    id <TTModel> _model;
+}
 
 @property (nonatomic, retain) id <TTModel> model;
 
