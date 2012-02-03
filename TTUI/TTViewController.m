@@ -60,8 +60,31 @@
             case UIInterfaceOrientationLandscapeRight:
                 dy = CGRectGetMaxX(frameBegin) - CGRectGetMaxX(frameEnd);
         }
+
         [UIView animateWithDuration:duration animations:^{
-            self.view.height += dy;
+            if (CGAffineTransformIsIdentity(self.view.transform)) {
+                self.view.height += dy;
+            } else {
+                switch (orient) {
+                    case UIInterfaceOrientationPortrait:
+                        self.view.height += dy;
+                        break;
+                    case UIInterfaceOrientationPortraitUpsideDown: {
+                        CGFloat bottom = self.view.bottom;
+                        self.view.height += dy;
+                        self.view.bottom = bottom;
+                        break;
+                    }
+                    case UIInterfaceOrientationLandscapeLeft:
+                        self.view.width += dy;
+                        break;
+                    case UIInterfaceOrientationLandscapeRight: {
+                        CGFloat right = self.view.right;
+                        self.view.width += dy;
+                        self.view.right = right;
+                    }
+                }
+            }
         }];
     }
 }
