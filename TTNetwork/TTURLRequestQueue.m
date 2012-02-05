@@ -231,7 +231,9 @@ static const NSInteger kMaxConcurrentLoads = 1;
                 if ([mtime length]) {
                     [[TTURLCache sharedCache] storeMtime:mtime forKey:loader.cacheKey];
                 }
-                [[TTURLCache sharedCache] storeData:data forKey:loader.cacheKey];
+                if ([etag length] || [mtime length]) {
+                    [[TTURLCache sharedCache] storeData:data forKey:loader.cacheKey];
+                }
             }
             [loader dispatchLoaded:data timestamp:[NSDate date] fromCache:NO];
         } else {

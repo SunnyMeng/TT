@@ -19,11 +19,13 @@
 @synthesize font = _font;
 @synthesize textAlignment = _textAlignment;
 @synthesize textColor = _textColor;
+@synthesize lineBreakMode = _lineBreakMode;
 @synthesize delegate = _delegate;
 
 - (id)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         self.backgroundColor = [UIColor whiteColor];
+        _lineBreakMode = UILineBreakModeCharacterWrap;
     }
     return self;
 }
@@ -105,6 +107,7 @@
         _text.font = _font;
         _text.textAlignment = _textAlignment;
         _text.width = self.width;
+        _text.lineBreakMode = _lineBreakMode;
         [self setNeedsDisplay];
     }
 }

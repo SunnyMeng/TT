@@ -22,6 +22,7 @@
 @property (nonatomic, retain) UIFont *font;
 @property (nonatomic, retain) UIColor *textColor;
 @property (nonatomic) UITextAlignment textAlignment;
+@property (nonatomic) UILineBreakMode lineBreakMode;
 @property (nonatomic, assign) id <TTStyledTextLabelDelegate> delegate;
 
 @end
