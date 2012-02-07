@@ -42,45 +42,49 @@
 
 - (void)resizeForKeyboard:(NSNotification *)notification {
     if (_isViewAppearing) {
-        CGRect frameBegin = [[notification.userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue];
-        CGRect frameEnd = [[notification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+        CGRect viewFrame = [[UIApplication sharedApplication].keyWindow convertRect:self.view.bounds fromView:self.view];
+        CGRect keyboardFrame = [[notification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
         CGFloat duration = [[notification.userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-        CGFloat dy = 0;
+        CGFloat height = 0;
+
         UIInterfaceOrientation orient = [UIApplication sharedApplication].statusBarOrientation;
         switch (orient) {
             case UIInterfaceOrientationPortrait:
-                dy = CGRectGetMinY(frameEnd) - CGRectGetMinY(frameBegin);
+                height = CGRectGetMinY(keyboardFrame) - CGRectGetMinY(viewFrame);
                 break;
             case UIInterfaceOrientationPortraitUpsideDown:
-                dy = CGRectGetMaxY(frameBegin) - CGRectGetMaxY(frameEnd);
+                height = CGRectGetMaxY(viewFrame) - CGRectGetMaxY(keyboardFrame);
                 break;
             case UIInterfaceOrientationLandscapeLeft:
-                dy = CGRectGetMinX(frameEnd) - CGRectGetMinX(frameBegin);
+                height = CGRectGetMinX(keyboardFrame) - CGRectGetMinX(viewFrame);
                 break;
-            case UIInterfaceOrientationLandscapeRight:
-                dy = CGRectGetMaxX(frameBegin) - CGRectGetMaxX(frameEnd);
+            case UIInterfaceOrientationLandscapeRight: {
+                height = CGRectGetMaxX(viewFrame) - CGRectGetMaxX(keyboardFrame);
+            }
         }
 
         [UIView animateWithDuration:duration animations:^{
             if (CGAffineTransformIsIdentity(self.view.transform)) {
-                self.view.height += dy;
+                self.view.height = height;
             } else {
+                // when viewController is presented modally, its view is added to the keyWindow
+                // and a rotation transform is applied instead of changing the frame directly.
                 switch (orient) {
                     case UIInterfaceOrientationPortrait:
-                        self.view.height += dy;
+                        self.view.height = height;
                         break;
                     case UIInterfaceOrientationPortraitUpsideDown: {
                         CGFloat bottom = self.view.bottom;
-                        self.view.height += dy;
+                        self.view.height = height;
                         self.view.bottom = bottom;
                         break;
                     }
                     case UIInterfaceOrientationLandscapeLeft:
-                        self.view.width += dy;
+                        self.view.width = height;
                         break;
                     case UIInterfaceOrientationLandscapeRight: {
                         CGFloat right = self.view.right;
-                        self.view.width += dy;
+                        self.view.width = height;
                         self.view.right = right;
                     }
                 }
