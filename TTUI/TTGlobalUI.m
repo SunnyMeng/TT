@@ -46,7 +46,7 @@ CGSize TTScaleAspectFit(CGSize size, CGSize bounds) {
         CGFloat hRatio = size.width / bounds.width;
         CGFloat vRatio = size.height / bounds.height;
         CGFloat ratio = MAX(hRatio, vRatio);
-        return CGSizeMake(floorf(size.width / ratio), floorf(size.height / ratio));
+        return CGSizeMake(roundf(size.width / ratio), roundf(size.height / ratio));
     }
     return size;
 }

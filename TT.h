@@ -36,6 +36,7 @@
 #import "TTNetworkEnabledTableViewController.h"
 
 #import "UIImageViewAdditions.h"
+#import "UIImageAdditions.h"
 #import "UIViewAdditions.h"
 
 // Style

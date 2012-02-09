@@ -6,118 +6,68 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+#import "TTGlobalUI.h"
 #import "UIImageAdditions.h"
 
 @implementation UIImage (Additions)
 
-- (CGRect)convertRect:(CGRect)rect withContentMode:(UIViewContentMode)contentMode {
-    if (CGSizeEqualToSize(self.size, rect.size)) {
-        return rect;
-    }
+- (UIImage *)resizedImageWithContentMode:(UIViewContentMode)contentMode bounds:(CGSize)bounds {
+    CGFloat horizontalRatio = bounds.width / self.size.width;
+    CGFloat verticalRatio = bounds.height / self.size.height;
+    CGFloat ratio;
     switch (contentMode) {
-        case UIViewContentModeLeft:
-            return CGRectMake(rect.origin.x,
-                              rect.origin.y + floor(rect.size.height / 2 - self.size.height / 2),
-                              self.size.width, self.size.height);
-
-        case UIViewContentModeRight:
-            return CGRectMake(rect.origin.x + (rect.size.width - self.size.width),
-                              rect.origin.y + floor(rect.size.height / 2 - self.size.height / 2),
-                              self.size.width, self.size.height);
-
-        case UIViewContentModeTop:
-            return CGRectMake(rect.origin.x + floor(rect.size.width / 2 - self.size.width / 2),
-                              rect.origin.y,
-                              self.size.width, self.size.height);
-
-        case UIViewContentModeBottom:
-            return CGRectMake(rect.origin.x + floor(rect.size.width / 2 - self.size.width / 2),
-                              rect.origin.y + floor(rect.size.height - self.size.height),
-                              self.size.width, self.size.height);
-
-        case UIViewContentModeCenter:
-            return CGRectMake(rect.origin.x + floor(rect.size.width / 2 - self.size.width / 2),
-                              rect.origin.y + floor(rect.size.height / 2 - self.size.height / 2),
-                              self.size.width, self.size.height);
-
-        case UIViewContentModeBottomLeft:
-            return CGRectMake(rect.origin.x,
-                              rect.origin.y + floor(rect.size.height - self.size.height),
-                              self.size.width, self.size.height);
-
-        case UIViewContentModeBottomRight:
-            return CGRectMake(rect.origin.x + (rect.size.width - self.size.width),
-                              rect.origin.y + (rect.size.height - self.size.height),
-                              self.size.width, self.size.height);
-
-        case UIViewContentModeTopLeft:
-            return CGRectMake(rect.origin.x,
-                              rect.origin.y,
-                              self.size.width, self.size.height);
-
-        case UIViewContentModeTopRight:
-            return CGRectMake(rect.origin.x + (rect.size.width - self.size.width),
-                              rect.origin.y,
-                              self.size.width, self.size.height);
-
-        case UIViewContentModeScaleAspectFill: {
-            CGSize imageSize = self.size;
-            if (imageSize.height < imageSize.width) {
-                imageSize.width = floor((imageSize.width / imageSize.height) * rect.size.height);
-                imageSize.height = rect.size.height;
-
-            } else {
-                imageSize.height = floor((imageSize.height/imageSize.width) * rect.size.width);
-                imageSize.width = rect.size.width;
-            }
-            return CGRectMake(rect.origin.x + floor(rect.size.width / 2 - imageSize.width / 2),
-                              rect.origin.y + floor(rect.size.height / 2 - imageSize.height / 2),
-                              imageSize.width, imageSize.height);
-        }
-
-        case UIViewContentModeScaleAspectFit: {
-            CGSize imageSize = self.size;
-            if (imageSize.height < imageSize.width) {
-                imageSize.height = floor((imageSize.height / imageSize.width) * rect.size.width);
-                imageSize.width = rect.size.width;
-
-            } else {
-                imageSize.width = floor((imageSize.width / imageSize.height) * rect.size.height);
-                imageSize.height = rect.size.height;
-            }
-            return CGRectMake(rect.origin.x + floor(rect.size.width / 2 - imageSize.width / 2),
-                              rect.origin.y + floor(rect.size.height / 2 - imageSize.height / 2),
-                              imageSize.width, imageSize.height);
-        }
-
-        case UIViewContentModeRedraw:
-        case UIViewContentModeScaleToFill:
-            ;
+        case UIViewContentModeScaleAspectFill:
+            ratio = MAX(horizontalRatio, verticalRatio);
+            break;
+        case UIViewContentModeScaleAspectFit:
+            ratio = MIN(horizontalRatio, verticalRatio);
+            break;
+        default:
+            [NSException raise:NSInvalidArgumentException format:@"Unsupported content mode: %d", contentMode];
     }
-    return rect;
+    CGRect newRect = CGRectIntegral(CGRectMake(0, 0, self.size.width * ratio, self.size.height * ratio));
+    UIGraphicsBeginImageContext(newRect.size);
+    [self drawInRect:newRect];
+    UIImage *result = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return result;
 }
 
-- (void)drawInRect:(CGRect)rect contentMode:(UIViewContentMode)contentMode {
-    BOOL clip = NO;
-    CGRect originalRect = rect;
-    if (!CGSizeEqualToSize(self.size, rect.size)) {
-        clip = contentMode != UIViewContentModeScaleAspectFill
-            && contentMode != UIViewContentModeScaleAspectFit;
-        rect = [self convertRect:rect withContentMode:contentMode];
+- (UIImage *)resizedImageAspectFit:(CGSize)bounds {
+    if (self.size.width <= bounds.width && self.size.height <= bounds.height) {
+        return self;
+    }
+    return [self resizedImageWithContentMode:UIViewContentModeScaleAspectFit bounds:bounds];
+}
+
+- (UIImage *)resizedImageAspectFill:(CGSize)bounds {
+    if (self.size.width <= bounds.width && self.size.height <= bounds.height) {
+        return self;
     }
 
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    if (clip) {
-        CGContextSaveGState(context);
-        CGContextAddRect(context, originalRect);
-        CGContextClip(context);
+    UIImage *image = self;
+    if (self.size.width > bounds.width && self.size.height > bounds.height) {
+        image = [self resizedImageWithContentMode:UIViewContentModeScaleAspectFill bounds:bounds];
+        if (CGSizeEqualToSize(image.size, bounds)) {
+            return image;
+        }
     }
 
-    [self drawInRect:rect];
-
-    if (clip) {
-        CGContextRestoreGState(context);
+    CGRect cropRect = CGRectMake(0, 0, image.size.width, image.size.height);
+    if (image.size.width > bounds.width) {
+        cropRect.origin.x = roundf((image.size.width - bounds.width) / 2);
+        cropRect.size.width = bounds.width;
     }
+    if (image.size.height > bounds.height) {
+        cropRect.origin.y = roundf((image.size.height - bounds.height) / 2);
+        cropRect.size.height = bounds.height;
+    }
+
+    cropRect = CGRectApplyAffineTransform(cropRect, CGAffineTransformMakeScale(self.scale, self.scale));
+    CGImageRef imageRef = CGImageCreateWithImageInRect(image.CGImage, cropRect);
+    UIImage *croppedImage = [UIImage imageWithCGImage:imageRef scale:image.scale orientation:image.imageOrientation];
+    CGImageRelease(imageRef);
+    return croppedImage;
 }
 
 @end

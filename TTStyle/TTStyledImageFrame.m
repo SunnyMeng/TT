@@ -10,7 +10,6 @@
 
 #import "TTStyledImageFrame.h"
 #import "TTStyledImageNode.h"
-#import "UIImageAdditions.h"
 
 @implementation TTStyledImageFrame
 
@@ -26,7 +25,7 @@
     CGContextSaveGState(ctx);
     CGContextAddRect(ctx, rect);
     CGContextClip(ctx);
-    [_node.image drawInRect:rect contentMode:UIViewContentModeScaleToFill];
+    [_node.image drawInRect:rect];
     CGContextRestoreGState(ctx);
 }
 

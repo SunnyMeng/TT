@@ -11,6 +11,7 @@
 
 @interface UIImage (Additions)
 
-- (void)drawInRect:(CGRect)rect contentMode:(UIViewContentMode)contentMode;
+- (UIImage *)resizedImageAspectFit:(CGSize)bounds;
+- (UIImage *)resizedImageAspectFill:(CGSize)bounds;
 
 @end

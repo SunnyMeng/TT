@@ -51,12 +51,12 @@
 #pragma mark -
 #pragma mark UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [[(id <TTListModel>)_model items] count];
+    return [[(id <TTListModel>)self.model items] count];
 }
 
 // handle the cell reuse for subclasses and configure the cell by [cell setObject:item]
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    id item = [[(id <TTListModel>)_model items] objectAtIndex:indexPath.row];
+    id item = [[(id <TTListModel>)self.model items] objectAtIndex:indexPath.row];
 
     Class cls = [self cellClass];
     NSString *identifier = NSStringFromClass(cls);
@@ -73,7 +73,7 @@
 #pragma mark -
 #pragma mark UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    id item = [[(id <TTListModel>)_model items] objectAtIndex:indexPath.row];
+    id item = [[(id <TTListModel>)self.model items] objectAtIndex:indexPath.row];
 
     Class cls = [self cellClass];
     if ([cls respondsToSelector:@selector(rowHeightForObject:)]) {
