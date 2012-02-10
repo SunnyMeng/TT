@@ -13,5 +13,6 @@
 
 - (UIImage *)resizedImageAspectFit:(CGSize)bounds;
 - (UIImage *)resizedImageAspectFill:(CGSize)bounds;
+- (UIImage *)croppedImage:(CGRect)bounds;
 
 @end

@@ -70,4 +70,20 @@
     return croppedImage;
 }
 
+- (UIImage *)croppedImage:(CGRect)bounds {
+    CGRect rect = CGRectMake(0, 0, self.size.width, self.size.height);
+    CGRect intersect = CGRectIntegral(CGRectIntersection(rect, bounds));
+
+    if (CGRectIsNull(intersect)) {
+        return nil;
+    }
+
+    CGRect transformed = CGRectApplyAffineTransform(rect, CGAffineTransformMakeTranslation(-intersect.origin.x, -intersect.origin.y));
+    UIGraphicsBeginImageContext(intersect.size);
+    [self drawInRect:transformed];
+    UIImage *result = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return result;
+}
+
 @end
