@@ -50,3 +50,11 @@ CGSize TTScaleAspectFit(CGSize size, CGSize bounds) {
     }
     return size;
 }
+
+CGRect TTRectContract(CGRect rect, CGFloat dx, CGFloat dy) {
+    return CGRectMake(rect.origin.x, rect.origin.y, rect.size.width - dx, rect.size.height - dy);
+}
+
+CGRect TTRectShift(CGRect rect, CGFloat dx, CGFloat dy) {
+    return CGRectMake(rect.origin.x + dx, rect.origin.y + dy, rect.size.width - dy, rect.size.height - dy);
+}

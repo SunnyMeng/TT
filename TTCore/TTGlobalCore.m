@@ -21,11 +21,3 @@ NSMutableArray *TTCreateNonRetainingArray(void) {
     callbacks.release = TTReleaseNoOp;
     return (NSMutableArray *)CFArrayCreateMutable(nil, 0, &callbacks);
 }
-
-CGRect TTRectContract(CGRect rect, CGFloat dx, CGFloat dy) {
-    return CGRectMake(rect.origin.x, rect.origin.y, rect.size.width - dx, rect.size.height - dy);
-}
-
-CGRect TTRectShift(CGRect rect, CGFloat dx, CGFloat dy) {
-    return CGRectOffset(TTRectContract(rect, dx, dy), dx, dy);
-}

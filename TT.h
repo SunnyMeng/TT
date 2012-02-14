@@ -34,6 +34,8 @@
 #import "TTListModel.h"
 #import "TTTableViewController.h"
 #import "TTNetworkEnabledTableViewController.h"
+#import "TTPopoverBackgroundView.h"
+#import "TTPopoverController.h"
 
 #import "UIImageViewAdditions.h"
 #import "UIImageAdditions.h"
