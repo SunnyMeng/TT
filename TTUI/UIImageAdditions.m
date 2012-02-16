@@ -86,4 +86,18 @@
     return result;
 }
 
++ (id)gradientImage:(CGSize)size locations:(CGFloat [])locations colors:(CGFloat [])colors count:(size_t)count {
+    UIGraphicsBeginImageContext(size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    CGGradientRef gradient = CGGradientCreateWithColorComponents(colorSpace, colors, locations, count);
+    CGContextDrawLinearGradient(context, gradient, CGPointZero, CGPointMake(0, size.height), 0);
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+
+    CGColorSpaceRelease(colorSpace);
+    CGGradientRelease(gradient);
+    UIGraphicsEndImageContext();
+    return image;
+}
+
 @end

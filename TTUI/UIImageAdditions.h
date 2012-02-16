@@ -15,4 +15,6 @@
 - (UIImage *)resizedImageAspectFill:(CGSize)bounds;
 - (UIImage *)croppedImage:(CGRect)bounds;
 
++ (id)gradientImage:(CGSize)size locations:(CGFloat [])locations colors:(CGFloat [])colors count:(size_t)count;
+
 @end
