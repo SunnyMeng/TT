@@ -108,6 +108,10 @@
     self.frame = frame;
 }
 
+- (UIColor *)borderColor {
+    return [UIColor colorWithCGColor:self.layer.borderColor];
+}
+
 - (void)setBorderColor:(UIColor *)borderColor {
     self.layer.borderWidth = 1;
     self.layer.borderColor = [borderColor CGColor];
