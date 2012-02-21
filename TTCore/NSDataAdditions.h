@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSData (Additions)
+@interface NSData (TTCoreAdditions)
 
 - (NSString *)md5Hash;
 + (NSData *)dataWithBase64EncodedString:(NSString *)string;

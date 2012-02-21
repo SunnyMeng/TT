@@ -239,6 +239,9 @@ static const NSInteger kMaxConcurrentLoads = 1;
         } else {
             [loader dispatchError:[NSError errorWithDomain:NSURLErrorDomain code:statusCode userInfo:nil] data:data];
         }
+    } else {
+        // response of file://
+        [loader dispatchLoaded:data timestamp:[NSDate date] fromCache:NO];
     }
 
     [loader release];

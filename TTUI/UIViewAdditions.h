@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIView (Additions)
+@interface UIView (TTUIAdditions)
 
 @property (nonatomic) CGFloat left;
 @property (nonatomic) CGFloat top;

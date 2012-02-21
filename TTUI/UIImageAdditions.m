@@ -26,7 +26,7 @@
             [NSException raise:NSInvalidArgumentException format:@"Unsupported content mode: %d", contentMode];
     }
     CGRect newRect = CGRectIntegral(CGRectMake(0, 0, self.size.width * ratio, self.size.height * ratio));
-    UIGraphicsBeginImageContext(newRect.size);
+    UIGraphicsBeginImageContextWithOptions(newRect.size, NO, 0);
     [self drawInRect:newRect];
     UIImage *result = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
@@ -62,12 +62,7 @@
         cropRect.origin.y = roundf((image.size.height - bounds.height) / 2);
         cropRect.size.height = bounds.height;
     }
-
-    cropRect = CGRectApplyAffineTransform(cropRect, CGAffineTransformMakeScale(self.scale, self.scale));
-    CGImageRef imageRef = CGImageCreateWithImageInRect(image.CGImage, cropRect);
-    UIImage *croppedImage = [UIImage imageWithCGImage:imageRef scale:image.scale orientation:image.imageOrientation];
-    CGImageRelease(imageRef);
-    return croppedImage;
+    return [image croppedImage:cropRect];
 }
 
 - (UIImage *)croppedImage:(CGRect)bounds {
@@ -79,15 +74,50 @@
     }
 
     CGRect transformed = CGRectApplyAffineTransform(rect, CGAffineTransformMakeTranslation(-intersect.origin.x, -intersect.origin.y));
-    UIGraphicsBeginImageContext(intersect.size);
+    UIGraphicsBeginImageContextWithOptions(intersect.size, NO, 0);
     [self drawInRect:transformed];
     UIImage *result = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return result;
 }
 
+- (UIImage *)grayScaledImage {
+    CGFloat w, h;
+    switch (self.imageOrientation) {
+        case UIImageOrientationLeft:
+        case UIImageOrientationRight:
+        case UIImageOrientationLeftMirrored:
+        case UIImageOrientationRightMirrored:
+            w = self.size.height;
+            h = self.size.width;
+            break;
+        default:
+            w = self.size.width;
+            h = self.size.height;
+    }
+    CGRect imageRect = CGRectMake(0, 0, w, h);
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceGray();
+    CGContextRef context = CGBitmapContextCreate(NULL, w, h, 8, 0, colorSpace, kCGImageAlphaNone);
+    CGContextDrawImage(context, imageRect, self.CGImage);
+    CGImageRef grayImage = CGBitmapContextCreateImage(context);
+
+    CGContextRelease(context);
+    context = CGBitmapContextCreate(NULL, w, h, 8, 0, NULL, kCGImageAlphaOnly);
+    CGContextDrawImage(context, imageRect, self.CGImage);
+    CGImageRef mask = CGBitmapContextCreateImage(context);
+
+    CGImageRef imageRef = CGImageCreateWithMask(grayImage, mask);
+    UIImage *result = [UIImage imageWithCGImage:imageRef scale:self.scale orientation:self.imageOrientation];
+
+    CGImageRelease(imageRef);
+    CGColorSpaceRelease(colorSpace);
+    CGContextRelease(context);
+    CGImageRelease(grayImage);
+    return result;
+}
+
 + (id)gradientImage:(CGSize)size locations:(CGFloat [])locations colors:(CGFloat [])colors count:(size_t)count {
-    UIGraphicsBeginImageContext(size);
+    UIGraphicsBeginImageContextWithOptions(size, NO, 0);
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
     CGGradientRef gradient = CGGradientCreateWithColorComponents(colorSpace, colors, locations, count);

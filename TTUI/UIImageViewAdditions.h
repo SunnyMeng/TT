@@ -17,7 +17,7 @@
 
 @end
 
-@interface UIImageView (Additions)
+@interface UIImageView (TTUIAdditions)
 
 - (void)setImageWithURL:(NSString *)urlPath placeholder:(UIImage *)placeholder delegate:(id <UIImageViewDelegate>)delegate;
 - (void)cancelImageLoading;

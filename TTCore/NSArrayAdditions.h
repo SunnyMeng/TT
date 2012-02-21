@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSArray (Additions)
+@interface NSArray (TTCoreAdditions)
 
 - (void)perform:(SEL)selector;
 - (void)perform:(SEL)selector withObject:(id)p1;
