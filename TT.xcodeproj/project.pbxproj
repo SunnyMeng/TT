@@ -44,7 +44,6 @@
 		AD44E57614CBD30C007A2DBD /* UIImageAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44E55714CBD30C007A2DBD /* UIImageAdditions.m */; };
 		AD44E5C314CD0B3E007A2DBD /* TTStyledInlineFrame.h in Headers */ = {isa = PBXBuildFile; fileRef = AD44E5C114CD0B3B007A2DBD /* TTStyledInlineFrame.h */; };
 		AD44E5C414CD0B3E007A2DBD /* TTStyledInlineFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44E5C214CD0B3C007A2DBD /* TTStyledInlineFrame.m */; };
-		AD51DF6214DA9EFB00365266 /* TTListModel.h in Headers */ = {isa = PBXBuildFile; fileRef = AD51DF6014DA9EFB00365266 /* TTListModel.h */; };
 		AD5D645A14D4FBCE00F3C470 /* TTGlobalStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = AD5D645814D4FBCC00F3C470 /* TTGlobalStyle.h */; };
 		AD5D645B14D4FBCE00F3C470 /* TTGlobalStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = AD5D645914D4FBCD00F3C470 /* TTGlobalStyle.m */; };
 		AD63E3C514C876F400D505F2 /* TTGlobalCore.h in Headers */ = {isa = PBXBuildFile; fileRef = AD63E3C314C876F400D505F2 /* TTGlobalCore.h */; settings = {ATTRIBUTES = (); }; };
@@ -52,6 +51,7 @@
 		AD63E3EA14C87CD100D505F2 /* TT.h in Headers */ = {isa = PBXBuildFile; fileRef = AD63E3E914C87CD100D505F2 /* TT.h */; settings = {ATTRIBUTES = (); }; };
 		AD63E4D214C902E100D505F2 /* TTURLRequestQueueInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = ADDB8A9114C8744B00F13BC3 /* TTURLRequestQueueInternal.h */; };
 		AD8861E814D7EDEE004A64B9 /* TTStyledTextLabelDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = AD8861E614D7EDEE004A64B9 /* TTStyledTextLabelDelegate.h */; };
+		ADAC5E8714F4BF1A003E6D44 /* TTModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ADAC5E8614F4BF1A003E6D44 /* TTModel.m */; };
 		ADCB50A914C9105200364611 /* TTURLRequestInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = ADDB8A8E14C8744B00F13BC3 /* TTURLRequestInternal.h */; };
 		ADCB510914C9163800364611 /* TTModel.h in Headers */ = {isa = PBXBuildFile; fileRef = ADCB510714C9163700364611 /* TTModel.h */; settings = {ATTRIBUTES = (); }; };
 		ADCB510D14C9172600364611 /* TTURLRequestModel.h in Headers */ = {isa = PBXBuildFile; fileRef = ADCB510B14C9172300364611 /* TTURLRequestModel.h */; settings = {ATTRIBUTES = (); }; };
@@ -139,13 +139,13 @@
 		AD44E55714CBD30C007A2DBD /* UIImageAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageAdditions.m; sourceTree = "<group>"; };
 		AD44E5C114CD0B3B007A2DBD /* TTStyledInlineFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTStyledInlineFrame.h; sourceTree = "<group>"; };
 		AD44E5C214CD0B3C007A2DBD /* TTStyledInlineFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTStyledInlineFrame.m; sourceTree = "<group>"; };
-		AD51DF6014DA9EFB00365266 /* TTListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTListModel.h; sourceTree = "<group>"; };
 		AD5D645814D4FBCC00F3C470 /* TTGlobalStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTGlobalStyle.h; sourceTree = "<group>"; };
 		AD5D645914D4FBCD00F3C470 /* TTGlobalStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTGlobalStyle.m; sourceTree = "<group>"; };
 		AD63E3C314C876F400D505F2 /* TTGlobalCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTGlobalCore.h; sourceTree = "<group>"; };
 		AD63E3C414C876F400D505F2 /* TTGlobalCore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTGlobalCore.m; sourceTree = "<group>"; };
 		AD63E3E914C87CD100D505F2 /* TT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TT.h; sourceTree = "<group>"; };
 		AD8861E614D7EDEE004A64B9 /* TTStyledTextLabelDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTStyledTextLabelDelegate.h; sourceTree = "<group>"; };
+		ADAC5E8614F4BF1A003E6D44 /* TTModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTModel.m; sourceTree = "<group>"; };
 		ADCB510714C9163700364611 /* TTModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTModel.h; sourceTree = "<group>"; };
 		ADCB510B14C9172300364611 /* TTURLRequestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTURLRequestModel.h; sourceTree = "<group>"; };
 		ADCB510C14C9172500364611 /* TTURLRequestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTURLRequestModel.m; sourceTree = "<group>"; };
@@ -338,6 +338,7 @@
 				ADDB8A9014C8744B00F13BC3 /* TTURLRequestQueue.m */,
 				ADDB8A9114C8744B00F13BC3 /* TTURLRequestQueueInternal.h */,
 				ADCB510714C9163700364611 /* TTModel.h */,
+				ADAC5E8614F4BF1A003E6D44 /* TTModel.m */,
 				ADCB510F14CA6C7B00364611 /* TTModelDelegate.h */,
 				ADCB510B14C9172300364611 /* TTURLRequestModel.h */,
 				ADCB510C14C9172500364611 /* TTURLRequestModel.m */,
@@ -362,7 +363,6 @@
 				ADDB8AA414C8744B00F13BC3 /* TTViewController.m */,
 				ADDB8A9914C8744B00F13BC3 /* TTModelViewController.h */,
 				ADDB8A9A14C8744B00F13BC3 /* TTModelViewController.m */,
-				AD51DF6014DA9EFB00365266 /* TTListModel.h */,
 				ADDB8AA014C8744B00F13BC3 /* TTTableViewController.h */,
 				ADDB8AA114C8744B00F13BC3 /* TTTableViewController.m */,
 				ADCB511F14CA838E00364611 /* TTNetworkEnabledTableViewController.h */,
@@ -435,7 +435,6 @@
 				AD5D645A14D4FBCE00F3C470 /* TTGlobalStyle.h in Headers */,
 				AD2649F614D664AF001415D0 /* TTStyleSheet.h in Headers */,
 				AD8861E814D7EDEE004A64B9 /* TTStyledTextLabelDelegate.h in Headers */,
-				AD51DF6214DA9EFB00365266 /* TTListModel.h in Headers */,
 				AD0C742214E8E6E20034DDDD /* TTPopoverBackgroundView.h in Headers */,
 				AD0C742414E8E6E20034DDDD /* TTPopoverController.h in Headers */,
 			);
@@ -531,6 +530,7 @@
 				AD2649F714D664AF001415D0 /* TTStyleSheet.m in Sources */,
 				AD0C742314E8E6E20034DDDD /* TTPopoverBackgroundView.m in Sources */,
 				AD0C742514E8E6E20034DDDD /* TTPopoverController.m in Sources */,
+				ADAC5E8714F4BF1A003E6D44 /* TTModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

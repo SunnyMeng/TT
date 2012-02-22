@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+#import "TTModelDelegate.h"
 #import "TTURLRequestCachePolicy.h"
 
 @protocol TTModel <NSObject>
@@ -18,5 +19,19 @@
 - (BOOL)isLoading;
 - (void)load:(TTURLRequestCachePolicy)cachePolicy more:(BOOL)more;
 - (void)cancel;
+
+@optional
+- (NSInteger)numberOfSections;
+- (NSInteger)numberOfRowsInSection:(NSInteger)section;
+- (id)objectForSection:(NSInteger)section;
+- (id)objectForRowAtIndexPath:(NSIndexPath *)indexPath;
+
+@end
+
+
+// default implementation
+@interface TTModel : NSObject <TTModel> {
+    NSMutableArray *_delegates;
+}
 
 @end

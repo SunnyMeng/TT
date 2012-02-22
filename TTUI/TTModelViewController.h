@@ -8,10 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-#import "TTModelDelegate.h"
+#import "TTModel.h"
 #import "TTViewController.h"
-
-@protocol TTModel;
 
 @interface TTModelViewController : TTViewController <TTModelDelegate>
 

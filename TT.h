@@ -31,7 +31,6 @@
 #import "TTTableViewCell.h"
 #import "TTViewController.h"
 #import "TTModelViewController.h"
-#import "TTListModel.h"
 #import "TTTableViewController.h"
 #import "TTNetworkEnabledTableViewController.h"
 #import "TTPopoverBackgroundView.h"

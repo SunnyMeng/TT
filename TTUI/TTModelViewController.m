@@ -7,7 +7,6 @@
 //
 
 #import "TTGlobalUI.h"
-#import "TTModel.h"
 #import "TTModelViewController.h"
 #import "TTURLRequest.h"
 #import "TTURLRequestQueue.h"

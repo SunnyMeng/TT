@@ -23,19 +23,10 @@
 
 @synthesize loadedTime = _loadedTime;
 @synthesize loadingRequest = _loadingRequest;
-@synthesize delegates = _delegates;
-
-- (id)init {
-    if (self = [super init]) {
-        _delegates = TTCreateNonRetainingArray();
-    }
-    return self;
-}
 
 - (void)dealloc {
     [_loadingRequest cancel];
 
-    [_delegates release];
     [_loadingRequest release];
     [_loadedTime release];
     [super dealloc];

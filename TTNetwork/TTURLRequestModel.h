@@ -11,9 +11,7 @@
 #import "TTModel.h"
 #import "TTURLRequestDelegate.h"
 
-@interface TTURLRequestModel : NSObject <TTModel, TTURLRequestDelegate> {
-    NSMutableArray *_delegates;
-}
+@interface TTURLRequestModel : TTModel <TTURLRequestDelegate>
 
 @property (nonatomic, retain) NSDate *loadedTime;
 
