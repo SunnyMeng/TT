@@ -12,7 +12,6 @@
 
 @property (nonatomic, retain) UITableView *tableView;
 
-- (Class)cellClass;
-- (NSString *)listKey;
+- (Class)cellClassForObject:(id)object;
 
 @end

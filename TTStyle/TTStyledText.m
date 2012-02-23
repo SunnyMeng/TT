@@ -135,6 +135,14 @@
     return _height;
 }
 
+- (CGFloat)realWidth {
+    CGRect rect = CGRectZero;
+    for (TTStyledFrame *frame = self.rootFrame; frame; frame = frame.nextFrame) {
+        rect = CGRectUnion(rect, frame.bounds);
+    }
+    return rect.size.width;
+}
+
 - (void)setWidth:(CGFloat)width {
     if (_width != width) {
         _width = width;

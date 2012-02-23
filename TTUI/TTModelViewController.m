@@ -23,7 +23,6 @@
 }
 
 - (void)createModel {
-    NSAssert(_model, @"subclass to create");
 }
 
 - (BOOL)shouldLoad {

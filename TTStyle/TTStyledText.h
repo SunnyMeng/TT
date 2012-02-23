@@ -27,6 +27,7 @@
 @property (nonatomic, retain, readonly) TTStyledFrame *rootFrame;
 
 @property (nonatomic) CGFloat width;
+@property (nonatomic, readonly) CGFloat realWidth;
 @property (nonatomic) CGFloat height;
 @property (nonatomic, retain) UIFont *font;
 @property (nonatomic) UITextAlignment textAlignment;

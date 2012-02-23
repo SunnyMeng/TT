@@ -14,12 +14,8 @@
 
 @synthesize tableView = _tableView;
 
-- (Class)cellClass {
+- (Class)cellClassForObject:(id)object {
     return [UITableViewCell class];
-}
-
-- (NSString *)listKey {
-    return nil;
 }
 
 - (void)dealloc {
@@ -61,7 +57,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     id item = [self.model objectForRowAtIndexPath:indexPath];
 
-    Class cls = [self cellClass];
+    Class cls = [self cellClassForObject:item];
     NSString *identifier = NSStringFromClass(cls);
     id cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
@@ -78,7 +74,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     id item = [self.model objectForRowAtIndexPath:indexPath];
 
-    Class cls = [self cellClass];
+    Class cls = [self cellClassForObject:item];
     if ([cls respondsToSelector:@selector(rowHeightForObject:)]) {
         return [cls rowHeightForObject:item];
     }

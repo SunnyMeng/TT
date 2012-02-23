@@ -41,4 +41,8 @@
 
 }
 
+- (NSInteger)numberOfSections {
+    return 1;
+}
+
 @end
