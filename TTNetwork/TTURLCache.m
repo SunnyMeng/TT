@@ -126,8 +126,17 @@
     [[NSFileManager defaultManager] createFileAtPath:[self mtimePathForKey:key] contents:[mtime dataUsingEncoding:NSUTF8StringEncoding] attributes:nil];
 }
 
-- (UIImage *)imageForURL:(NSString *)URL {
-    NSData *imageData = [self dataForKey:[URL md5Hash] expires:INFINITY timestamp:NULL];
+- (UIImage *)imageForURL:(NSString *)urlPath {
+    if (![urlPath length]) {
+        return nil;
+    }
+    NSURL *URL = [NSURL URLWithString:urlPath];
+    if ([URL isFileURL]) {
+        // file:// URI scheme is not cached and returned synchronously
+        return [UIImage imageWithData:[NSData dataWithContentsOfURL:URL]];
+    }
+
+    NSData *imageData = [self dataForKey:[urlPath md5Hash] expires:INFINITY timestamp:NULL];
     return [UIImage imageWithData:imageData];
 }
 

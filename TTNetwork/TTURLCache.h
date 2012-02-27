@@ -15,8 +15,6 @@
     NSString *_mtimePath;
 }
 
-+ (TTURLCache *)sharedCache;
-
 - (BOOL)hasDataForKey:(NSString *)key expires:(NSTimeInterval)expirationAge;
 - (NSDate *)touchDataForKey:(NSString *)key;
 
@@ -28,6 +26,8 @@
 - (void)storeEtag:(NSString *)etag forKey:(NSString *)key;
 - (void)storeMtime:(NSString *)mtime forKey:(NSString *)key;
 
+// Public
++ (TTURLCache *)sharedCache;
 - (UIImage *)imageForURL:(NSString *)URL;
 
 @end

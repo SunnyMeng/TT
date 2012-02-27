@@ -7,7 +7,6 @@
 //
 
 #import "NSArrayAdditions.h"
-#import "TTDebug.h"
 #import "TTRequestLoader.h"
 #import "TTURLCache.h"
 #import "TTURLRequestInternal.h"
@@ -36,7 +35,6 @@ static const NSInteger kMaxConcurrentLoads = 1;
 }
 
 - (void)executeLoader:(TTRequestLoader *)loader {
-    TTDPRINT();
     ++_totalLoading;
     [loader load];
 }
@@ -82,8 +80,26 @@ static const NSInteger kMaxConcurrentLoads = 1;
 }
 
 - (void)sendRequest:(TTURLRequest *)request {
-    if (request.cachePolicy != TTURLRequestReloadIgnoringCacheData &&
-        request.cachePolicy != TTURLRequestReloadUsingCacheData) {
+    if ([request.urlPath length]) {
+        NSURL *URL = [NSURL URLWithString:request.urlPath];
+        if ([URL isFileURL]) {
+            NSData *data = [NSData dataWithContentsOfURL:URL];
+            if (data) {
+                [request dispatchLoaded:data timestamp:nil fromCache:YES];
+            } else {
+                NSError *error = [NSError errorWithDomain:NSURLErrorDomain code:NSURLErrorFileDoesNotExist userInfo:nil];
+                [request dispatchError:error data:nil];
+            }
+            // file:// URI scheme is always handled synchronously (appears already cached)
+            return;
+        }
+    } else {
+        NSError *error = [NSError errorWithDomain:NSURLErrorDomain code:NSURLErrorBadURL userInfo:nil];
+        [request dispatchError:error data:nil];
+        return;
+    }
+
+    if (request.cachePolicy != TTURLRequestReloadIgnoringCacheData && request.cachePolicy != TTURLRequestReloadUsingCacheData) {
         NSDate *timestamp = nil;
         NSData *data = [[TTURLCache sharedCache] dataForKey:request.cacheKey expires:request.cacheExpirationAge timestamp:&timestamp];
         if (data) {
@@ -94,14 +110,6 @@ static const NSInteger kMaxConcurrentLoads = 1;
             return;
         }
     }
-    TTDPRINT(@"request policy %d, hit network", request.cachePolicy);
-
-    // if the url is empty, fail.
-    if (![request.urlPath length]) {
-        NSError *error = [NSError errorWithDomain:NSURLErrorDomain code:NSURLErrorBadURL userInfo:nil];
-        [request.delegates perform:@selector(request:didFailLoadWithError:) withObject:request withObject:error];
-        return;
-    }
 
     [request dispatchStarted];
 
@@ -110,7 +118,6 @@ static const NSInteger kMaxConcurrentLoads = 1;
         TTRequestLoader *loader = [_loaders objectForKey:request.cacheKey];
         if (loader) {
             [loader addRequest:request];
-            TTDPRINT(@"reuse loader %@", loader);
             return;
         }
     }
@@ -258,7 +265,7 @@ static const NSInteger kMaxConcurrentLoads = 1;
         NSDate *timestamp = [[TTURLCache sharedCache] touchDataForKey:loader.cacheKey];
         [loader dispatchLoaded:data timestamp:timestamp fromCache:NO];
     } else {
-        NSError *error = [NSError errorWithDomain:NSCocoaErrorDomain code:NSFileReadNoSuchFileError userInfo:nil];
+        NSError *error = [NSError errorWithDomain:NSURLErrorDomain code:NSURLErrorFileDoesNotExist userInfo:nil];
         [loader dispatchError:error data:nil];
     }
 

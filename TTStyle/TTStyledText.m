@@ -66,9 +66,8 @@
     [parser parseXHTML:source];
     if (parser.rootNode) {
         return [[[TTStyledText alloc] initWithNode:parser.rootNode] autorelease];
-    } else {
-        return nil;
     }
+    return nil;
 }
 
 - (void)stopLoadingImages {

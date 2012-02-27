@@ -7,7 +7,6 @@
 //
 
 #import "TTGlobalCore.h"
-#import "TTGlobalNetwork.h"
 #import "TTGlobalStyle.h"
 #import "TTStyledBoxFrame.h"
 #import "TTStyledElement.h"
@@ -20,6 +19,7 @@
 #import "TTStyledText.h"
 #import "TTStyledTextFrame.h"
 #import "TTStyledTextNode.h"
+#import "TTURLCache.h"
 
 @interface TTStyledLayout ()
 
@@ -243,10 +243,9 @@
         [_invalidImages addObject:imageNode];
     }
 
-    CGFloat imageWidth = imageNode.width ?: (image ? image.size.width : 0);
-    CGFloat imageHeight = imageNode.height ?: (image ? image.size.height : 0);
-    CGFloat contentWidth = imageWidth;
-    CGFloat contentHeight = imageHeight;
+    CGFloat contentWidth = imageNode.width ?: image.size.width;
+    CGFloat contentHeight = imageNode.height ?: image.size.height;
+
     if (_lineWidth + contentWidth > _width) {
         if (_lineWidth) {
             // The image will be placed on the next line, so create a new frame for
@@ -255,13 +254,14 @@
             if (_lineBreakMode == UILineBreakModeClip) {
                 return NO;
             }
-        } else {
-            _width = contentWidth;
+        } else if (contentWidth > _width) {
+            // crop to _width
+            contentWidth = _width;
         }
     }
 
     TTStyledImageFrame *frame = [[[TTStyledImageFrame alloc] initWithNode:imageNode element:element] autorelease];
-    [self addContentFrame:frame width:imageWidth height:imageHeight];
+    [self addContentFrame:frame width:contentWidth height:contentHeight];
     [self expandLineWidth:contentWidth];
     [self inflateLineHeight:contentHeight];
     return YES;

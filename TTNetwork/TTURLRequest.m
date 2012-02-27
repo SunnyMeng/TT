@@ -209,4 +209,8 @@
     [_delegates perform:@selector(requestDidFinishLoad:) withObject:self];
 }
 
+- (void)dispatchAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
+    [_delegates perform:@selector(request:didReceiveAuthenticationChallenge:) withObject:self withObject:challenge];
+}
+
 @end

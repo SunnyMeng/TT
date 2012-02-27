@@ -14,6 +14,8 @@
 
 @synthesize tableView = _tableView;
 
+#pragma mark -
+#pragma mark Subclasses to override
 - (Class)cellClassForObject:(id)object {
     return [UITableViewCell class];
 }
@@ -37,9 +39,9 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
 
-    NSIndexPath *selectedRow = _tableView.indexPathForSelectedRow;
-    if (selectedRow) {
-        [_tableView deselectRowAtIndexPath:selectedRow animated:YES];
+    NSIndexPath *indexPath = _tableView.indexPathForSelectedRow;
+    if (indexPath) {
+        [_tableView deselectRowAtIndexPath:indexPath animated:YES];
     }
 }
 

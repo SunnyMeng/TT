@@ -85,7 +85,7 @@
 
 - (void)dispatchAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
     for (TTURLRequest *request in [[_requests copy] autorelease]) {
-        [request.delegates perform:@selector(request:didReceiveAuthenticationChallenge:) withObject:request withObject:challenge];
+        [request dispatchAuthenticationChallenge:challenge];
     }
 }
 

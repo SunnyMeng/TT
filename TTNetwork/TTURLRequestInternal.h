@@ -13,5 +13,6 @@
 - (void)dispatchStarted;
 - (void)dispatchError:(NSError *)error data:(NSData *)data;
 - (void)dispatchLoaded:(NSData *)data timestamp:(NSDate *)timestamp fromCache:(BOOL)fromCache;
+- (void)dispatchAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge;
 
 @end

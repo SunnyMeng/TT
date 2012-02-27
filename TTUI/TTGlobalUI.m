@@ -36,9 +36,8 @@ BOOL TTInterfaceOrientationIsLandscape(void) {
 }
 
 CGFloat TTScreenWidth(void) {
-    CGRect bounds = [UIScreen mainScreen].bounds;
-    UIInterfaceOrientation orient = [UIApplication sharedApplication].statusBarOrientation;
-    return UIInterfaceOrientationIsLandscape(orient) ? bounds.size.height : bounds.size.width;
+    CGSize size = [UIScreen mainScreen].bounds.size;
+    return TTInterfaceOrientationIsLandscape() ? size.height : size.width;
 }
 
 CGSize TTScaleAspectFit(CGSize size, CGSize bounds) {

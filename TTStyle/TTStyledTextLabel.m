@@ -38,12 +38,8 @@
 }
 
 - (void)drawRect:(CGRect)rect {
-    if (_textColor) {
-        [_textColor setFill];
-    } else {
-        [[UIColor blackColor] setFill]; // default
-    }
-
+    UIColor *fillColor = _textColor ?: [UIColor blackColor]; // default
+    [fillColor setFill];
     [_text drawAtPoint:CGPointZero];
 }
 

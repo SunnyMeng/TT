@@ -14,11 +14,6 @@
 @implementation UIImageView (Additions)
 
 - (void)setImageWithURL:(NSString *)urlPath placeholder:(UIImage *)placeholder delegate:(id <UIImageViewDelegate>)delegate {
-    if (![urlPath length]) {
-        [self cancelImageLoading];
-        self.image = nil;
-        return;
-    }
     UIImage *image = [[TTURLCache sharedCache] imageForURL:urlPath];
     if (image) {
         self.image = image;

@@ -6,7 +6,6 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "TTDebug.h"
 #import "TTGlobalUI.h"
 #import "TTViewController.h"
 #import "UIViewAdditions.h"
@@ -27,7 +26,7 @@
 }
 
 - (void)setAutoresizesForKeyboard:(BOOL)autoresizesForKeyboard {
-    if (autoresizesForKeyboard != _autoresizesForKeyboard) {
+    if (_autoresizesForKeyboard != autoresizesForKeyboard) {
         _autoresizesForKeyboard = autoresizesForKeyboard;
 
         if (_autoresizesForKeyboard) {
