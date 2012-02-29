@@ -57,3 +57,11 @@ CGRect TTRectContract(CGRect rect, CGFloat dx, CGFloat dy) {
 CGRect TTRectShift(CGRect rect, CGFloat dx, CGFloat dy) {
     return CGRectMake(rect.origin.x + dx, rect.origin.y + dy, rect.size.width - dy, rect.size.height - dy);
 }
+
+NSString *TTLocalizedString(NSString *key) {
+    NSArray *current = [[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"];
+    NSString *lang = [current count] ? [current objectAtIndex:0] : @"zh-Hans";
+    NSString *path = [[NSBundle mainBundle] pathForResource:lang ofType:@"lproj"];
+    NSBundle *bundle = [NSBundle bundleWithPath:path] ?: [NSBundle mainBundle];
+    return [bundle localizedStringForKey:key value:nil table:nil];
+}

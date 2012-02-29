@@ -6,6 +6,7 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
+#import "TTGlobalUI.h"
 #import "TTModel.h"
 #import "TTPullRefreshHeaderView.h"
 #import "UIViewAdditions.h"
