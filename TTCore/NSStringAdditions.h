@@ -13,5 +13,6 @@
 - (NSString *)stringByUrlEncoded;
 - (NSString *)stringByXMLEscaped;
 - (NSString *)md5Hash;
++ (id)uuidString;
 
 @end

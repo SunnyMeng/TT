@@ -9,7 +9,7 @@
 #import "NSDataAdditions.h"
 #import "NSStringAdditions.h"
 
-@implementation NSString (Additions)
+@implementation NSString (TTCoreAdditions)
 
 - (id)stringByUrlEncoded {
     return [(NSString *)CFURLCreateStringByAddingPercentEscapes(NULL,
@@ -28,6 +28,13 @@
 
 - (NSString *)md5Hash {
     return [[self dataUsingEncoding:NSUTF8StringEncoding] md5Hash];
+}
+
++ (id)uuidString {
+    CFUUIDRef uuid = CFUUIDCreate(NULL);
+    NSString *uuidString = (NSString *)CFUUIDCreateString(NULL, uuid);
+    CFRelease(uuid);
+    return [uuidString autorelease];
 }
 
 @end
