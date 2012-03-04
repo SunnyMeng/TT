@@ -17,7 +17,6 @@ static const CGFloat kScrollFooterHeight = 40;
 - (id)initWithModel:(id <TTModel>)model {
     if ((self = [super initWithFrame:CGRectMake(0, 0, 0, kScrollFooterHeight)])) {
         _model = [model retain];
-        [_model.delegates addObject:self];
 
         _indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         [self addSubview:_indicator];
@@ -55,20 +54,22 @@ static const CGFloat kScrollFooterHeight = 40;
 }
 
 - (void)modelDidFinishLoad:(id<TTModel>)model {
+    [_model.delegates removeObject:self];
     [self showLoading:NO];
 }
 
 - (void)model:(id<TTModel>)model didFailLoadWithError:(NSError *)error {
+    [_model.delegates removeObject:self];
     [self showLoading:NO];
 }
 
 #pragma mark -
 #pragma mark UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (scrollView.contentSize.height - self.height <= scrollView.height ?
-        scrollView.contentOffset.y > 0 :
-        scrollView.contentSize.height - self.height < scrollView.contentOffset.y + scrollView.height) {
-        if (![_model isLoading]) {
+    if (![_model isLoading]) {
+        CGFloat scrollRatio = scrollView.contentOffset.y / (scrollView.contentSize.height - scrollView.height);
+        if (scrollRatio > 1) {
+            [_model.delegates addObject:self];
             [_model load:TTURLRequestReturnCacheDataElseLoad more:YES];
         }
     }

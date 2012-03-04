@@ -33,6 +33,10 @@
     return NO;
 }
 
+- (BOOL)isEmpty {
+    return NO;
+}
+
 - (void)load:(TTURLRequestCachePolicy)cachePolicy more:(BOOL)more {
 
 }

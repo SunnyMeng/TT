@@ -105,8 +105,7 @@ static const NSInteger kMaxConcurrentLoads = 1;
         if (data) {
             [request dispatchLoaded:data timestamp:timestamp fromCache:YES];
         }
-        if (data ? request.cachePolicy != TTURLRequestReturnCacheDataThenLoad
-            : request.cachePolicy == TTURLRequestReturnCacheDataDontLoad) {
+        if (data ? request.cachePolicy != TTURLRequestReturnCacheDataThenLoad : request.cachePolicy == TTURLRequestReturnCacheDataDontLoad) {
             return;
         }
     }
@@ -122,7 +121,7 @@ static const NSInteger kMaxConcurrentLoads = 1;
         }
     }
 
-    TTRequestLoader *loader = [[TTRequestLoader alloc] initForRequest:request queue:self];
+    TTRequestLoader *loader = [[[TTRequestLoader alloc] initForRequest:request queue:self] autorelease];
     [_loaders setObject:loader forKey:request.cacheKey];
     if (_suspended || _totalLoading >= kMaxConcurrentLoads) {
         [_loaderQueue addObject:loader];
@@ -130,7 +129,6 @@ static const NSInteger kMaxConcurrentLoads = 1;
         ++_totalLoading;
         [loader load];
     }
-    [loader release];
 }
 
 - (void)cancelRequest:(TTURLRequest *)request {

@@ -22,7 +22,16 @@
     [super dealloc];
 }
 
+- (id <TTModel>)model {
+    if (!_model) {
+        [self createModel];
+        [_model.delegates addObject:self];
+    }
+    return _model;
+}
+
 - (void)createModel {
+
 }
 
 - (BOOL)shouldLoad {
@@ -30,7 +39,7 @@
 }
 
 - (void)reload {
-    [_model load:TTURLRequestReturnCacheDataElseLoad more:NO];
+    [_model load:TTURLRequestReturnCacheDataThenLoad more:NO];
 }
 
 - (void)reloadIfNeeded {
@@ -40,38 +49,38 @@
 }
 
 - (void)showLoading:(BOOL)show {
+
 }
 
 - (void)showEmpty:(BOOL)show {
+
+}
+
+- (void)showError:(NSError *)error {
+
 }
 
 #pragma mark -
 #pragma makr UIViewController
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    if (!_model) {
-        [self createModel];
-        [_model.delegates addObject:self];
-    }
-}
-
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+
+    [self model];
     [self reloadIfNeeded];
 }
 
 #pragma mark -
 #pragma mark TTModelDelegate
 - (void)modelDidStartLoad:(id <TTModel>)model {
-    [self showLoading:YES];
+    [self showLoading:[model isEmpty]];
 }
 
 - (void)modelDidFinishLoad:(id <TTModel>)model {
-    [self showLoading:NO];
+    [self showEmpty:[model isEmpty]];
 }
 
 - (void)model:(id <TTModel>)model didFailLoadWithError:(NSError *)error {
-    [self showLoading:NO];
+    [self showError:error];
 }
 
 @end

@@ -18,7 +18,6 @@ static const CGFloat kRefreshHeaderHeight = 52;
 - (id)initWithModel:(id <TTModel>)model {
     if (self = [super initWithFrame:CGRectMake(0, -kRefreshHeaderHeight, 0, kRefreshHeaderHeight)]) {
         _model = [model retain];
-        [_model.delegates addObject:self];
 
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         self.backgroundColor = [UIColor clearColor];
@@ -62,35 +61,22 @@ static const CGFloat kRefreshHeaderHeight = 52;
     [_refreshSpinner stopAnimating];
 }
 
-- (void)showLoading {
-    _refreshLabel.text = nil;
-    [_refreshSpinner startAnimating];
-}
+- (void)showLoading:(BOOL)show {
+    _isLoading = show;
 
-- (void)startLoading {
-    _isLoading = YES;
-
-    // Show the header
-    [UIView animateWithDuration:.3 animations:^{
-        _scrollView.contentInset = UIEdgeInsetsMake(kRefreshHeaderHeight, 0, 0, 0);
-    }];
-
-    [self showLoading];
-
-    // Refresh action!
-    [_model load:TTURLRequestReloadUsingCacheData more:NO];
-}
-
-- (void)stopLoading {
-    _isLoading = NO;
-
-    [UIView animateWithDuration:.3 animations:^{
-        // Hide the header
-        _scrollView.contentInset = UIEdgeInsetsZero;
-    } completion:^(BOOL finished) {
-        // Reset the header
-        [self showPull];
-    }];
+    if (show) {
+        [UIView animateWithDuration:.3 animations:^{
+            _scrollView.contentInset = UIEdgeInsetsMake(kRefreshHeaderHeight, 0, 0, 0);
+        }];
+        _refreshLabel.text = nil;
+        [_refreshSpinner startAnimating];
+    } else {
+        [UIView animateWithDuration:.3 animations:^{
+            _scrollView.contentInset = UIEdgeInsetsZero;
+        } completion:^(BOOL finished) {
+            [self showPull];
+        }];
+    }
 }
 
 #pragma mark -
@@ -116,7 +102,8 @@ static const CGFloat kRefreshHeaderHeight = 52;
         if (scrollView.contentOffset.y < -kRefreshHeaderHeight) {
             // User is scrolling above the header
             [self showRelease];
-        } else { // User is scrolling somewhere within the header
+        } else {
+            // User is scrolling somewhere within the header
             [self showPull];
         }
         [UIView commitAnimations];
@@ -130,19 +117,26 @@ static const CGFloat kRefreshHeaderHeight = 52;
     _isDragging = NO;
     if (scrollView.contentOffset.y <= -kRefreshHeaderHeight) {
         // Released above the header
+        [_model.delegates addObject:self];
+        [_model load:TTURLRequestReloadUsingCacheData more:NO];
         _scrollView = scrollView;
-        [self startLoading];
     }
 }
 
 #pragma mark -
 #pragma mark TTModelDelegate
-- (void)modelDidFinishLoad:(id<TTModel>)model {
-    [self stopLoading];
+- (void)modelDidStartLoad:(id <TTModel>)model {
+    [self showLoading:YES];
 }
 
-- (void)model:(id<TTModel>)model didFailLoadWithError:(NSError *)error {
-    [self stopLoading];
+- (void)modelDidFinishLoad:(id <TTModel>)model {
+    [_model.delegates removeObject:self];
+    [self showLoading:NO];
+}
+
+- (void)model:(id <TTModel>)model didFailLoadWithError:(NSError *)error {
+    [_model.delegates removeObject:self];
+    [self showLoading:NO];
 }
 
 @end

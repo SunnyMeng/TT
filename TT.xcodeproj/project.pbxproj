@@ -11,6 +11,8 @@
 		AD0C742314E8E6E20034DDDD /* TTPopoverBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0C741F14E8E6E10034DDDD /* TTPopoverBackgroundView.m */; };
 		AD0C742414E8E6E20034DDDD /* TTPopoverController.h in Headers */ = {isa = PBXBuildFile; fileRef = AD0C742014E8E6E10034DDDD /* TTPopoverController.h */; };
 		AD0C742514E8E6E20034DDDD /* TTPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0C742114E8E6E10034DDDD /* TTPopoverController.m */; };
+		AD1E0BAB15032916001254C6 /* TTActivityLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = AD1E0BA915032916001254C6 /* TTActivityLabel.h */; };
+		AD1E0BAC15032916001254C6 /* TTActivityLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD1E0BAA15032916001254C6 /* TTActivityLabel.m */; };
 		AD2649F614D664AF001415D0 /* TTStyleSheet.h in Headers */ = {isa = PBXBuildFile; fileRef = AD2649F414D664AE001415D0 /* TTStyleSheet.h */; };
 		AD2649F714D664AF001415D0 /* TTStyleSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = AD2649F514D664AF001415D0 /* TTStyleSheet.m */; };
 		AD44E55814CBD30C007A2DBD /* TTStyledBoxFrame.h in Headers */ = {isa = PBXBuildFile; fileRef = AD44E53914CBD30C007A2DBD /* TTStyledBoxFrame.h */; };
@@ -106,6 +108,8 @@
 		AD0C741F14E8E6E10034DDDD /* TTPopoverBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTPopoverBackgroundView.m; path = TTUI/TTPopoverBackgroundView.m; sourceTree = SOURCE_ROOT; };
 		AD0C742014E8E6E10034DDDD /* TTPopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTPopoverController.h; path = TTUI/TTPopoverController.h; sourceTree = SOURCE_ROOT; };
 		AD0C742114E8E6E10034DDDD /* TTPopoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTPopoverController.m; path = TTUI/TTPopoverController.m; sourceTree = SOURCE_ROOT; };
+		AD1E0BA915032916001254C6 /* TTActivityLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTActivityLabel.h; sourceTree = "<group>"; };
+		AD1E0BAA15032916001254C6 /* TTActivityLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTActivityLabel.m; sourceTree = "<group>"; };
 		AD2649F414D664AE001415D0 /* TTStyleSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTStyleSheet.h; sourceTree = "<group>"; };
 		AD2649F514D664AF001415D0 /* TTStyleSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTStyleSheet.m; sourceTree = "<group>"; };
 		AD44E53914CBD30C007A2DBD /* TTStyledBoxFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTStyledBoxFrame.h; sourceTree = "<group>"; };
@@ -353,6 +357,8 @@
 			children = (
 				ADDB8A9314C8744B00F13BC3 /* TTGlobalUI.h */,
 				ADDB8A9414C8744B00F13BC3 /* TTGlobalUI.m */,
+				AD1E0BA915032916001254C6 /* TTActivityLabel.h */,
+				AD1E0BAA15032916001254C6 /* TTActivityLabel.m */,
 				ADDB8AA514C8744B00F13BC3 /* UIImageViewAdditions.h */,
 				ADDB8AA614C8744B00F13BC3 /* UIImageViewAdditions.m */,
 				AD44E55614CBD30C007A2DBD /* UIImageAdditions.h */,
@@ -437,6 +443,7 @@
 				AD8861E814D7EDEE004A64B9 /* TTStyledTextLabelDelegate.h in Headers */,
 				AD0C742214E8E6E20034DDDD /* TTPopoverBackgroundView.h in Headers */,
 				AD0C742414E8E6E20034DDDD /* TTPopoverController.h in Headers */,
+				AD1E0BAB15032916001254C6 /* TTActivityLabel.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -531,6 +538,7 @@
 				AD0C742314E8E6E20034DDDD /* TTPopoverBackgroundView.m in Sources */,
 				AD0C742514E8E6E20034DDDD /* TTPopoverController.m in Sources */,
 				ADAC5E8714F4BF1A003E6D44 /* TTModel.m in Sources */,
+				AD1E0BAC15032916001254C6 /* TTActivityLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

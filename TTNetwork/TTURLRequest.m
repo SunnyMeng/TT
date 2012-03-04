@@ -175,12 +175,12 @@
 }
 
 - (id)responseObject {
+    return [_responseData mutableObjectFromJSONData];
 #if __IPHONE_5_0 && __IPHONE_5_0 <= __IPHONE_OS_VERSION_MAX_ALLOWED
     if (NSClassFromString(@"NSJSONSerialization")) {
         return [NSJSONSerialization JSONObjectWithData:_responseData options:NSJSONReadingAllowFragments | NSJSONReadingMutableContainers error:NULL];
     }
 #endif
-    return [_responseData mutableObjectFromJSONData];
 }
 
 #pragma mark -

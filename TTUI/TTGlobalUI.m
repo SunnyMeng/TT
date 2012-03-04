@@ -55,7 +55,7 @@ CGRect TTRectContract(CGRect rect, CGFloat dx, CGFloat dy) {
 }
 
 CGRect TTRectShift(CGRect rect, CGFloat dx, CGFloat dy) {
-    return CGRectMake(rect.origin.x + dx, rect.origin.y + dy, rect.size.width - dy, rect.size.height - dy);
+    return CGRectMake(rect.origin.x + dx, rect.origin.y + dy, rect.size.width - dx, rect.size.height - dy);
 }
 
 NSString *TTLocalizedString(NSString *key) {

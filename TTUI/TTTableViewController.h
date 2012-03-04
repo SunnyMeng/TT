@@ -8,9 +8,16 @@
 
 #import "TTModelViewController.h"
 
+@class TTTableView;
+
 @interface TTTableViewController : TTModelViewController <UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, retain) UITableView *tableView;
+@property (nonatomic, retain) TTTableView *tableView;
+
+// subclass to override
+@property (nonatomic, retain) UIView *loadingView;
+@property (nonatomic, retain) UIView *emptyView;
+@property (nonatomic, retain) UIView *errorView;
 
 - (Class)cellClassForObject:(id)object;
 

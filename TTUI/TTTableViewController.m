@@ -7,20 +7,24 @@
 //
 
 #import "NSArrayAdditions.h"
+#import "TTActivityLabel.h"
+#import "TTGlobalUI.h"
+#import "TTTableView.h"
 #import "TTTableViewCell.h" // bypass compilation warning and error
 #import "TTTableViewController.h"
+#import "UIViewAdditions.h"
 
 @implementation TTTableViewController
 
 @synthesize tableView = _tableView;
-
-#pragma mark -
-#pragma mark Subclasses to override
-- (Class)cellClassForObject:(id)object {
-    return [UITableViewCell class];
-}
+@synthesize loadingView = _loadingView;
+@synthesize emptyView = _emptyView;
+@synthesize errorView = _errorView;
 
 - (void)dealloc {
+    [_loadingView release];
+    [_emptyView release];
+    [_errorView release];
     [_tableView release];
     [super dealloc];
 }
@@ -29,7 +33,7 @@
 #pragma mark UIViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tableView = [[[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain] autorelease];
+    self.tableView = [[[TTTableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain] autorelease];
     _tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     _tableView.dataSource = self;
     _tableView.delegate = self;
@@ -42,6 +46,60 @@
     NSIndexPath *indexPath = _tableView.indexPathForSelectedRow;
     if (indexPath) {
         [_tableView deselectRowAtIndexPath:indexPath animated:YES];
+    }
+}
+
+#pragma mark -
+#pragma mark Subclasses to override
+- (Class)cellClassForObject:(id)object {
+    return [UITableViewCell class];
+}
+
+- (NSString *)titleForLoading {
+    return NSLocalizedString(@"Loading...", nil);
+}
+
+- (NSString *)titleForEmpty {
+    return NSLocalizedString(@"Empty", nil);
+}
+
+- (void)showLoading:(BOOL)show {
+    [self.tableView resetOverlayView];
+    if (show) {
+        if (!_loadingView) {
+            self.loadingView = [[[TTActivityLabel alloc] initWithStyle:UIActivityIndicatorViewStyleGray text:[self titleForLoading]] autorelease];
+        }
+        [self.tableView addToOverlayView:_loadingView];
+    }
+}
+
+- (void)showEmpty:(BOOL)show {
+    [self.tableView resetOverlayView];
+    if (show) {
+        if (!_emptyView) {
+            UILabel *label = [[[UILabel alloc] init] autorelease];
+            label.textAlignment = UITextAlignmentCenter;
+            label.font = [UIFont systemFontOfSize:17];
+            label.textColor = RGBCOLOR(99, 109, 125);
+            label.text = [self titleForEmpty];
+            self.emptyView = label;
+        }
+        [self.tableView addToOverlayView:_emptyView];
+    }
+}
+
+- (void)showError:(NSError *)error {
+    [self.tableView resetOverlayView];
+    if (error) {
+        if (!_errorView) {
+            UILabel *label = [[[UILabel alloc] init] autorelease];
+            label.text = [error localizedDescription];
+            label.font = [UIFont systemFontOfSize:17];
+            label.textColor = RGBCOLOR(99, 109, 125);
+            label.textAlignment = UITextAlignmentCenter;
+            self.errorView = label;
+        }
+        [self.tableView addToOverlayView:_errorView];
     }
 }
 
@@ -87,6 +145,11 @@
 #pragma mark TTModelDelegate
 - (void)modelDidFinishLoad:(id <TTModel>)model {
     [super modelDidFinishLoad:model];
+    [_tableView reloadData];
+}
+
+- (void)model:(id<TTModel>)model didFailLoadWithError:(NSError *)error {
+    [super model:model didFailLoadWithError:error];
     [_tableView reloadData];
 }
 

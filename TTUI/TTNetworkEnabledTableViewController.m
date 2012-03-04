@@ -9,6 +9,7 @@
 #import "TTInfiniteScrollFooterView.h"
 #import "TTNetworkEnabledTableViewController.h"
 #import "TTPullRefreshHeaderView.h"
+#import "TTTableView.h"
 
 @interface TTNetworkEnabledTableViewController ()
 
@@ -24,6 +25,14 @@
 @synthesize refreshHeaderView = _refreshHeaderView;
 @synthesize dragRefreshEnabled = _dragRefreshEnabled;
 @synthesize infiniteScrollEnabled = _infiniteScrollEnabled;
+
+- (id)init {
+    if (self = [super init]) {
+        _dragRefreshEnabled = YES;
+        _infiniteScrollEnabled = YES;
+    }
+    return self;
+}
 
 - (void)dealloc {
     [_refreshHeaderView release];
@@ -48,6 +57,8 @@
     self.scrollFooterView = nil;
 }
 
+#pragma mark -
+#pragma mark UIScrollViewDelegate
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     [_refreshHeaderView scrollViewWillBeginDragging:scrollView];
 }

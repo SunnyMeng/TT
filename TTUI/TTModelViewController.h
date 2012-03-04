@@ -17,8 +17,11 @@
 
 - (void)createModel;
 - (BOOL)shouldLoad;
+- (void)reload;
 
+// below three status (showLoading:/showEmpty:/showError:) are exclusive to each other
 - (void)showLoading:(BOOL)show;
 - (void)showEmpty:(BOOL)show;
+- (void)showError:(NSError *)error;
 
 @end
