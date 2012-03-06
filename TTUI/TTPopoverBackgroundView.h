@@ -14,11 +14,13 @@
     UIImageView *_arrowView;
 }
 
-@property (nonatomic, readwrite) UIPopoverArrowDirection arrowDirection;
-@property (nonatomic, readwrite) CGFloat arrowOffset;
+@property (nonatomic) UIPopoverArrowDirection arrowDirection;
+@property (nonatomic) CGFloat arrowOffset;
 
 + (UIEdgeInsets)contentViewInsets;
 + (CGFloat)arrowHeight;
 + (CGFloat)arrowBase;
+
++ (UIColor *)fillColor;
 
 @end
