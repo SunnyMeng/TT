@@ -56,6 +56,8 @@
 		AD8367FD1507481600863882 /* TTPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8367F91507481600863882 /* TTPageControl.m */; };
 		AD8367FE1507481600863882 /* TTTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = AD8367FA1507481600863882 /* TTTableView.h */; };
 		AD8367FF1507481600863882 /* TTTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD8367FB1507481600863882 /* TTTableView.m */; };
+		AD83680615075A2E00863882 /* UITableViewAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = AD83680415075A2D00863882 /* UITableViewAdditions.h */; };
+		AD83680715075A2E00863882 /* UITableViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = AD83680515075A2E00863882 /* UITableViewAdditions.m */; };
 		AD8861E814D7EDEE004A64B9 /* TTStyledTextLabelDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = AD8861E614D7EDEE004A64B9 /* TTStyledTextLabelDelegate.h */; };
 		ADAC5E8714F4BF1A003E6D44 /* TTModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ADAC5E8614F4BF1A003E6D44 /* TTModel.m */; };
 		ADCB50A914C9105200364611 /* TTURLRequestInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = ADDB8A8E14C8744B00F13BC3 /* TTURLRequestInternal.h */; };
@@ -156,6 +158,8 @@
 		AD8367F91507481600863882 /* TTPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTPageControl.m; sourceTree = "<group>"; };
 		AD8367FA1507481600863882 /* TTTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTableView.h; sourceTree = "<group>"; };
 		AD8367FB1507481600863882 /* TTTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTableView.m; sourceTree = "<group>"; };
+		AD83680415075A2D00863882 /* UITableViewAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITableViewAdditions.h; sourceTree = "<group>"; };
+		AD83680515075A2E00863882 /* UITableViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITableViewAdditions.m; sourceTree = "<group>"; };
 		AD8861E614D7EDEE004A64B9 /* TTStyledTextLabelDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTStyledTextLabelDelegate.h; sourceTree = "<group>"; };
 		ADAC5E8614F4BF1A003E6D44 /* TTModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTModel.m; sourceTree = "<group>"; };
 		ADCB510714C9163700364611 /* TTModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTModel.h; sourceTree = "<group>"; };
@@ -392,6 +396,8 @@
 				AD44E55714CBD30C007A2DBD /* UIImageAdditions.m */,
 				ADDB8AA514C8744B00F13BC3 /* UIImageViewAdditions.h */,
 				ADDB8AA614C8744B00F13BC3 /* UIImageViewAdditions.m */,
+				AD83680415075A2D00863882 /* UITableViewAdditions.h */,
+				AD83680515075A2E00863882 /* UITableViewAdditions.m */,
 				ADDB8AA714C8744B00F13BC3 /* UIViewAdditions.h */,
 				ADDB8AA814C8744B00F13BC3 /* UIViewAdditions.m */,
 			);
@@ -458,6 +464,7 @@
 				AD1E0BAB15032916001254C6 /* TTActivityLabel.h in Headers */,
 				AD8367FC1507481600863882 /* TTPageControl.h in Headers */,
 				AD8367FE1507481600863882 /* TTTableView.h in Headers */,
+				AD83680615075A2E00863882 /* UITableViewAdditions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -555,6 +562,7 @@
 				AD1E0BAC15032916001254C6 /* TTActivityLabel.m in Sources */,
 				AD8367FD1507481600863882 /* TTPageControl.m in Sources */,
 				AD8367FF1507481600863882 /* TTTableView.m in Sources */,
+				AD83680715075A2E00863882 /* UITableViewAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
