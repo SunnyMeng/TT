@@ -29,12 +29,14 @@
 // UI
 #import "TTGlobalUI.h"
 #import "TTActivityLabel.h"
+#import "TTTableView.h"
 #import "TTTableViewCell.h"
 #import "TTViewController.h"
 #import "TTModelViewController.h"
 #import "TTTableView.h"
 #import "TTTableViewController.h"
 #import "TTNetworkEnabledTableViewController.h"
+#import "TTPageControl.h"
 #import "TTPopoverBackgroundView.h"
 #import "TTPopoverController.h"
 

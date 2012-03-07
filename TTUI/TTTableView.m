@@ -7,6 +7,7 @@
 //
 
 #import "TTTableView.h"
+#import "UIViewAdditions.h"
 
 @implementation TTTableView
 
