@@ -29,6 +29,7 @@
 // UI
 #import "TTGlobalUI.h"
 #import "TTActivityLabel.h"
+#import "TTArrayModel.h"
 #import "TTTableView.h"
 #import "TTTableViewCell.h"
 #import "TTViewController.h"
