@@ -67,6 +67,10 @@
 
     [self model];
     [self reloadIfNeeded];
+
+    if ([_model isLoaded] && [_model isEmpty]) {
+        [self showEmpty:YES];
+    }
 }
 
 #pragma mark -

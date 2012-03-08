@@ -89,13 +89,18 @@
 }
 
 - (void)presentPopoverFromBarButtonItem:(UIBarButtonItem *)item arrowDirection:(UIPopoverArrowDirection)arrowDirection animated:(BOOL)animated {
-
+    UIView *view = [item performSelector:@selector(view)];
+    CGRect rect = [view.superview convertRect:view.frame toView:view.window];
+    [self presentPopoverFromRect:rect inView:view.window arrowDirection:UIPopoverArrowDirectionUp animated:animated];
 }
 
 - (void)presentPopoverFromRect:(CGRect)rect inView:(UIView *)view arrowDirection:(UIPopoverArrowDirection)arrowDirection animated:(BOOL)animated {
     self.bgView = [[[self.popoverBackgroundViewClass alloc] init] autorelease];
     _bgView.arrowDirection = arrowDirection;
     [_bgView addSubview:_contentViewController.view];
+
+    // retrieve contentSizeForViewInPopover after viewWillAppear: (for loading model, calculate content size)
+    [_contentViewController viewWillAppear:animated];
     [self setPopoverContentSize:_contentViewController.contentSizeForViewInPopover animated:NO];
 
     self.popoverWindow = [[[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds] autorelease];
@@ -129,7 +134,6 @@
     }
 
     // fade in
-    [_contentViewController viewWillAppear:animated];
     _popoverVisible = YES;
     _popoverWindow.alpha = 0;
     [UIView animateWithDuration:(animated ? .3 : 0) animations:^{

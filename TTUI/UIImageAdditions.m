@@ -109,6 +109,7 @@
     CGImageRef imageRef = CGImageCreateWithMask(grayImage, mask);
     UIImage *result = [UIImage imageWithCGImage:imageRef scale:self.scale orientation:self.imageOrientation];
 
+    CGImageRelease(mask);
     CGImageRelease(imageRef);
     CGColorSpaceRelease(colorSpace);
     CGContextRelease(context);
