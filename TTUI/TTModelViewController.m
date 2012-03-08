@@ -61,7 +61,7 @@
 }
 
 #pragma mark -
-#pragma makr UIViewController
+#pragma mark UIViewController
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 

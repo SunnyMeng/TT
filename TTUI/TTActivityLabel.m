@@ -21,7 +21,6 @@
         [_label sizeToFit];
 
         _label.textColor = RGBCOLOR(99, 109, 125);
-        _label.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
         [self addSubview:_label];
 
         _indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:style];
@@ -39,6 +38,7 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
+    _label.center = CGPointMake(self.width / 2, self.height / 2);
     _indicatorView.right = _label.left - 5;
     _indicatorView.centerY = _label.centerY;
 }
