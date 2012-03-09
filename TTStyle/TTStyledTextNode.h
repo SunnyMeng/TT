@@ -10,7 +10,7 @@
 
 @interface TTStyledTextNode : TTStyledNode
 
-@property (nonatomic, retain) NSString *text;
+@property (nonatomic, readonly) NSString *text;
 
 + (TTStyledTextNode *)nodeWithText:(NSString *)text;
 

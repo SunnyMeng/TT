@@ -45,6 +45,7 @@
 }
 
 - (void)dealloc {
+    [_rootFrame release];
     [_invalidImages release];
     [_rootNode release];
     [_font release];

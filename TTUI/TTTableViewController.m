@@ -97,6 +97,7 @@
             label.font = [UIFont systemFontOfSize:17];
             label.textColor = RGBCOLOR(99, 109, 125);
             label.textAlignment = UITextAlignmentCenter;
+            label.numberOfLines = 0;
             self.errorView = label;
         }
         [self.tableView addToOverlayView:_errorView];

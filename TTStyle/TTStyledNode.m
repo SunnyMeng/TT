@@ -13,6 +13,11 @@
 @synthesize nextSibling = _nextSibling;
 @synthesize parentNode = _parentNode;
 
+- (void)dealloc {
+    [_nextSibling release];
+    [super dealloc];
+}
+
 - (NSString *)description {
     if (self.nextSibling) {
         return [NSString stringWithFormat:@", %@", self.nextSibling];
