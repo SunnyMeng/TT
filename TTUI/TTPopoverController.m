@@ -99,15 +99,15 @@
     _bgView.arrowDirection = arrowDirection;
     [_bgView addSubview:_contentViewController.view];
 
-    // retrieve contentSizeForViewInPopover after viewWillAppear: (for loading model, calculate content size)
-    [_contentViewController viewWillAppear:animated];
-    [self setPopoverContentSize:_contentViewController.contentSizeForViewInPopover animated:NO];
-
     self.popoverWindow = [[[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds] autorelease];
     _popoverWindow.windowLevel = UIWindowLevelAlert + 1;
     _popoverWindow.hidden = NO;
     [_popoverWindow addGestureRecognizer:[[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(windowTapped:)] autorelease]];
+    // add to an window will call viewWillAppear and viewDidAppear automatically
     [_popoverWindow addSubview:_bgView];
+
+    // contentSizeForViewInPopover may set in viewWillAppear
+    [self setPopoverContentSize:_contentViewController.contentSizeForViewInPopover animated:NO];
 
     CGRect frame = [_popoverWindow convertRect:rect fromView:view];
     switch (arrowDirection) {
@@ -138,19 +138,16 @@
     _popoverWindow.alpha = 0;
     [UIView animateWithDuration:(animated ? .3 : 0) animations:^{
         _popoverWindow.alpha = 1;
-    } completion:^(BOOL finished) {
-        [_contentViewController viewDidAppear:animated];
     }];
 }
 
 - (void)dismissPopoverAnimated:(BOOL)animated {
-    [_contentViewController viewWillDisappear:animated];
     [UIView animateWithDuration:(animated ? .3 : 0) animations:^{
         _popoverWindow.alpha = 0;
     } completion:^(BOOL finished) {
+        // destory the window will call viewWillDisappear and viewDidDisappear automatically
         self.popoverWindow = nil;
         _popoverVisible = NO;
-        [_contentViewController viewDidDisappear:animated]; // after animation done
     }];
 }
 
