@@ -31,8 +31,6 @@
 
 
 // default implementation
-@interface TTModel : NSObject <TTModel> {
-    NSMutableArray *_delegates;
-}
+@interface TTModel : NSObject <TTModel>
 
 @end

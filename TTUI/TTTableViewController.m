@@ -40,6 +40,11 @@
     [self.view addSubview:_tableView];
 }
 
+- (void)viewDidUnload {
+    [super viewDidUnload];
+    self.tableView = nil;
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
 
@@ -102,6 +107,11 @@
         }
         [self.tableView addToOverlayView:_errorView];
     }
+}
+
+- (void)reload {
+    [super reload];
+    [self.tableView reloadData];
 }
 
 #pragma mark -

@@ -10,28 +10,30 @@
 
 @implementation TTArrayModel
 
-- (id)initWithArray:(NSArray *)array {
+@synthesize items = _items;
+
+- (id)initWithItems:(NSArray *)items {
     if (self = [super init]) {
-        _array = [array retain];
+        _items = [items retain];
     }
     return self;
 }
 
 - (void)dealloc {
-    [_array release];
+    [_items release];
     [super dealloc];
 }
 
 - (BOOL)isEmpty {
-    return [_array count] == 0;
+    return [_items count] == 0;
 }
 
 - (NSInteger)numberOfRowsInSection:(NSInteger)section {
-    return [_array count];
+    return [_items count];
 }
 
 - (id)objectForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [_array objectAtIndex:indexPath.row];
+    return [_items objectAtIndex:indexPath.row];
 }
 
 @end

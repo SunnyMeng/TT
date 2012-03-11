@@ -40,6 +40,9 @@
 
 - (void)reload {
     [_model load:TTURLRequestReturnCacheDataThenLoad more:NO];
+    if (![_model isLoading]) {
+        [self showEmpty:[_model isEmpty]];
+    }
 }
 
 - (void)reloadIfNeeded {
@@ -67,10 +70,6 @@
 
     [self model];
     [self reloadIfNeeded];
-
-    if ([_model isLoaded] && [_model isEmpty]) {
-        [self showEmpty:YES];
-    }
 }
 
 #pragma mark -

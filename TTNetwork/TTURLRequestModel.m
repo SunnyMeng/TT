@@ -51,18 +51,18 @@
 #pragma mark TTURLRequestDelegate
 - (void)requestDidStartLoad:(TTURLRequest *)request {
     self.loadingRequest = request;
-    [_delegates perform:@selector(modelDidStartLoad:) withObject:self];
+    [self.delegates perform:@selector(modelDidStartLoad:) withObject:self];
 }
 
 - (void)requestDidFinishLoad:(TTURLRequest *)request {
     self.loadingRequest = nil;
     self.loadedTime = request.timestamp;
-    [_delegates perform:@selector(modelDidFinishLoad:) withObject:self];
+    [self.delegates perform:@selector(modelDidFinishLoad:) withObject:self];
 }
 
 - (void)request:(TTURLRequest *)request didFailLoadWithError:(NSError *)error {
     self.loadingRequest = nil;
-    [_delegates perform:@selector(model:didFailLoadWithError:) withObject:self withObject:error];
+    [self.delegates perform:@selector(model:didFailLoadWithError:) withObject:self withObject:error];
 }
 
 @end

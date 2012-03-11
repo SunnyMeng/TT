@@ -16,7 +16,6 @@
 @property (nonatomic, retain) id <TTModel> model;
 
 - (void)createModel;
-- (BOOL)shouldLoad;
 - (void)reload;
 
 // below three status (showLoading:/showEmpty:/showError:) are exclusive to each other
