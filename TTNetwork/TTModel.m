@@ -37,6 +37,10 @@
     return NO;
 }
 
+- (BOOL)hasMore {
+    return NO;
+}
+
 - (void)load:(TTURLRequestCachePolicy)cachePolicy more:(BOOL)more {
 
 }

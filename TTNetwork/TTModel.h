@@ -18,6 +18,7 @@
 - (BOOL)isLoaded;
 - (BOOL)isLoading;
 - (BOOL)isEmpty;
+- (BOOL)hasMore;
 - (void)load:(TTURLRequestCachePolicy)cachePolicy more:(BOOL)more;
 - (void)cancel;
 

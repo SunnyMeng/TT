@@ -66,7 +66,7 @@ static const CGFloat kScrollFooterHeight = 40;
 #pragma mark -
 #pragma mark UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (![_model isLoading]) {
+    if (![_model isLoading] && [_model hasMore]) {
         CGFloat scrollRatio = scrollView.contentOffset.y / (scrollView.contentSize.height - scrollView.height);
         if (scrollRatio > 1) {
             [_model.delegates addObject:self];
