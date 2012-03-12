@@ -37,7 +37,7 @@
         top = self.tableHeaderView.height;
     }
 
-    CGFloat height = MAX(0, self.height - top);
+    CGFloat height = MAX(44 /* minimum height */, self.height - top);
     _tableOverlayView.frame = CGRectMake(0, top, self.width, height);
     [self bringSubviewToFront:_tableOverlayView];
 }

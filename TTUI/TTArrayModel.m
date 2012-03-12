@@ -28,6 +28,15 @@
     return [_items count] == 0;
 }
 
+- (BOOL)isLoaded {
+    return _loaded;
+}
+
+- (void)load:(TTURLRequestCachePolicy)cachePolicy more:(BOOL)more {
+    _loaded = YES;
+    [self.delegates perform:@selector(modelDidFinishLoad:) withObject:self];
+}
+
 - (NSInteger)numberOfRowsInSection:(NSInteger)section {
     return [_items count];
 }

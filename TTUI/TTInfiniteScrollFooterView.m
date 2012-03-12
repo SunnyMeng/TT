@@ -49,16 +49,16 @@ static const CGFloat kScrollFooterHeight = 40;
 
 #pragma mark -
 #pragma mark TTModelDelegate
-- (void)modelDidStartLoad:(id<TTModel>)model {
+- (void)modelDidStartLoad:(id <TTModel>)model {
     [self showLoading:YES];
 }
 
-- (void)modelDidFinishLoad:(id<TTModel>)model {
+- (void)modelDidFinishLoad:(id <TTModel>)model {
     [_model.delegates removeObject:self];
     [self showLoading:NO];
 }
 
-- (void)model:(id<TTModel>)model didFailLoadWithError:(NSError *)error {
+- (void)model:(id <TTModel>)model didFailLoadWithError:(NSError *)error {
     [_model.delegates removeObject:self];
     [self showLoading:NO];
 }

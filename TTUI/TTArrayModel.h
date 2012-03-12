@@ -10,7 +10,9 @@
 
 #import "TTModel.h"
 
-@interface TTArrayModel : TTModel
+@interface TTArrayModel : TTModel {
+    BOOL _loaded;
+}
 
 @property (nonatomic, readonly) NSArray *items;
 

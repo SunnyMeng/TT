@@ -34,19 +34,12 @@
 
 }
 
-- (BOOL)shouldLoad {
-    return ![_model isLoaded];
-}
-
 - (void)reload {
     [_model load:TTURLRequestReturnCacheDataThenLoad more:NO];
-    if (![_model isLoading]) {
-        [self showEmpty:[_model isEmpty]];
-    }
 }
 
 - (void)reloadIfNeeded {
-    if ([self shouldLoad] && ![_model isLoading]) {
+    if (![_model isLoaded] && ![_model isLoading]) {
         [self reload];
     }
 }

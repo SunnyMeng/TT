@@ -43,6 +43,9 @@
 - (void)viewDidUnload {
     [super viewDidUnload];
     self.tableView = nil;
+    self.emptyView = nil;
+    self.loadingView = nil;
+    self.errorView = nil;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -159,7 +162,7 @@
     [_tableView reloadData];
 }
 
-- (void)model:(id<TTModel>)model didFailLoadWithError:(NSError *)error {
+- (void)model:(id <TTModel>)model didFailLoadWithError:(NSError *)error {
     [super model:model didFailLoadWithError:error];
     [_tableView reloadData];
 }
