@@ -28,10 +28,16 @@ CGRect TTRectContract(CGRect rect, CGFloat dx, CGFloat dy);
 // CGRectMake(x + dx, y + dy, w - dx, h - dy)
 CGRect TTRectShift(CGRect rect, CGFloat dx, CGFloat dy);
 
+
+/*
+ supporting for switching string localizations at runtime
+ */
+
 NSString *TTLocalizedString(NSString *key);
 
 #ifdef NSLocalizedString
 #undef NSLocalizedString
 #endif
-
 #define NSLocalizedString(key, comment) TTLocalizedString(key)
+
+void TTSetPreferredLanguage(NSString *language);

@@ -58,10 +58,16 @@ CGRect TTRectShift(CGRect rect, CGFloat dx, CGFloat dy) {
     return CGRectMake(rect.origin.x + dx, rect.origin.y + dy, rect.size.width - dx, rect.size.height - dy);
 }
 
+
+static NSBundle *gPreferredLanguageBundle;
+
+void TTSetPreferredLanguage(NSString *language) {
+    [gPreferredLanguageBundle release];
+    NSString *path = [[NSBundle mainBundle] pathForResource:language ofType:@"lproj"];
+    gPreferredLanguageBundle = [[NSBundle bundleWithPath:path] retain];
+}
+
 NSString *TTLocalizedString(NSString *key) {
-    NSArray *current = [[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"];
-    NSString *lang = [current count] ? [current objectAtIndex:0] : @"zh-Hans";
-    NSString *path = [[NSBundle mainBundle] pathForResource:lang ofType:@"lproj"];
-    NSBundle *bundle = [NSBundle bundleWithPath:path] ?: [NSBundle mainBundle];
+    NSBundle *bundle = gPreferredLanguageBundle ?: [NSBundle mainBundle];
     return [bundle localizedStringForKey:key value:nil table:nil];
 }
