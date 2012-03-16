@@ -40,7 +40,7 @@
 
 - (void)reloadIfNeeded {
     if (![_model isLoaded] && ![_model isLoading]) {
-        [self reload];
+        [_model load:TTURLRequestReturnCacheDataThenLoad more:NO];
     }
 }
 

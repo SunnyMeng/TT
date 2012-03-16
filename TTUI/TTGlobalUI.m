@@ -30,6 +30,14 @@ NSString *TTDeviceModelName(void) {
     return platform;
 }
 
+NSString *TTBundleName(void) {
+    return [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleNameKey];
+}
+
+NSString *TTBundleVersion(void) {
+    return [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleVersionKey];
+}
+
 BOOL TTInterfaceOrientationIsLandscape(void) {
     UIInterfaceOrientation orient = [UIApplication sharedApplication].statusBarOrientation;
     return UIInterfaceOrientationIsLandscape(orient);
@@ -64,7 +72,7 @@ static NSBundle *gPreferredLanguageBundle;
 void TTSetPreferredLanguage(NSString *language) {
     [gPreferredLanguageBundle release];
     NSString *path = [[NSBundle mainBundle] pathForResource:language ofType:@"lproj"];
-    gPreferredLanguageBundle = [[NSBundle bundleWithPath:path] retain];
+    gPreferredLanguageBundle = [[NSBundle alloc] initWithPath:path];
 }
 
 NSString *TTLocalizedString(NSString *key) {

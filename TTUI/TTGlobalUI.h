@@ -12,6 +12,8 @@
 void TTAlert(NSString *message);
 
 NSString *TTDeviceModelName(void);
+NSString *TTBundleName(void);
+NSString *TTBundleVersion(void);
 
 BOOL TTInterfaceOrientationIsLandscape(void);
 
