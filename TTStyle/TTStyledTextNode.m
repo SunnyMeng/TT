@@ -24,7 +24,7 @@
     [super dealloc];
 }
 
-+ (TTStyledTextNode *)nodeWithText:(NSString *)text {
++ (id)nodeWithText:(NSString *)text {
     return [[[self alloc] initWithText:text] autorelease];
 }
 

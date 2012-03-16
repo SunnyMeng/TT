@@ -43,7 +43,7 @@
 @property (nonatomic, readonly) BOOL respondedFromCache;
 @property (nonatomic, readonly, retain) NSData *responseData;
 
-+ (TTURLRequest *)requestWithURL:(NSString *)URL delegate:(id <TTURLRequestDelegate>)delegate;
++ (id)requestWithURL:(NSString *)URL delegate:(id <TTURLRequestDelegate>)delegate;
 - (void)addFile:(NSData *)data mimeType:(NSString *)mimeType forKey:(NSString *)name fileName:(NSString *)fileName;
 
 // shortcuts

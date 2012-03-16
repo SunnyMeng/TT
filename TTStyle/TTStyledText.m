@@ -65,7 +65,7 @@
     TTStyledTextParser *parser = [[[TTStyledTextParser alloc] init] autorelease];
     [parser parseXHTML:source];
     if (parser.rootNode) {
-        return [[[TTStyledText alloc] initWithNode:parser.rootNode] autorelease];
+        return [[[self alloc] initWithNode:parser.rootNode] autorelease];
     }
     return nil;
 }

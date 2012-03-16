@@ -116,7 +116,7 @@
 
 #pragma mark -
 #pragma mark Public
-+ (TTURLRequest *)requestWithURL:(NSString *)URL delegate:(id <TTURLRequestDelegate>)delegate {
++ (id)requestWithURL:(NSString *)URL delegate:(id <TTURLRequestDelegate>)delegate {
     return [[[self alloc] initWithURL:URL delegate:delegate] autorelease];
 }
 

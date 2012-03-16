@@ -12,6 +12,6 @@
 
 @property (nonatomic, readonly) NSString *text;
 
-+ (TTStyledTextNode *)nodeWithText:(NSString *)text;
++ (id)nodeWithText:(NSString *)text;
 
 @end
