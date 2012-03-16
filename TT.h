@@ -9,6 +9,7 @@
 // Core
 #import "NSArrayAdditions.h"
 #import "NSDataAdditions.h"
+#import "NSDateAdditions.h"
 #import "NSStringAdditions.h"
 
 #import "TTDebug.h"
