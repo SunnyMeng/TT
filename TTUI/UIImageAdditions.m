@@ -131,4 +131,20 @@
     return image;
 }
 
++ (id)triangleImage:(CGSize)size color:(UIColor *)color {
+    UIGraphicsBeginImageContext(size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+
+    // Up
+    CGContextMoveToPoint(context, 0, size.height);
+    CGContextAddLineToPoint(context, size.width, size.height);
+    CGContextAddLineToPoint(context, size.width / 2, 0);
+
+    [color set];
+    CGContextFillPath(context);
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
+}
+
 @end

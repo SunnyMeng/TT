@@ -7,6 +7,7 @@
 //
 
 #import "TTPopoverBackgroundView.h"
+#import "UIImageAdditions.h"
 #import "UIViewAdditions.h"
 
 @implementation TTPopoverBackgroundView
@@ -27,17 +28,7 @@
 
         CGFloat w = [[self class] arrowBase];
         CGFloat h = [[self class] arrowHeight];
-        UIGraphicsBeginImageContext(CGSizeMake(w, h));
-        CGContextRef context = UIGraphicsGetCurrentContext();
-        CGContextMoveToPoint(context, 0, h);
-        CGContextAddLineToPoint(context, w, h);
-        CGContextAddLineToPoint(context, w / 2, 0);
-        [fillColor setFill];
-        CGContextFillPath(context);
-        UIImage *arrowImage = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-
-        _arrowView = [[UIImageView alloc] initWithImage:arrowImage];
+        _arrowView = [[UIImageView alloc] initWithImage:[UIImage triangleImage:CGSizeMake(w, h) color:fillColor]];
         [self addSubview:_arrowView];
     }
     return self;

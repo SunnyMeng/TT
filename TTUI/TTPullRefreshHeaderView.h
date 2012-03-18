@@ -14,6 +14,8 @@
 
 @interface TTPullRefreshHeaderView : UIView <TTModelDelegate, UIScrollViewDelegate> {
     UILabel *_refreshLabel;
+    UILabel *_infoLabel;
+    UIImageView *_arrowView;
     UIActivityIndicatorView *_refreshSpinner;
     UIScrollView *_scrollView; // assign
 
@@ -23,5 +25,6 @@
 }
 
 - (id)initWithModel:(id <TTModel>)model;
+- (void)showDate:(NSDate *)date;
 
 @end

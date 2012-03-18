@@ -72,4 +72,9 @@
     [_scrollFooterView scrollViewDidScroll:scrollView];
 }
 
+- (void)modelDidFinishLoad:(id <TTModel>)model {
+    [super modelDidFinishLoad:model];
+    [_refreshHeaderView showDate:[NSDate date]];
+}
+
 @end
