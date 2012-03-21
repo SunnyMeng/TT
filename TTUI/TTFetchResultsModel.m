@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+#import "NSArrayAdditions.h"
 #import "TTFetchResultsModel.h"
 
 @implementation TTFetchResultsModel
@@ -60,7 +61,6 @@
 #pragma mark -
 #pragma mark NSFetchedResultsControllerDelegate
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
-    TTDPRINT();
     [self load:TTURLRequestReloadIgnoringCacheData more:NO];
 }
 

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD057A30151A18C2001C8812 /* TTFetchResultsModel.h in Headers */ = {isa = PBXBuildFile; fileRef = AD057A2C151A18C2001C8812 /* TTFetchResultsModel.h */; };
+		AD057A31151A18C2001C8812 /* TTFetchResultsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD057A2D151A18C2001C8812 /* TTFetchResultsModel.m */; };
+		AD057A32151A18C2001C8812 /* UIViewControllerAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = AD057A2E151A18C2001C8812 /* UIViewControllerAdditions.h */; };
+		AD057A33151A18C2001C8812 /* UIViewControllerAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = AD057A2F151A18C2001C8812 /* UIViewControllerAdditions.m */; };
 		AD0C742214E8E6E20034DDDD /* TTPopoverBackgroundView.h in Headers */ = {isa = PBXBuildFile; fileRef = AD0C741E14E8E6E10034DDDD /* TTPopoverBackgroundView.h */; };
 		AD0C742314E8E6E20034DDDD /* TTPopoverBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = AD0C741F14E8E6E10034DDDD /* TTPopoverBackgroundView.m */; };
 		AD0C742414E8E6E20034DDDD /* TTPopoverController.h in Headers */ = {isa = PBXBuildFile; fileRef = AD0C742014E8E6E10034DDDD /* TTPopoverController.h */; };
@@ -112,6 +116,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AD057A2C151A18C2001C8812 /* TTFetchResultsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTFetchResultsModel.h; sourceTree = "<group>"; };
+		AD057A2D151A18C2001C8812 /* TTFetchResultsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTFetchResultsModel.m; sourceTree = "<group>"; };
+		AD057A2E151A18C2001C8812 /* UIViewControllerAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewControllerAdditions.h; sourceTree = "<group>"; };
+		AD057A2F151A18C2001C8812 /* UIViewControllerAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewControllerAdditions.m; sourceTree = "<group>"; };
 		AD0C741E14E8E6E10034DDDD /* TTPopoverBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTPopoverBackgroundView.h; path = TTUI/TTPopoverBackgroundView.h; sourceTree = SOURCE_ROOT; };
 		AD0C741F14E8E6E10034DDDD /* TTPopoverBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TTPopoverBackgroundView.m; path = TTUI/TTPopoverBackgroundView.m; sourceTree = SOURCE_ROOT; };
 		AD0C742014E8E6E10034DDDD /* TTPopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TTPopoverController.h; path = TTUI/TTPopoverController.h; sourceTree = SOURCE_ROOT; };
@@ -375,6 +383,8 @@
 				AD1E0BAA15032916001254C6 /* TTActivityLabel.m */,
 				AD86BCE31508B9D400E1E084 /* TTArrayModel.h */,
 				AD86BCE41508B9D400E1E084 /* TTArrayModel.m */,
+				AD057A2C151A18C2001C8812 /* TTFetchResultsModel.h */,
+				AD057A2D151A18C2001C8812 /* TTFetchResultsModel.m */,
 				ADDB8A9314C8744B00F13BC3 /* TTGlobalUI.h */,
 				ADDB8A9414C8744B00F13BC3 /* TTGlobalUI.m */,
 				ADDB8A9514C8744B00F13BC3 /* TTInfiniteScrollFooterView.h */,
@@ -406,6 +416,8 @@
 				AD83680515075A2E00863882 /* UITableViewAdditions.m */,
 				ADDB8AA714C8744B00F13BC3 /* UIViewAdditions.h */,
 				ADDB8AA814C8744B00F13BC3 /* UIViewAdditions.m */,
+				AD057A2E151A18C2001C8812 /* UIViewControllerAdditions.h */,
+				AD057A2F151A18C2001C8812 /* UIViewControllerAdditions.m */,
 			);
 			path = TTUI;
 			sourceTree = "<group>";
@@ -472,6 +484,8 @@
 				AD8367FE1507481600863882 /* TTTableView.h in Headers */,
 				AD83680615075A2E00863882 /* UITableViewAdditions.h in Headers */,
 				AD86BCE51508B9D400E1E084 /* TTArrayModel.h in Headers */,
+				AD057A30151A18C2001C8812 /* TTFetchResultsModel.h in Headers */,
+				AD057A32151A18C2001C8812 /* UIViewControllerAdditions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -571,6 +585,8 @@
 				AD8367FF1507481600863882 /* TTTableView.m in Sources */,
 				AD83680715075A2E00863882 /* UITableViewAdditions.m in Sources */,
 				AD86BCE61508B9D400E1E084 /* TTArrayModel.m in Sources */,
+				AD057A31151A18C2001C8812 /* TTFetchResultsModel.m in Sources */,
+				AD057A33151A18C2001C8812 /* UIViewControllerAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

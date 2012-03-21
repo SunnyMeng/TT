@@ -47,6 +47,7 @@
 #import "UIImageViewAdditions.h"
 #import "UITableViewAdditions.h"
 #import "UIViewAdditions.h"
+#import "UIViewControllerAdditions.h"
 
 // Style
 #import "TTGlobalStyle.h"

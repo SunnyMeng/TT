@@ -6,6 +6,8 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+#import <CoreData/CoreData.h>
+
 #import "TTModel.h"
 
 @interface TTFetchResultsModel : TTModel <NSFetchedResultsControllerDelegate> {
