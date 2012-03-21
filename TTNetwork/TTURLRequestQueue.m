@@ -228,7 +228,7 @@ static const NSInteger kMaxConcurrentLoads = 1;
             // cache response with meta data
             if (loader.cachePolicy != TTURLRequestReloadIgnoringCacheData) {
                 NSDictionary *headers = [response allHeaderFields];
-                NSString *etag = [headers objectForKey:@"ETag"];
+                NSString *etag = [headers objectForKey:@"ETag"] ?: [headers objectForKey:@"Etag"];
                 if ([etag length]) {
                     [[TTURLCache sharedCache] storeEtag:etag forKey:loader.cacheKey];
                 }
