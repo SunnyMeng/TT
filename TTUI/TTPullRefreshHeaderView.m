@@ -68,8 +68,8 @@ static const CGFloat kRefreshHeaderHeight = 52;
 - (void)showDate:(NSDate *)date {
     NSDateFormatter *formatter = [[[NSDateFormatter alloc] init] autorelease];
     [formatter setDateFormat:@"HH:mm"];
-    NSString *time = [formatter stringFromDate:date] ?: NSLocalizedString(@"N/A", nil);
-    _infoLabel.text = [NSString stringWithFormat:@"Last updated: %@", time];
+    NSString *time = [formatter stringFromDate:date] ?: NSLocalizedString(@"never", nil);
+    _infoLabel.text = [NSString stringWithFormat:NSLocalizedString(@"Last updated: %@", nil), time];
 }
 
 - (void)showPull {
