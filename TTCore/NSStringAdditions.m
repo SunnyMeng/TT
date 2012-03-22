@@ -11,6 +11,7 @@
 
 @implementation NSString (TTCoreAdditions)
 
+// stringByAddingPercentEscapesUsingEncoding: do not encode + (plus sign), which will be interrupted as a space in an URL
 - (id)stringByUrlEncoded {
     return [(NSString *)CFURLCreateStringByAddingPercentEscapes(NULL,
                                                                 (CFStringRef)self,
@@ -20,10 +21,11 @@
 }
 
 - (NSString *)stringByXMLEscaped {
-    return [[[[self stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"]
-            stringByReplacingOccurrencesOfString:@"<" withString:@"&lt;"]
-            stringByReplacingOccurrencesOfString:@">" withString:@"&gt;"]
-            stringByReplacingOccurrencesOfString:@"\"" withString:@"&quot;"];
+    return [[[[[self stringByReplacingOccurrencesOfString:@"&" withString:@"&amp;"]
+               stringByReplacingOccurrencesOfString:@"<" withString:@"&lt;"]
+              stringByReplacingOccurrencesOfString:@"\"" withString:@"&quot;"]
+             stringByReplacingOccurrencesOfString:@">" withString:@"&gt;"]
+            stringByReplacingOccurrencesOfString:@"'" withString:@"&apos;"];
 }
 
 - (NSString *)md5Hash {

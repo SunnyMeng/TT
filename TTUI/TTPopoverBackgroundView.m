@@ -64,7 +64,7 @@
 }
 
 + (UIColor *)fillColor {
-    return [UIColor darkGrayColor];
+    return [UIColor colorWithRed:0.2078 green:0.2353 blue:0.2431 alpha:1];
 }
 
 @end
