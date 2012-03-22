@@ -20,6 +20,7 @@
     } else {
         self.image = placeholder;
 
+        [self cancelImageLoading];
         TTURLRequest *request = [TTURLRequest requestWithURL:urlPath delegate:(id <TTURLRequestDelegate>)self];
         request.cachePolicy = TTURLRequestReturnCacheDataElseLoad;
         request.cacheExpirationAge = INFINITY;

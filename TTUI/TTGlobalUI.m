@@ -71,8 +71,14 @@ static NSBundle *gPreferredLanguageBundle;
 
 void TTSetPreferredLanguage(NSString *language) {
     [gPreferredLanguageBundle release];
-    NSString *path = [[NSBundle mainBundle] pathForResource:language ofType:@"lproj"];
-    gPreferredLanguageBundle = [[NSBundle alloc] initWithPath:path];
+
+    // an empty resource or nil will return the first file encountered that matches the extension
+    if ([language length]) {
+        NSString *path = [[NSBundle mainBundle] pathForResource:language ofType:@"lproj"];
+        gPreferredLanguageBundle = [[NSBundle alloc] initWithPath:path];
+    } else {
+        gPreferredLanguageBundle = nil;
+    }
 }
 
 NSString *TTLocalizedString(NSString *key) {
