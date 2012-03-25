@@ -42,6 +42,7 @@
 #import "TTTableViewCell.h"
 #import "TTTableViewController.h"
 #import "TTViewController.h"
+#import "TTWebViewController.h"
 
 #import "UIImageAdditions.h"
 #import "UIImageViewAdditions.h"
