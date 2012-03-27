@@ -13,6 +13,7 @@
     NSURL *_URL;
 
 @protected
+    UIToolbar *_toolbar;
     UIBarButtonItem *_actionItem;
 }
 
