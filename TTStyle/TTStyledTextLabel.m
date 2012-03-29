@@ -34,6 +34,8 @@
     [NSObject cancelPreviousPerformRequestsWithTarget:self];
 
     [_text release];
+    [_font release];
+    [_textColor release];
     [super dealloc];
 }
 
@@ -95,6 +97,7 @@
 #pragma mark Public
 - (void)setText:(TTStyledText *)text {
     if (_text != text) {
+        [NSObject cancelPreviousPerformRequestsWithTarget:self]; // clearHightlighedDelayed
         _text.delegate = nil;
         [_text release];
 
