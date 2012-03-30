@@ -10,7 +10,10 @@
 
 @class TTTableView;
 
-@interface TTTableViewController : TTModelViewController <UITableViewDelegate, UITableViewDataSource>
+@interface TTTableViewController : TTModelViewController <UITableViewDelegate, UITableViewDataSource> {
+@private
+    UITableViewStyle _tableViewStyle;
+}
 
 @property (nonatomic, retain) TTTableView *tableView;
 
@@ -20,5 +23,8 @@
 @property (nonatomic, retain) UIView *errorView;
 
 - (Class)cellClassForObject:(id)object;
+
+// public
+- (id)initWithStyle:(UITableViewStyle)style;
 
 @end

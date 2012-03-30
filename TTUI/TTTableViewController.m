@@ -21,6 +21,17 @@
 @synthesize emptyView = _emptyView;
 @synthesize errorView = _errorView;
 
+- (id)initWithStyle:(UITableViewStyle)style {
+    if (self = [super init]) {
+        _tableViewStyle = style;
+    }
+    return self;
+}
+
+- (id)init {
+    return [self initWithStyle:UITableViewStylePlain];
+}
+
 - (void)dealloc {
     [_loadingView release];
     [_emptyView release];
@@ -33,7 +44,7 @@
 #pragma mark UIViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tableView = [[[TTTableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain] autorelease];
+    self.tableView = [[[TTTableView alloc] initWithFrame:self.view.bounds style:_tableViewStyle] autorelease];
     _tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     _tableView.dataSource = self;
     _tableView.delegate = self;
