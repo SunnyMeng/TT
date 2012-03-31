@@ -15,7 +15,6 @@
 #import "TTDebug.h"
 #import "TTGlobalCore.h"
 
-
 // Network
 #import "TTGlobalNetwork.h"
 #import "TTModel.h"
@@ -38,7 +37,6 @@
 #import "TTPopoverBackgroundView.h"
 #import "TTPopoverController.h"
 #import "TTTableView.h"
-#import "TTTableView.h"
 #import "TTTableViewCell.h"
 #import "TTTableViewController.h"
 #import "TTViewController.h"
@@ -55,4 +53,3 @@
 #import "TTStyledText.h"
 #import "TTStyledTextLabel.h"
 #import "TTStyledTextLabelDelegate.h"
-

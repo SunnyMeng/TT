@@ -15,6 +15,11 @@
 @synthesize autoresizesForKeyboard = _autoresizesForKeyboard;
 @synthesize isViewAppearing = _isViewAppearing;
 
+- (void)dealloc {
+    self.autoresizesForKeyboard = NO;
+    [super dealloc];
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     _isViewAppearing = YES;
@@ -30,11 +35,15 @@
         _autoresizesForKeyboard = autoresizesForKeyboard;
 
         if (_autoresizesForKeyboard) {
-            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resizeForKeyboard:) name:UIKeyboardWillShowNotification object:nil];
-            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resizeForKeyboard:) name:UIKeyboardWillHideNotification object:nil];
+            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
+            [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
         } else {
             [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
             [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+            [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidShowNotification object:nil];
+            [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidHideNotification object:nil];
         }
     }
 }
@@ -90,6 +99,22 @@
             }
         }];
     }
+}
+
+- (void)keyboardWillShow:(NSNotification *)notification {
+    [self resizeForKeyboard:notification];
+}
+
+- (void)keyboardWillHide:(NSNotification *)notification {
+    [self resizeForKeyboard:notification];
+}
+
+- (void)keyboardDidShow:(NSNotification *)notification {
+
+}
+
+- (void)keyboardDidHide:(NSNotification *)notification {
+
 }
 
 @end

@@ -14,4 +14,9 @@
 @property (nonatomic) BOOL autoresizesForKeyboard;
 @property (nonatomic, readonly) BOOL isViewAppearing;
 
+- (void)keyboardWillShow:(NSNotification *)notification;
+- (void)keyboardWillHide:(NSNotification *)notification;
+- (void)keyboardDidShow:(NSNotification *)notification;
+- (void)keyboardDidHide:(NSNotification *)notification;
+
 @end

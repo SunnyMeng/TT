@@ -26,6 +26,6 @@
 @property (nonatomic, retain) UIColor *borderColor;
 
 // The view controller whose view contains this view.
-- (UIViewController *)viewController;
+@property (nonatomic, readonly) UIViewController *viewController;
 
 @end
