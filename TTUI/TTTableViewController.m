@@ -28,8 +28,11 @@
     return self;
 }
 
-- (id)init {
-    return [self initWithStyle:UITableViewStylePlain];
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
+        _tableViewStyle = UITableViewStylePlain;
+    }
+    return self;
 }
 
 - (void)dealloc {

@@ -26,8 +26,8 @@
 @synthesize dragRefreshEnabled = _dragRefreshEnabled;
 @synthesize infiniteScrollEnabled = _infiniteScrollEnabled;
 
-- (id)init {
-    if (self = [super init]) {
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
         _dragRefreshEnabled = YES;
         _infiniteScrollEnabled = YES;
     }
