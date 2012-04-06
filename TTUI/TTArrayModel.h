@@ -11,10 +11,10 @@
 #import "TTModel.h"
 
 @interface TTArrayModel : TTModel {
+@private
     BOOL _loaded;
+    NSMutableArray *_items;
 }
-
-@property (nonatomic, readonly) NSArray *items;
 
 - (id)initWithItems:(NSArray *)items;
 

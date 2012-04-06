@@ -11,11 +11,9 @@
 
 @implementation TTArrayModel
 
-@synthesize items = _items;
-
 - (id)initWithItems:(NSArray *)items {
     if (self = [super init]) {
-        _items = [items retain];
+        _items = [[NSMutableArray alloc] initWithArray:items];
     }
     return self;
 }
@@ -40,6 +38,10 @@
 
 - (NSInteger)numberOfRowsInSection:(NSInteger)section {
     return [_items count];
+}
+
+- (id)objectForSection:(NSInteger)section {
+    return _items;
 }
 
 - (id)objectForRowAtIndexPath:(NSIndexPath *)indexPath {
