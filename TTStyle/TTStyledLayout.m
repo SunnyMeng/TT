@@ -14,6 +14,7 @@
 #import "TTStyledImageNode.h"
 #import "TTStyledInlineFrame.h"
 #import "TTStyledLayout.h"
+#import "TTStyledLineBreakNode.h"
 #import "TTStyledLinkNode.h"
 #import "TTStyledNode.h"
 #import "TTStyledText.h"
@@ -225,13 +226,23 @@
     return frame;
 }
 
-- (void)layoutElement:(TTStyledElement *)elt {
-    if (elt.firstChild) {
+// returns YES if no truncated
+- (BOOL)layoutElement:(TTStyledElement *)elt {
+    if ([elt isKindOfClass:[TTStyledLineBreakNode class]]) {
+        if (_lineBreakMode == UILineBreakModeClip) {
+            return NO;
+        }
+        if (!_lineHeight) {
+            _lineHeight = [_font lineHeight];
+        }
+        [self breakLine];
+    } else if (elt.firstChild) {
         _inlineFrame = [self addInlineFrame:elt width:0 height:0];
         [self layout:elt.firstChild container:elt];
         _inlineFrame = _inlineFrame.inlineParentFrame;
         [self popFrame];
     }
+    return YES;
 }
 
 // returns YES if no truncated
@@ -331,7 +342,10 @@
                 break;
             }
         } else if ([node isKindOfClass:[TTStyledElement class]]) {
-            [self layoutElement:(TTStyledElement *)node];
+            if (![self layoutElement:(TTStyledElement *)node]) {
+                // break if truncated
+                break;
+            }
         } else if ([node isKindOfClass:[TTStyledTextNode class]]) {
             if (![self layoutText:(TTStyledTextNode *)node container:element]) {
                 // break if truncated

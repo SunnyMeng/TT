@@ -8,6 +8,7 @@
 
 #import "TTStyledElement.h"
 #import "TTStyledImageNode.h"
+#import "TTStyledLineBreakNode.h"
 #import "TTStyledLinkNode.h"
 #import "TTStyledTextNode.h"
 #import "TTStyledTextParser.h"
@@ -95,6 +96,9 @@
         if (height) {
             node.height = [height floatValue];
         }
+        [self pushNode:node];
+    } else if ([tag isEqualToString:@"br"]) {
+        TTStyledLineBreakNode *node = [[[TTStyledLineBreakNode alloc] init] autorelease];
         [self pushNode:node];
     }
 }

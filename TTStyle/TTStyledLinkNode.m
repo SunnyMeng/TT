@@ -19,6 +19,11 @@
     return self;
 }
 
+- (void)dealloc {
+    [_URL release];
+    [super dealloc];
+}
+
 - (NSString *)description {
     return [NSString stringWithFormat:@"<a href=%@, text=%@>%@", _URL, self.firstChild, [super description]];
 }

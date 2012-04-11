@@ -19,6 +19,8 @@
 		AD1E0BAC15032916001254C6 /* TTActivityLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD1E0BAA15032916001254C6 /* TTActivityLabel.m */; };
 		AD2649F614D664AF001415D0 /* TTStyleSheet.h in Headers */ = {isa = PBXBuildFile; fileRef = AD2649F414D664AE001415D0 /* TTStyleSheet.h */; };
 		AD2649F714D664AF001415D0 /* TTStyleSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = AD2649F514D664AF001415D0 /* TTStyleSheet.m */; };
+		AD3DC3ED1535EAA70079D263 /* TTStyledLineBreakNode.h in Headers */ = {isa = PBXBuildFile; fileRef = AD3DC3EB1535EAA70079D263 /* TTStyledLineBreakNode.h */; };
+		AD3DC3EE1535EAA70079D263 /* TTStyledLineBreakNode.m in Sources */ = {isa = PBXBuildFile; fileRef = AD3DC3EC1535EAA70079D263 /* TTStyledLineBreakNode.m */; };
 		AD44E55814CBD30C007A2DBD /* TTStyledBoxFrame.h in Headers */ = {isa = PBXBuildFile; fileRef = AD44E53914CBD30C007A2DBD /* TTStyledBoxFrame.h */; };
 		AD44E55914CBD30C007A2DBD /* TTStyledBoxFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = AD44E53A14CBD30C007A2DBD /* TTStyledBoxFrame.m */; };
 		AD44E55A14CBD30C007A2DBD /* TTStyledElement.h in Headers */ = {isa = PBXBuildFile; fileRef = AD44E53B14CBD30C007A2DBD /* TTStyledElement.h */; };
@@ -132,6 +134,8 @@
 		AD1E0BAA15032916001254C6 /* TTActivityLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTActivityLabel.m; sourceTree = "<group>"; };
 		AD2649F414D664AE001415D0 /* TTStyleSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTStyleSheet.h; sourceTree = "<group>"; };
 		AD2649F514D664AF001415D0 /* TTStyleSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTStyleSheet.m; sourceTree = "<group>"; };
+		AD3DC3EB1535EAA70079D263 /* TTStyledLineBreakNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTStyledLineBreakNode.h; sourceTree = "<group>"; };
+		AD3DC3EC1535EAA70079D263 /* TTStyledLineBreakNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTStyledLineBreakNode.m; sourceTree = "<group>"; };
 		AD44E53914CBD30C007A2DBD /* TTStyledBoxFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTStyledBoxFrame.h; sourceTree = "<group>"; };
 		AD44E53A14CBD30C007A2DBD /* TTStyledBoxFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTStyledBoxFrame.m; sourceTree = "<group>"; };
 		AD44E53B14CBD30C007A2DBD /* TTStyledElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTStyledElement.h; sourceTree = "<group>"; };
@@ -275,6 +279,8 @@
 				AD44E53C14CBD30C007A2DBD /* TTStyledElement.m */,
 				AD44E54114CBD30C007A2DBD /* TTStyledImageNode.h */,
 				AD44E54214CBD30C007A2DBD /* TTStyledImageNode.m */,
+				AD3DC3EB1535EAA70079D263 /* TTStyledLineBreakNode.h */,
+				AD3DC3EC1535EAA70079D263 /* TTStyledLineBreakNode.m */,
 				AD44E54714CBD30C007A2DBD /* TTStyledLinkNode.h */,
 				AD44E54814CBD30C007A2DBD /* TTStyledLinkNode.m */,
 				AD44E55214CBD30C007A2DBD /* TTStyledTextNode.h */,
@@ -500,6 +506,7 @@
 				AD057A32151A18C2001C8812 /* UIViewControllerAdditions.h in Headers */,
 				ADDE4422151EB7D400CDB9E9 /* NSDateAdditions.h in Headers */,
 				ADD0341B151EFE940011441A /* TTWebViewController.h in Headers */,
+				AD3DC3ED1535EAA70079D263 /* TTStyledLineBreakNode.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -603,6 +610,7 @@
 				AD057A33151A18C2001C8812 /* UIViewControllerAdditions.m in Sources */,
 				ADDE4423151EB7D400CDB9E9 /* NSDateAdditions.m in Sources */,
 				ADD0341C151EFE940011441A /* TTWebViewController.m in Sources */,
+				AD3DC3EE1535EAA70079D263 /* TTStyledLineBreakNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
