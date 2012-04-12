@@ -25,6 +25,8 @@
 
 - (void)dealloc {
     [_text release];
+    [_textColor release];
+    [_font release];
     [super dealloc];
 }
 

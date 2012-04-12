@@ -53,14 +53,14 @@
     [super dealloc];
 }
 
-- (void)offsetFrame:(TTStyledFrame*)frame by:(CGFloat)y {
+- (void)offsetFrame:(TTStyledFrame *)frame byY:(CGFloat)y {
     frame.y += y;
 
     if ([frame isKindOfClass:[TTStyledInlineFrame class]]) {
-        TTStyledInlineFrame* inlineFrame = (TTStyledInlineFrame*)frame;
-        TTStyledFrame* child = inlineFrame.firstChildFrame;
+        TTStyledInlineFrame *inlineFrame = (TTStyledInlineFrame *)frame;
+        TTStyledFrame *child = inlineFrame.firstChildFrame;
         while (child) {
-            [self offsetFrame:child by:y];
+            [self offsetFrame:child byY:y];
             child = child.nextFrame;
         }
     }
@@ -70,8 +70,8 @@
     frame.x += x;
 
     if ([frame isKindOfClass:[TTStyledInlineFrame class]]) {
-        TTStyledInlineFrame* inlineFrame = (TTStyledInlineFrame*)frame;
-        TTStyledFrame* child = inlineFrame.firstChildFrame;
+        TTStyledInlineFrame *inlineFrame = (TTStyledInlineFrame *)frame;
+        TTStyledFrame *child = inlineFrame.firstChildFrame;
         while (child) {
             [self offsetFrame:child byX:x];
             child = child.nextFrame;
@@ -104,13 +104,8 @@
 - (void)addFrame:(TTStyledFrame *)frame {
     if (!_rootFrame) {
         _rootFrame = [frame retain];
-    } else if (_topFrame) {
-        if (!_topFrame.firstChildFrame) {
-            _topFrame.firstChildFrame = frame;
-
-        } else {
-            _lastFrame.nextFrame = frame;
-        }
+    } else if (_topFrame && !_topFrame.firstChildFrame) {
+        _topFrame.firstChildFrame = frame;
     } else {
         _lastFrame.nextFrame = frame;
     }
@@ -142,9 +137,9 @@
     [self addContentFrame:frame];
 }
 
-- (TTStyledInlineFrame *)addInlineFrame:(TTStyledElement *)element width:(CGFloat)width height:(CGFloat)height {
+- (TTStyledInlineFrame *)addInlineFrame:(TTStyledElement *)element {
     TTStyledInlineFrame *frame = [[[TTStyledInlineFrame alloc] initWithElement:element] autorelease];
-    frame.bounds = CGRectMake(_x, _height, width, height);
+    frame.bounds = CGRectMake(_x, _height, 0, 0);
     [self pushFrame:frame];
     if (!_lineFirstFrame) {
         _lineFirstFrame = frame;
@@ -157,7 +152,7 @@
     if (parent) {
         [self cloneInlineFrame:parent];
     }
-    TTStyledInlineFrame *clone = [self addInlineFrame:frame.element width:0 height:0];
+    TTStyledInlineFrame *clone = [self addInlineFrame:frame.element];
     clone.inlinePreviousFrame = frame;
     frame.inlineNextFrame = clone;
     return clone;
@@ -183,7 +178,7 @@
         while (frame) {
             // Align to the text baseline
             if (frame.height < _lineHeight) {
-                [self offsetFrame:frame by:(_lineHeight - (frame.height - (lowestDescender - _font.descender)))];
+                [self offsetFrame:frame byY:(_lineHeight - (frame.height - (lowestDescender - _font.descender)))];
             }
             frame = frame.nextFrame;
         }
@@ -192,7 +187,7 @@
     // Horizontally align all frames on current line if required
     if (_textAlignment != UITextAlignmentLeft) {
         CGFloat remainingSpace = _width - _lineWidth;
-        CGFloat offset = _textAlignment == UITextAlignmentCenter ? remainingSpace/2 : remainingSpace;
+        CGFloat offset = _textAlignment == UITextAlignmentCenter ? remainingSpace / 2 : remainingSpace;
 
         TTStyledFrame *frame = _lineFirstFrame;
         while (frame) {
@@ -233,11 +228,11 @@
             return NO;
         }
         if (!_lineHeight) {
-            _lineHeight = [_font lineHeight];
+            _lineHeight = _font.lineHeight;
         }
         [self breakLine];
     } else if (elt.firstChild) {
-        _inlineFrame = [self addInlineFrame:elt width:0 height:0];
+        _inlineFrame = [self addInlineFrame:elt];
         [self layout:elt.firstChild container:elt];
         _inlineFrame = _inlineFrame.inlineParentFrame;
         [self popFrame];
@@ -285,9 +280,7 @@
 
     if (textNode == _rootNode && !textNode.nextSibling) {
         // This is the only node, so measure it all at once and move on
-        CGSize textSize = _lineBreakMode == UILineBreakModeClip ?
-            [text sizeWithFont:_font constrainedToSize:CGSizeMake(_width, _font.lineHeight) lineBreakMode:UILineBreakModeClip] :
-            [text sizeWithFont:_font constrainedToSize:CGSizeMake(_width, CGFLOAT_MAX) lineBreakMode:UILineBreakModeCharacterWrap];
+        CGSize textSize = [text sizeWithFont:_font constrainedToSize:CGSizeMake(_width, CGFLOAT_MAX) lineBreakMode:_lineBreakMode];
         [self addFrameForText:text element:element width:textSize.width height:textSize.height];
         _height = textSize.height;
         return YES;
@@ -305,7 +298,7 @@
                     CGSize lineSize = [line sizeWithFont:_font];
                     [self addFrameForText:line element:element width:lineSize.width height:lineSize.height];
                     [self expandLineWidth:lineSize.width];
-                    [self inflateLineHeight:textSize.height];
+                    [self inflateLineHeight:lineSize.height];
                 }
                 [self breakLine];
                 if (_lineBreakMode == UILineBreakModeClip) {
@@ -332,30 +325,29 @@
     return YES;
 }
 
-#pragma mark -
-#pragma mark Public
 - (void)layout:(TTStyledNode *)node container:(TTStyledElement *)element {
     while (node) {
+        // <img> is a TTStyledElement, check first
         if ([node isKindOfClass:[TTStyledImageNode class]]) {
             if (![self layoutImage:(TTStyledImageNode *)node container:element]) {
-                // break if truncated
-                break;
+                break; // if truncated
             }
         } else if ([node isKindOfClass:[TTStyledElement class]]) {
+            // for <br> & <a>
             if (![self layoutElement:(TTStyledElement *)node]) {
-                // break if truncated
-                break;
+                break; // if truncated
             }
         } else if ([node isKindOfClass:[TTStyledTextNode class]]) {
             if (![self layoutText:(TTStyledTextNode *)node container:element]) {
-                // break if truncated
-                break;
+                break; // if truncated
             }
         }
         node = node.nextSibling;
     }
 }
 
+#pragma mark -
+#pragma mark Public
 - (void)layout {
     [self layout:_rootNode container:nil];
     if (_lineWidth) {

@@ -19,10 +19,11 @@
 }
 
 - (NSString *)description {
+    NSString *result = [NSString stringWithFormat:@"%@@%p", [self class], self];
     if (self.nextSibling) {
-        return [NSString stringWithFormat:@", %@", self.nextSibling];
+        result = [result stringByAppendingFormat:@", %@", self.nextSibling];
     }
-    return @"";
+    return result;
 }
 
 @end

@@ -26,7 +26,6 @@
 
 - (void)dealloc {
     [_rootNode release];
-    [_stack release];
     [_chars release];
     [super dealloc];
 }
@@ -34,35 +33,27 @@
 - (void)addNode:(TTStyledNode *)node {
     if (!_rootNode) {
         _rootNode = [node retain];
-        _lastNode = node;
-    } else if (_topElement) {
-        [_topElement addChild:node];
+    } else if (_topElement && !_topElement.firstChild) {
+        _topElement.firstChild = node;
     } else {
         _lastNode.nextSibling = node;
-        _lastNode = node;
     }
+    _lastNode = node;
 }
 
 - (void)pushNode:(TTStyledElement *)element {
-    if (!_stack) {
-        _stack = [[NSMutableArray alloc] init];
-    }
     [self addNode:element];
-    [_stack addObject:element];
     _topElement = element;
 }
 
 - (void)popNode {
-    TTStyledElement *element = [_stack lastObject];
-    if (element) {
-        [_stack removeLastObject];
-    }
-    _topElement = [_stack lastObject];
+    _lastNode = _topElement;
+    _topElement = _topElement.parentNode;
 }
 
 - (void)flushCharacters {
     if ([_chars length]) {
-        [self addNode:[TTStyledTextNode nodeWithText:_chars]];
+        [self addNode:[[[TTStyledTextNode alloc] initWithText:_chars] autorelease]];
         self.chars = nil;
     }
 }

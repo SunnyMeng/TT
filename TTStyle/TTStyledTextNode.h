@@ -12,6 +12,6 @@
 
 @property (nonatomic, readonly) NSString *text;
 
-+ (id)nodeWithText:(NSString *)text;
+- (id)initWithText:(NSString *)text;
 
 @end

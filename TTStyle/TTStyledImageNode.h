@@ -13,7 +13,7 @@
 
 @interface TTStyledImageNode : TTStyledElement
 
-@property (nonatomic, copy) NSString *URL;
+@property (nonatomic, readonly) NSString *URL;
 @property (nonatomic, retain) UIImage *image;
 @property (nonatomic) CGFloat width;
 @property (nonatomic) CGFloat height;

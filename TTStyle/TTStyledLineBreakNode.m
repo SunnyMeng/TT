@@ -10,4 +10,8 @@
 
 @implementation TTStyledLineBreakNode
 
+- (NSString *)description {
+    return [NSString stringWithFormat:@"<br />%@", [super description]];
+}
+
 @end

@@ -22,8 +22,14 @@
     return self;
 }
 
+- (void)dealloc {
+    [_URL release];
+    [_image release];
+    [super dealloc];
+}
+
 - (NSString *)description {
-    return [NSString stringWithFormat:@"<img src=%@>%@", _URL, [super description]];
+    return [NSString stringWithFormat:@"<img src=%@ />%@", _URL, [super description]];
 }
 
 @end

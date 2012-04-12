@@ -25,7 +25,7 @@
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"<a href=%@, text=%@>%@", _URL, self.firstChild, [super description]];
+    return [NSString stringWithFormat:@"<a href=%@>%@</a>%@", _URL, self.firstChild, [super description]];
 }
 
 @end

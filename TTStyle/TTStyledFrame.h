@@ -9,11 +9,27 @@
 #import <Foundation/Foundation.h>
 #import <QuartzCore/QuartzCore.h>
 
+/*
+ a tree of TTStyledNode -> TTStyledLayout -> a tree of TTStyledFrame
+
+ TTStyledFrame
+ │
+ ├─TTStyledTextFrame (leaf node)
+ │
+ ├─TTStyledImageFrame (leaf node)
+ │
+ └─TTStyledBoxFrame (container)
+    │
+    └─TTStyledInlineFrame
+
+ */
+
 @class TTStyledElement;
 @class TTStyledBoxFrame;
 
 @interface TTStyledFrame : NSObject
 
+@property (nonatomic, assign) TTStyledBoxFrame *parentFrame;
 @property (nonatomic, retain) TTStyledFrame *nextFrame;
 @property (nonatomic, readonly) TTStyledElement *element;
 

@@ -119,6 +119,14 @@
     }
 }
 
+- (void)setLineBreakMode:(UILineBreakMode)lineBreakMode {
+    if (_lineBreakMode != lineBreakMode) {
+        _lineBreakMode = lineBreakMode;
+        _text.lineBreakMode = _lineBreakMode;
+        [self setNeedsDisplay];
+    }
+}
+
 - (void)setFont:(UIFont *)font {
     if (_font != font) {
         [_font release];

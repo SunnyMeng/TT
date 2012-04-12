@@ -24,10 +24,6 @@
     [super dealloc];
 }
 
-+ (id)nodeWithText:(NSString *)text {
-    return [[[self alloc] initWithText:text] autorelease];
-}
-
 - (NSString *)description {
     return [NSString stringWithFormat:@"\"%@\"%@", _text, [super description]];
 }

@@ -13,6 +13,7 @@
 
 @implementation TTStyledFrame
 
+@synthesize parentFrame = _parentFrame;
 @synthesize bounds = _bounds;
 @synthesize nextFrame = _nextFrame;
 @synthesize element = _element;
@@ -69,9 +70,9 @@
 }
 
 - (NSString *)description {
-    NSString *result = [NSString stringWithFormat:@"%@%@", [self class], NSStringFromCGRect(_bounds)];
+    NSString *result = [NSString stringWithFormat:@"%@@%p<%.0f,%.0f:%.0f,%.0f>", [self class], self, _bounds.origin.x, _bounds.origin.y, _bounds.size.width, _bounds.size.height];
     if (self.nextFrame) {
-        result = [result stringByAppendingFormat:@" -> %@", [_nextFrame description]];
+        result = [result stringByAppendingFormat:@", %@", [_nextFrame description]];
     }
     return result;
 }

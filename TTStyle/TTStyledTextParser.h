@@ -13,9 +13,7 @@
 
 @interface TTStyledTextParser : NSObject <NSXMLParserDelegate> {
     TTStyledNode *_lastNode;
-
-    TTStyledElement *_topElement; // top pointer of stack
-    NSMutableArray *_stack;
+    TTStyledElement *_topElement;
 }
 
 // Output

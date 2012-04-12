@@ -8,6 +8,25 @@
 
 #import <Foundation/Foundation.h>
 
+/*
+ XHTML -> TTStyledTextParser -> a tree of TTStyledNode
+
+ TTStyledNode
+ │
+ ├─TTTextNode (leaf node)
+ │
+ └─TTStyledElement (container)
+    │
+    ├─TTStyledLineBreakNode <br>...</br>
+    │
+    ├─TTStyledLinkNode <a>...</a>
+    │
+    └─TTStyledImagenode <img>...</img>
+
+ child nodes inside <br /> and <img /> are ignored during layout/display phase
+
+ */
+
 @class TTStyledElement;
 
 @interface TTStyledNode : NSObject

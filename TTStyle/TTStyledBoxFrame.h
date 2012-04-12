@@ -10,7 +10,6 @@
 
 @interface TTStyledBoxFrame : TTStyledFrame
 
-@property (nonatomic, assign) TTStyledBoxFrame *parentFrame;
 @property (nonatomic, retain) TTStyledFrame *firstChildFrame;
 @property (nonatomic) BOOL highlighted;
 

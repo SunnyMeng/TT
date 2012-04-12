@@ -17,7 +17,9 @@
 @interface TTStyledLayout : NSObject {
     TTStyledNode *_rootNode;
 
+    // bounds of one line
     CGFloat _x;
+    CGFloat _height;
     CGFloat _lineWidth;
     CGFloat _lineHeight;
 
@@ -30,10 +32,10 @@
 // Output
 @property (nonatomic, readonly) TTStyledFrame *rootFrame;
 @property (nonatomic, retain) NSMutableArray *invalidImages;
+@property (nonatomic) CGFloat height;
 
 // Input
 @property (nonatomic) CGFloat width;
-@property (nonatomic) CGFloat height;
 @property (nonatomic, retain) UIFont *font;
 @property (nonatomic) UITextAlignment textAlignment;
 @property (nonatomic) UILineBreakMode lineBreakMode;

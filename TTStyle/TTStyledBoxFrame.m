@@ -13,7 +13,6 @@
 
 @implementation TTStyledBoxFrame
 
-@synthesize parentFrame = _parentFrame;
 @synthesize firstChildFrame = _firstChildFrame;
 @synthesize highlighted = _highlighted;
 
@@ -53,11 +52,7 @@
 }
 
 - (NSString *)description {
-    NSString *result = [NSString stringWithFormat:@"%@%@", [self class], [_firstChildFrame description]];
-    if (self.nextFrame) {
-        result = [result stringByAppendingFormat:@" -> %@", [self.nextFrame description]];
-    }
-    return result;
+    return [NSString stringWithFormat:@"{%@}%@", _firstChildFrame, [super description]];
 }
 
 @end
