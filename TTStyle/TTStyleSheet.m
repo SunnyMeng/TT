@@ -9,18 +9,28 @@
 #import "TTGlobalUI.h"
 #import "TTStyleSheet.h"
 
+static TTStyleSheet *gStyleSheet;
+
 @implementation TTStyleSheet
 
 + (TTStyleSheet *)globalSheet {
-    static TTStyleSheet *gStyleSheet;
     if (!gStyleSheet) {
         gStyleSheet = [[TTStyleSheet alloc] init];
     }
     return gStyleSheet;
 }
 
++ (void)setGlobalSheet:(TTStyleSheet *)globalSheet {
+    [gStyleSheet release];
+    gStyleSheet = [globalSheet retain];
+}
+
 - (UIColor *)linkTextColor {
     return RGBCOLOR(50, 159, 224);
+}
+
+- (UIActionSheetStyle)actionSheetStyle {
+    return UIActionSheetStyleBlackTranslucent;
 }
 
 @end

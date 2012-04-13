@@ -7,6 +7,7 @@
 //
 
 #import "TTActivityLabel.h"
+#import "TTGlobalStyle.h"
 #import "TTGlobalUI.h"
 #import "TTWebViewController.h"
 #import "UIViewAdditions.h"
@@ -121,6 +122,7 @@
 
 - (void)actionTapped {
     UIActionSheet *actionSheet = [[[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Open in Safari", nil), nil] autorelease];
+    actionSheet.actionSheetStyle = TTSTYLEVAR(actionSheetStyle);
     [actionSheet showInView:self.view.window];
 }
 

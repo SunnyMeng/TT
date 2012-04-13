@@ -12,7 +12,9 @@
 @interface TTStyleSheet : NSObject
 
 @property (nonatomic, readonly) UIColor *linkTextColor;
+@property (nonatomic, readonly) UIActionSheetStyle actionSheetStyle;
 
 + (TTStyleSheet *)globalSheet;
++ (void)setGlobalSheet:(TTStyleSheet *)globalSheet;
 
 @end
