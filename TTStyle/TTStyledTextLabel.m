@@ -31,8 +31,6 @@
 }
 
 - (void)dealloc {
-    [NSObject cancelPreviousPerformRequestsWithTarget:self];
-
     [_text release];
     [_font release];
     [_textColor release];
