@@ -16,6 +16,5 @@
 - (void)requestDidStartLoad:(TTURLRequest *)request;
 - (void)requestDidFinishLoad:(TTURLRequest *)request;
 - (void)request:(TTURLRequest *)request didFailLoadWithError:(NSError *)error;
-- (void)request:(TTURLRequest *)request didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge;
 
 @end

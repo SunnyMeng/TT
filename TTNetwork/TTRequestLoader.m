@@ -83,12 +83,6 @@
     }
 }
 
-- (void)dispatchAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
-    for (TTURLRequest *request in [[_requests copy] autorelease]) {
-        [request dispatchAuthenticationChallenge:challenge];
-    }
-}
-
 - (BOOL)cancel:(TTURLRequest *)request {
     NSUInteger requestIndex = [_requests indexOfObject:request];
     if (requestIndex != NSNotFound) {
@@ -150,10 +144,6 @@
 
     self.responseData = nil;
     self.connection = nil;
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
-    [_queue loader:self didReceiveAuthenticationChallenge:challenge];
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {

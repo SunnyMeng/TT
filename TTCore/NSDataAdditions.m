@@ -95,7 +95,7 @@ static const char encodingTable[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopq
 
 - (NSString *)base64EncodedString {
     if ([self length] == 0) {
-        return @"";
+        return nil;
     }
 
     char *characters = malloc((([self length] + 2) / 3) * 4);
@@ -106,7 +106,7 @@ static const char encodingTable[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopq
 
     NSUInteger i = 0;
     while (i < [self length]) {
-        char buffer[3] = {0,0,0};
+        char buffer[3] = {0, 0, 0};
         short bufferLength = 0;
         while (bufferLength < 3 && i < [self length]) {
             buffer[bufferLength++] = ((char *)[self bytes])[i++];

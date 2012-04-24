@@ -271,11 +271,6 @@ static const NSInteger kMaxConcurrentLoads = 1;
     [self loadNextInQueue];
 }
 
-- (void)loader:(TTRequestLoader *)loader didReceiveAuthenticationChallenge: (NSURLAuthenticationChallenge *)challenge {
-    [loader dispatchAuthenticationChallenge:challenge];
-}
-
-
 - (void)loader:(TTRequestLoader *)loader didFailLoadWithError:(NSError *)error {
     [self removeLoader:loader];
     [loader dispatchError:error data:nil];
