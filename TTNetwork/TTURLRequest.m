@@ -140,7 +140,7 @@
     return nil;
 }
 
-- (NSMutableDictionary*)parameters {
+- (NSMutableDictionary *)parameters {
     if (!_parameters) {
         _parameters = [[NSMutableDictionary alloc] init];
     }
@@ -156,6 +156,12 @@
     [_files addObject:mimeType];
     [_files addObject:name];
     [_files addObject:fileName];
+}
+
+- (void)addBasicAuthenticationUsername:(NSString *)username password:(NSString *)password {
+    CFHTTPMessageRef message = CFHTTPMessageCreateEmpty(NULL, TRUE);
+    CFHTTPMessageAddAuthentication(message, nil, (CFStringRef)username, (CFStringRef)password, kCFHTTPAuthenticationSchemeBasic, FALSE);    
+    self.authorization = [(NSString *)CFHTTPMessageCopyHeaderFieldValue(message, (CFStringRef)@"Authorization") autorelease];
 }
 
 - (void)send {

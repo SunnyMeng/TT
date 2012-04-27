@@ -8,16 +8,9 @@
 
 #import "TTGlobalCore.h"
 
-static const void *TTRetainNoOp(CFAllocatorRef allocator, const void *value) {
-    return value;
-}
-
-static void TTReleaseNoOp(CFAllocatorRef allocator, const void *value) {
-}
-
 NSMutableArray *TTCreateNonRetainingArray(void) {
     CFArrayCallBacks callbacks = kCFTypeArrayCallBacks;
-    callbacks.retain = TTRetainNoOp;
-    callbacks.release = TTReleaseNoOp;
-    return (NSMutableArray *)CFArrayCreateMutable(nil, 0, &callbacks);
+    callbacks.retain = NULL;
+    callbacks.release = NULL;
+    return (NSMutableArray *)CFArrayCreateMutable(NULL, 0, &callbacks);
 }

@@ -11,7 +11,7 @@
 
 @interface TTPageControl : UIPageControl
 
-@property (nonatomic,retain) UIColor *onColor;
-@property (nonatomic,retain) UIColor *offColor;
+@property (nonatomic, retain) UIColor *onColor;
+@property (nonatomic, retain) UIColor *offColor;
 
 @end

@@ -45,6 +45,7 @@
 
 + (id)requestWithURL:(NSString *)URL delegate:(id <TTURLRequestDelegate>)delegate;
 - (void)addFile:(NSData *)data mimeType:(NSString *)mimeType forKey:(NSString *)name fileName:(NSString *)fileName;
+- (void)addBasicAuthenticationUsername:(NSString *)username password:(NSString *)password;
 
 // shortcuts
 - (void)send;

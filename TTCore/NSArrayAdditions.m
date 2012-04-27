@@ -11,7 +11,7 @@
 @implementation NSArray (Additions)
 
 - (void)perform:(SEL)selector {
-    NSArray *copy = [[NSArray alloc] initWithArray:self];
+    NSArray *copy = [self copy];
     for (id delegate in copy) {
         if ([delegate respondsToSelector:selector]) {
             [delegate performSelector:selector];
@@ -21,7 +21,7 @@
 }
 
 - (void)perform:(SEL)selector withObject:(id)p1 {
-    NSArray *copy = [[NSArray alloc] initWithArray:self];
+    NSArray *copy = [self copy];
     for (id delegate in copy) {
         if ([delegate respondsToSelector:selector]) {
             [delegate performSelector:selector withObject:p1];
@@ -31,7 +31,7 @@
 }
 
 - (void)perform:(SEL)selector withObject:(id)p1 withObject:(id)p2 {
-    NSArray *copy = [[NSArray alloc] initWithArray:self];
+    NSArray *copy = [self copy];
     for (id delegate in copy) {
         if ([delegate respondsToSelector:selector]) {
             [delegate performSelector:selector withObject:p1 withObject:p2];

@@ -11,7 +11,5 @@
 @interface NSData (TTCoreAdditions)
 
 - (NSString *)md5Hash;
-+ (NSData *)dataWithBase64EncodedString:(NSString *)string;
-- (NSString *)base64EncodedString;
 
 @end

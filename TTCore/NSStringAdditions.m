@@ -13,11 +13,7 @@
 
 // stringByAddingPercentEscapesUsingEncoding: do not encode + (plus sign), which will be interrupted as a space in an URL
 - (id)stringByUrlEncoded {
-    return [(NSString *)CFURLCreateStringByAddingPercentEscapes(NULL,
-                                                                (CFStringRef)self,
-                                                                NULL,
-                                                                (CFStringRef)@"!#$%&'()*+,/:;=?@[]",
-                                                                kCFStringEncodingUTF8) autorelease];
+    return [(NSString *)CFURLCreateStringByAddingPercentEscapes(NULL, (CFStringRef)self, NULL, (CFStringRef)@"!#$%&'()*+,/:;=?@[]", kCFStringEncodingUTF8) autorelease];
 }
 
 - (NSString *)stringByXMLEscaped {
