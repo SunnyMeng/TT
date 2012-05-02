@@ -46,6 +46,14 @@
     _tableOverlayView.hidden = NO;
 
     view.frame = _tableOverlayView.bounds;
+    [view sizeToFit]; // after setting size (for UILabel)
+
+    if (view.width < _tableOverlayView.width) {
+        view.width = _tableOverlayView.width;
+    }
+    if (view.height < _tableOverlayView.height) {
+        view.height = _tableOverlayView.height;
+    }
     view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [_tableOverlayView addSubview:view];
 }

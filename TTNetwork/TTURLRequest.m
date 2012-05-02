@@ -85,7 +85,7 @@
 }
 
 - (NSData *)generatePostBody {
-    NSMutableData* body = [NSMutableData data];
+    NSMutableData *body = [NSMutableData data];
     NSData *beginLine = [[NSString stringWithFormat:@"--%@\r\n", [self boundaryString]] dataUsingEncoding:NSUTF8StringEncoding];
     NSData *endLine = [@"\r\n" dataUsingEncoding:NSUTF8StringEncoding];
 
@@ -160,7 +160,7 @@
 
 - (void)addBasicAuthenticationUsername:(NSString *)username password:(NSString *)password {
     CFHTTPMessageRef message = CFHTTPMessageCreateEmpty(NULL, TRUE);
-    CFHTTPMessageAddAuthentication(message, nil, (CFStringRef)username, (CFStringRef)password, kCFHTTPAuthenticationSchemeBasic, FALSE);    
+    CFHTTPMessageAddAuthentication(message, nil, (CFStringRef)username, (CFStringRef)password, kCFHTTPAuthenticationSchemeBasic, FALSE);
     self.authorization = [(NSString *)CFHTTPMessageCopyHeaderFieldValue(message, (CFStringRef)@"Authorization") autorelease];
 }
 

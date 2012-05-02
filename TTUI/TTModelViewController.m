@@ -76,7 +76,9 @@
 }
 
 - (void)model:(id <TTModel>)model didFailLoadWithError:(NSError *)error {
-    [self showError:error];
+    if ([model isEmpty]) {
+        [self showError:error];
+    }
 }
 
 @end
