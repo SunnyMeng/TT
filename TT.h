@@ -36,6 +36,7 @@
 #import "TTPageControl.h"
 #import "TTPopoverBackgroundView.h"
 #import "TTPopoverController.h"
+#import "TTScrollPagesViewController.h"
 #import "TTTableView.h"
 #import "TTTableViewCell.h"
 #import "TTTableViewController.h"

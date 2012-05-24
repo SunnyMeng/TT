@@ -18,6 +18,8 @@
         _label.text = text;
         _label.font = [UIFont systemFontOfSize:17];
         _label.textAlignment = UITextAlignmentCenter;
+        _label.backgroundColor = [UIColor clearColor];
+        _label.numberOfLines = 0;
         [_label sizeToFit];
 
         _label.textColor = RGBCOLOR(99, 109, 125);

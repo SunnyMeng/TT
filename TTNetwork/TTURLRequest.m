@@ -162,6 +162,7 @@
     CFHTTPMessageRef message = CFHTTPMessageCreateEmpty(NULL, TRUE);
     CFHTTPMessageAddAuthentication(message, nil, (CFStringRef)username, (CFStringRef)password, kCFHTTPAuthenticationSchemeBasic, FALSE);
     self.authorization = [(NSString *)CFHTTPMessageCopyHeaderFieldValue(message, (CFStringRef)@"Authorization") autorelease];
+    CFRelease(message);
 }
 
 - (void)send {

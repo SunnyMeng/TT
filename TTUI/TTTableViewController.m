@@ -104,6 +104,7 @@
             label.font = [UIFont systemFontOfSize:17];
             label.textColor = RGBCOLOR(99, 109, 125);
             label.text = [self titleForEmpty];
+            label.numberOfLines = 0;
             self.emptyView = label;
         }
         [self.tableView addToOverlayView:_emptyView];
