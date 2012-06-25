@@ -29,11 +29,17 @@
         [self createPathIfNecessary:_dataPath];
         [self createPathIfNecessary:_etagPath];
         [self createPathIfNecessary:_mtimePath];
+
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveMemoryWarning:) name:UIApplicationDidReceiveMemoryWarningNotification object:nil];
+        _imageCache = [[NSMutableDictionary alloc] init];
     }
     return self;
 }
 
 - (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidReceiveMemoryWarningNotification object:nil];
+
+    [_imageCache release];
     [_dataPath release];
     [_etagPath release];
     [_mtimePath release];
@@ -130,6 +136,11 @@
     if (![urlPath length]) {
         return nil;
     }
+    UIImage *image = [_imageCache objectForKey:urlPath];
+    if (image) {
+        return image;
+    }
+
     NSURL *URL = [NSURL URLWithString:urlPath];
     if ([URL isFileURL]) {
         // file:// URI scheme is not cached and returned synchronously
@@ -137,7 +148,15 @@
     }
 
     NSData *imageData = [self dataForKey:[urlPath md5Hash] expires:INFINITY timestamp:NULL];
-    return [UIImage imageWithData:imageData];
+    image = [UIImage imageWithData:imageData];
+    if (image) {
+        [_imageCache setObject:image forKey:urlPath];
+    }
+    return image;
+}
+
+- (void)didReceiveMemoryWarning:(void *)object {
+    [_imageCache removeAllObjects];
 }
 
 @end

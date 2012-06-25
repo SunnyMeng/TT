@@ -13,6 +13,7 @@
     NSString *_dataPath;
     NSString *_etagPath;
     NSString *_mtimePath;
+    NSMutableDictionary *_imageCache;
 }
 
 - (BOOL)hasDataForKey:(NSString *)key expires:(NSTimeInterval)expirationAge;
