@@ -38,6 +38,19 @@
     _scrollView.delegate = self;
 }
 
+- (void)viewDidUnload {
+    [super viewDidUnload];
+    self.scrollView = nil;
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    if (_viewControllers) { // when view got reloaded
+        [self setViewControllers:_viewControllers animated:NO];
+    }
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
@@ -91,6 +104,10 @@
 #pragma mark - Public
 - (void)setViewControllers:(NSArray *)viewControllers animated:(BOOL)animated {
     if (_viewControllers != viewControllers) {
+        [_viewControllers release];
+        _viewControllers = [viewControllers retain];
+    }
+    if (self.isViewLoaded) {
         if (self.isViewAppearing) {
             [_selectedViewController viewWillDisappear:animated];
             [_selectedViewController viewDidDisappear:animated];
@@ -102,8 +119,6 @@
         _selectedIndex = NSNotFound;
         _selectedViewController = nil;
 
-        [_viewControllers release];
-        _viewControllers = [viewControllers retain];
 
         for (NSUInteger i = 0; i < [_viewControllers count]; ++i) {
             UIViewController *viewController = [_viewControllers objectAtIndex:i];
